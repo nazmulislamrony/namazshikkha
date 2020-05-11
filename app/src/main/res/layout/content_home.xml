@@ -39,11 +39,11 @@
 
                         <ImageView
                             android:id="@+id/humanImg"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/profile" />
+                            android:src="@drawable/mos" />
 
                         <TextView
                             android:id="@+id/humanText"
