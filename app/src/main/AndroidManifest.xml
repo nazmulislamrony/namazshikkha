@@ -10,17 +10,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ContentReader.EleventhContentReader"
+        <activity android:name=".MainActivity"></activity>
+        <activity
+            android:name=".ContentReader.EleventhContentReader"
             android:parentActivityName=".Activity.EleventhButton"
-            android:theme="@style/AppThemeActionBar"></activity>
+            android:theme="@style/AppThemeActionBar" />
         <activity
             android:name=".Activity.EleventhButton"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".ContentReader.TwelveContentReader"
+        <activity
+            android:name=".ContentReader.TwelveContentReader"
             android:parentActivityName=".Activity.TwelveButton"
-            android:theme="@style/AppThemeActionBar"/>
-        <activity android:name=".Activity.TwelveButton"
-            android:parentActivityName=".MainActivity"/>
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".Activity.TwelveButton"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".DrawerButton.BoiporichitiActivity"
             android:parentActivityName=".MainActivity"
@@ -96,7 +100,7 @@
             android:name=".Activity.FirstButton"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashScreen"
             android:theme="@style/myApptheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
