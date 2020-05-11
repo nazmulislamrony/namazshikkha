@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.namazshikkha">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ContentReader.EleventhContentReader"
+            android:parentActivityName=".Activity.EleventhButton"
+            android:theme="@style/AppThemeActionBar"></activity>
+        <activity
+            android:name=".Activity.EleventhButton"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".ContentReader.TwelveContentReader"
+            android:parentActivityName=".Activity.TwelveButton"
+            android:theme="@style/AppThemeActionBar"/>
+        <activity android:name=".Activity.TwelveButton" />
+        <activity
+            android:name=".DrawerButton.BoiporichitiActivity"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".ContentReader.TenthContentReader"
+            android:parentActivityName=".Activity.NinthButton"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".Activity.TenthButton"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ContentReader.NinthContentReader"
+            android:parentActivityName=".Activity.NinthButton"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".Activity.NinthButton"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ContentReader.EighthContentReader"
+            android:parentActivityName=".Activity.EighthButton"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".Activity.EighthButton"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ContentReader.SeventhContentReader"
+            android:parentActivityName=".Activity.SeventhButton"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".Activity.SeventhButton"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ContentReader.SixthContentReader"
+            android:parentActivityName=".Activity.SixthButton"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".Activity.SixthButton"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ContentReader.FifthContentReader"
+            android:parentActivityName=".Activity.FifthButton"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".Activity.FifthButton"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ContentReader.FourthContentReader"
+            android:parentActivityName=".Activity.FourthButton"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".Activity.FourthButton"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ContentReader.ThirdContentReader"
+            android:parentActivityName=".Activity.ThirdButton"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".Activity.ThirdButton"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ContentReader.SecondContentReader"
+            android:parentActivityName=".Activity.SecondButton"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".Activity.SecondButton"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ContentReader.ContentReader"
+            android:parentActivityName=".Activity.FirstButton"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".Activity.FirstButton"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/myApptheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

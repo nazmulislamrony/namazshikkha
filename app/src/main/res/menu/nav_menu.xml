@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showId="navigation_view">
+
+    <group
+        android:id="@+id/menu_top"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/bookPorichit"
+            android:title="বই পরিচিতি"
+            android:icon="@drawable/ic_library_books_black_24dp"/>
+        <item
+            android:checked="true"
+            android:id="@+id/motamotnav"
+            android:icon="@drawable/ic_chat_black_24dp"
+            android:title="মতামত" />
+
+        <item
+            android:id="@+id/rating"
+            android:icon="@drawable/ic_stars_black_24dp"
+            android:title="রেটিং দিন" />
+
+        <item
+            android:id="@+id/shareapp"
+            android:icon="@drawable/ic_share_black_24dp"
+            android:title="শেয়ার করুন" />
+
+    </group>
+
+
+
+
+
+        <item
+            android:title="যোগাযোগ"
+            android:id="@+id/communication_title">
+
+            <menu>
+
+        <item
+            android:id="@+id/emailus"
+            android:icon="@drawable/ic_email_black_24dp"
+            android:title="ইমেইল করুন" />
+        <item
+            android:id="@+id/facebook"
+            android:icon="@drawable/ic_facebook"
+            android:title="ফেসবুক পেইজ" />
+
+            </menu>
+
+        </item>
+
+
+
+
+</menu>

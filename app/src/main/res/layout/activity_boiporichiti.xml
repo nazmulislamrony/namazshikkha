@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DrawerButton.BoiporichitiActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/titletext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="নামাজ আদায়ের পদ্ধতি"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titletext"
+            android:layout_marginTop="2dp"
+            android:text="হাফেজ মাওলানা আমীর হামজা"
+            android:id="@+id/secTextView"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:gravity="center_horizontal" />;
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/secTextView"
+            android:layout_marginTop="2dp"
+            android:text="@string/amirhamza"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:textColor="#595151"/>
+
+
+    </RelativeLayout>
+
+
+
+
+
+</LinearLayout>

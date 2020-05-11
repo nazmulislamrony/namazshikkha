@@ -1,0 +1,67 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#16931B</item>
+        <item name="colorPrimaryDark">#028308</item>
+        <item name="colorAccent">#16931B</item>
+
+        <item name="fontFamily">@font/solaiman_lipi</item>
+    </style>
+
+
+    <style name="AppThemeActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#16931B</item>
+        <item name="colorPrimaryDark">#028308</item>
+        <item name="colorAccent">#16931B</item>
+        <item name="fontFamily">@font/solaiman_lipi</item>
+    </style>
+
+
+
+    <!--    Add font family to the toolbar for new activity button -->
+    <style name="ToolbarThemeOverLay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorPrimary">#16931B</item>
+        <item name="colorPrimaryDark">#028308</item>
+        <item name="colorAccent">#16931B</item>
+        <item name="fontFamily">@font/solaiman_lipi</item>
+    </style>
+
+
+
+<!--        Collapsing toolbar text size-->
+
+    <style name="CollapsedAppBar" parent="@android:style/TextAppearance">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ExpandedAppBar" parent="@android:style/TextAppearance">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+<!--    Navigation drawer Text size-->
+
+    <style name="NavigationDrawerText">
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/solaiman_lipi</item>
+
+        <item name="android:listDivider">@color/whiteColor</item>
+    </style>
+
+<!--    Drawer Item text change from MainActivity-->
+
+    <style name="TextAppearance44">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="MyDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="fontFamily">@font/solaiman_lipi</item>
+    </style>
+
+
+</resources>
