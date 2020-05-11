@@ -19,7 +19,8 @@
         <activity android:name=".ContentReader.TwelveContentReader"
             android:parentActivityName=".Activity.TwelveButton"
             android:theme="@style/AppThemeActionBar"/>
-        <activity android:name=".Activity.TwelveButton" />
+        <activity android:name=".Activity.TwelveButton"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".DrawerButton.BoiporichitiActivity"
             android:parentActivityName=".MainActivity"

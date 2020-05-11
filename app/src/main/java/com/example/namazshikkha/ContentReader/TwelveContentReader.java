@@ -73,7 +73,12 @@ public class TwelveContentReader extends AppCompatActivity {
             seventeen.setImageResource(R.drawable.seventeen);
 
         }else {
-            fourth.setImageResource(R.drawable.education);
+            first.setImageResource(R.drawable.one);
+            second.setImageResource(R.drawable.two);
+            third.setImageResource(R.drawable.three);
+            fourth.setImageResource(R.drawable.four);
+            fifth.setImageResource(R.drawable.five);
+
         }
     }
 }
