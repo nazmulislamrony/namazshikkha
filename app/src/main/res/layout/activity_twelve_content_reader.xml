@@ -10,8 +10,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+
         >
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,11 +19,127 @@
             android:id="@+id/imgeLinear">
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/twelveImage"
-
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitStart"
+                android:adjustViewBounds="true"
+                android:id="@+id/firstTwelve"
                 />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/secondTwelve"
+                android:scaleType="fitStart"
+                android:adjustViewBounds="true"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/thirdTwelve"
+                android:scaleType="fitStart"
+                android:adjustViewBounds="true"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/fourthTwelve"
+                android:scaleType="fitStart"
+                android:adjustViewBounds="true"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/fifthTwelve"
+                android:scaleType="fitStart"
+                android:adjustViewBounds="true"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sixthTwelve"
+                android:scaleType="fitStart"
+                android:adjustViewBounds="true"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/seventhTwelve"
+                android:scaleType="fitStart"
+                android:adjustViewBounds="true"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/eightTwelve"
+                android:scaleType="fitStart"
+                android:adjustViewBounds="true"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ninthTwelve"
+                android:scaleType="fitStart"
+                android:adjustViewBounds="true"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tenthTwelve"
+                android:scaleType="fitStart"
+                android:adjustViewBounds="true"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/elevenTwelve"
+                android:scaleType="fitStart"
+                android:adjustViewBounds="true"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/twelveTwelve"
+                android:scaleType="fitStart"
+                android:adjustViewBounds="true"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/thirteenTwelve"
+                android:scaleType="fitStart"
+                android:adjustViewBounds="true"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/fourteenTwelve"
+                android:scaleType="fitStart"
+                android:adjustViewBounds="true"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/fiftheenTwelve"
+                android:scaleType="fitStart"
+                android:adjustViewBounds="true"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sixteenTwelve"
+                android:scaleType="fitStart"
+                android:adjustViewBounds="true"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/seventeenTwelve"
+                android:scaleType="fitStart"
+                android:adjustViewBounds="true"
+                />
+
 
         </LinearLayout>
 
