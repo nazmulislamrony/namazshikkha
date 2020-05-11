@@ -80,8 +80,8 @@
 
                         <ImageView
                             android:id="@+id/comfortImg"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
                             android:src="@drawable/comfort" />
@@ -93,7 +93,7 @@
                             android:layout_below="@+id/comfortImg"
                             android:text="গোসল"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="15dp"
+                            android:layout_marginTop="18dp"
                             android:fontFamily="@font/solaiman_lipi"
                             android:textColor="#000000"
                             android:textSize="18sp"
@@ -193,11 +193,11 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/solaiman_lipi"
-                            android:text="নামাজের ওয়াক্ত \n ও রাকাআত"
+                            android:text="ওয়াক্ত ও রাকাআত"
                             android:textAlignment="center"
                             android:textColor="#000000"
                             android:textSize="18sp"
-                            />
+                            android:gravity="center_horizontal" />
 
                         <Button
                             android:id="@+id/fourthbtn"
@@ -293,12 +293,12 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/solaiman_lipi"
-                            android:text="নামাজ আদায়ের \n নিয়ম"
+                            android:text="নামাজ আদায়ের নিয়ম"
                             android:textAlignment="center"
 
                             android:textColor="#000000"
                             android:textSize="18sp"
-                            />
+                            android:gravity="center_horizontal" />
 
                         <Button
                             android:id="@+id/sixthbtn"
@@ -394,11 +394,11 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/solaiman_lipi"
-                            android:text="তাহাজ্জুদ ও\n তারাবি"
+                            android:text="তাহাজ্জুদ ও তারাবি"
                             android:textAlignment="center"
                             android:textColor="#000000"
                             android:textSize="18sp"
-                            />
+                            android:gravity="center_horizontal" />
 
                         <Button
                             android:id="@+id/eighthbtn"
