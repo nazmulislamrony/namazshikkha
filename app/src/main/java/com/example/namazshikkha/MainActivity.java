@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
     Intent intent;
 
 
-
     Button first, second, third, fourth, fifth, sixth, seventh, eight, ninthBtn, tenth, eleventh, twelve;
 
     @Override
@@ -68,24 +67,23 @@ public class MainActivity extends AppCompatActivity {
 
         //-----------------Hooks--------------------
 
-        toolbar=findViewById(R.id.toolbar_top);
-        drawerLayout=findViewById(R.id.drawer);
-        navigationView=findViewById(R.id.nav_view);
+        toolbar = findViewById(R.id.toolbar_top);
+        drawerLayout = findViewById(R.id.drawer);
+        navigationView = findViewById(R.id.nav_view);
 
 
-
-        first=findViewById(R.id.firstbtn);
-        second=findViewById(R.id.secondbtn);
-        third=findViewById(R.id.thirdbtn);
-        fourth=findViewById(R.id.fourthbtn);
-        fifth=findViewById(R.id.fifthbtn);
-        sixth=findViewById(R.id.sixthbtn);
-        seventh=findViewById(R.id.seventhbtn);
-        eight=findViewById(R.id.eighthbtn);
-        ninthBtn=findViewById(R.id.ninthbtn);
-        tenth=findViewById(R.id.tenthbtn);
-        eleventh=findViewById(R.id.elevenbtn);
-        twelve=findViewById(R.id.twelvebtn);
+        first = findViewById(R.id.firstbtn);
+        second = findViewById(R.id.secondbtn);
+        third = findViewById(R.id.thirdbtn);
+        fourth = findViewById(R.id.fourthbtn);
+        fifth = findViewById(R.id.fifthbtn);
+        sixth = findViewById(R.id.sixthbtn);
+        seventh = findViewById(R.id.seventhbtn);
+        eight = findViewById(R.id.eighthbtn);
+        ninthBtn = findViewById(R.id.ninthbtn);
+        tenth = findViewById(R.id.tenthbtn);
+        eleventh = findViewById(R.id.elevenbtn);
+        twelve = findViewById(R.id.twelvebtn);
 
 
         // -------------Collapsing toolbar Layout------------------------
@@ -95,11 +93,10 @@ public class MainActivity extends AppCompatActivity {
         collapsingToolbar.setCollapsedTitleTextAppearance(R.style.CollapsedAppBar);
         collapsingToolbar.setExpandedTitleTextAppearance(R.style.ExpandedAppBar);
 
-        collapsingToolbar.setTitle("নামাজ বেহেস্তের চাবিকাঠি");
+        collapsingToolbar.setTitle("সহীহ নামাজ ও দোয়া শিক্ষা");
         typeface = ResourcesCompat.getFont(this, R.font.solaiman_lipi);
         collapsingToolbar.setCollapsedTitleTypeface(typeface);
         collapsingToolbar.setExpandedTitleTypeface(typeface);
-
 
 
         //------------------------Different Methode------------------------
@@ -130,8 +127,7 @@ public class MainActivity extends AppCompatActivity {
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle("Exit")
                 .setMessage("আপনি কি অ্যাপ্লিকেশন টি থেকে বের হতে চাচ্ছেন?")
-                .setPositiveButton("হ্যা", new DialogInterface.OnClickListener()
-                {
+                .setPositiveButton("হ্যা", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         finish();
@@ -154,22 +150,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     //        =============== Navigation Drawer item text color and size change =======================
 
-   public void drawerTitleColor(){
-       Menu menu=navigationView.getMenu();
+    public void drawerTitleColor() {
+        Menu menu = navigationView.getMenu();
 
-       MenuItem item=menu.findItem(R.id.communication_title);
-       SpannableString s = new SpannableString(item.getTitle());
-       s.setSpan(new TextAppearanceSpan(this, R.style.TextAppearance44), 0, s.length(), 0);
-       item.setTitle(s);
-   }
+        MenuItem item = menu.findItem(R.id.communication_title);
+        SpannableString s = new SpannableString(item.getTitle());
+        s.setSpan(new TextAppearanceSpan(this, R.style.TextAppearance44), 0, s.length(), 0);
+        item.setTitle(s);
+    }
 
 //     ===================== Navigation Drawer on click listener =========================================
 
 
-    public void navigationOnClickListener(){
+    public void navigationOnClickListener() {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -183,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.motamotnav:
 
 
-                        new AlertDialog.Builder(MainActivity.this,R.style.MyDialog)
+                        new AlertDialog.Builder(MainActivity.this, R.style.MyDialog)
                                 .setTitle("মতামত")
                                 .setMessage("আসসালামু আলাইকুম। এই এপ্স এ যদি কোন ভুল পরিলক্ষীত হয় অথবা আপনার কোন মূল্যবান মতামত বা পরামর্শ থাকলে আমাদের জানান। আপনার মতামত আমাদের এগিয়ে যেতে সাহায্য করবে ইনশা আল্লাহ।")
                                 .setPositiveButton("Email Us", new DialogInterface.OnClickListener() {
@@ -219,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.facebook:
-                        final String urlFb = "fb://page/"+"623249964534978";
+                        final String urlFb = "fb://page/" + "623249964534978";
                         Intent intent = new Intent(Intent.ACTION_VIEW);
                         intent.setData(Uri.parse(urlFb));
 
@@ -230,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
                                 packageManager.queryIntentActivities(intent,
                                         PackageManager.MATCH_DEFAULT_ONLY);
                         if (list.size() == 0) {
-                            final String urlBrowser = "https://www.facebook.com/"+"623249964534978";
+                            final String urlBrowser = "https://www.facebook.com/" + "623249964534978";
                             intent.setData(Uri.parse(urlBrowser));
                         }
 
@@ -245,11 +240,11 @@ public class MainActivity extends AppCompatActivity {
     }
     //-------------------first btn onclick listener intent --------------------------------------
 
-    public void publicButton(){
+    public void publicButton() {
         first.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, FirstButton.class);
+                Intent intent = new Intent(MainActivity.this, FirstButton.class);
                 startActivity(intent);
             }
         });
@@ -257,11 +252,11 @@ public class MainActivity extends AppCompatActivity {
 
     // --------------- second Button click listener ----------------------------------------
 
-    public void secondButton(){
+    public void secondButton() {
         second.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, SecondButton.class);
+                Intent intent = new Intent(MainActivity.this, SecondButton.class);
                 startActivity(intent);
             }
         });
@@ -269,11 +264,11 @@ public class MainActivity extends AppCompatActivity {
 
     //====================third button click listener ===========================================
 
-    public void thirdButton(){
+    public void thirdButton() {
         third.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, ThirdButton.class);
+                Intent intent = new Intent(MainActivity.this, ThirdButton.class);
                 startActivity(intent);
             }
         });
@@ -283,11 +278,11 @@ public class MainActivity extends AppCompatActivity {
     //====================fourth button click listener ===========================================
 
 
-    public void fourthButton(){
+    public void fourthButton() {
         fourth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, FourthButton.class);
+                Intent intent = new Intent(MainActivity.this, FourthButton.class);
                 startActivity(intent);
             }
         });
@@ -295,11 +290,11 @@ public class MainActivity extends AppCompatActivity {
 
     // ===================fifth button click listener==============================================
 
-    public void fifthButton(){
+    public void fifthButton() {
         fifth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, FifthButton.class);
+                Intent intent = new Intent(MainActivity.this, FifthButton.class);
                 startActivity(intent);
             }
         });
@@ -307,11 +302,11 @@ public class MainActivity extends AppCompatActivity {
 
     // ===================sixth button click listener==============================================
 
-    public void sixthButton(){
+    public void sixthButton() {
         sixth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, SixthButton.class);
+                Intent intent = new Intent(MainActivity.this, SixthButton.class);
                 startActivity(intent);
             }
         });
@@ -320,11 +315,11 @@ public class MainActivity extends AppCompatActivity {
 
     // ===================seventh button click listener==============================================
 
-    public void seventhButton(){
+    public void seventhButton() {
         seventh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, SeventhButton.class);
+                Intent intent = new Intent(MainActivity.this, SeventhButton.class);
                 startActivity(intent);
             }
         });
@@ -332,11 +327,11 @@ public class MainActivity extends AppCompatActivity {
 
     // ===================eight button click listener==============================================
 
-    public void eightButton(){
+    public void eightButton() {
         eight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, EighthButton.class);
+                Intent intent = new Intent(MainActivity.this, EighthButton.class);
                 startActivity(intent);
             }
         });
@@ -345,11 +340,11 @@ public class MainActivity extends AppCompatActivity {
 
     // ===================ninth button click listener==============================================
 
-    public void ninthButton(){
+    public void ninthButton() {
         ninthBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, NinthButton.class);
+                Intent intent = new Intent(MainActivity.this, NinthButton.class);
                 startActivity(intent);
             }
         });
@@ -357,36 +352,32 @@ public class MainActivity extends AppCompatActivity {
 
     // ===================tenth button click listener==============================================
 
-    public void tenthButton(){
+    public void tenthButton() {
         tenth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, TenthButton.class);
+                Intent intent = new Intent(MainActivity.this, TenthButton.class);
                 startActivity(intent);
             }
         });
     }
 
-    public void eleventhButton(){
+    public void eleventhButton() {
         eleventh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, EleventhButton.class);
+                Intent intent = new Intent(MainActivity.this, EleventhButton.class);
                 startActivity(intent);
             }
         });
     }
 
 
-
-
-
-
-    public void twelveButton(){
+    public void twelveButton() {
         twelve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, TwelveButton.class);
+                Intent intent = new Intent(MainActivity.this, TwelveButton.class);
                 startActivity(intent);
             }
         });

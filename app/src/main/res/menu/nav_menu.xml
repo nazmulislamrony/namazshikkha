@@ -12,7 +12,6 @@
             android:title="বই পরিচিতি"
             android:icon="@drawable/ic_library_books_black_24dp"/>
         <item
-            android:checked="true"
             android:id="@+id/motamotnav"
             android:icon="@drawable/ic_chat_black_24dp"
             android:title="মতামত" />
