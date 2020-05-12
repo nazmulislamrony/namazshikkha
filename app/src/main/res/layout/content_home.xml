@@ -43,7 +43,7 @@
                             android:layout_height="60dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/mos" />
+                            android:src="@drawable/oju" />
 
                         <TextView
                             android:id="@+id/humanText"
@@ -84,7 +84,7 @@
                             android:layout_height="60dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/comfort" />
+                            android:src="@drawable/gosol" />
 
                         <TextView
                             android:id="@+id/comfortText"
@@ -139,7 +139,7 @@
                             android:layout_height="50dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/education" />
+                            android:src="@drawable/common" />
 
                         <TextView
                             android:id="@+id/educationText"
@@ -183,7 +183,7 @@
                             android:layout_height="50dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/finance" />
+                            android:src="@drawable/common" />
 
                         <TextView
                             android:id="@+id/financeTxt"
@@ -239,7 +239,7 @@
                             android:layout_height="50dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/goal" />
+                            android:src="@drawable/masala" />
 
                         <TextView
                             android:id="@+id/goalText"
@@ -283,7 +283,7 @@
                             android:layout_height="50dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/health" />
+                            android:src="@drawable/common" />
 
                         <TextView
                             android:id="@+id/healthTxt"
@@ -340,7 +340,7 @@
                             android:layout_height="50dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/icon" />
+                            android:src="@drawable/common" />
 
                         <TextView
                             android:id="@+id/iconText"
