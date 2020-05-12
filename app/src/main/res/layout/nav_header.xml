@@ -8,16 +8,15 @@
     >
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/common"
+            android:layout_width="200px"
+            android:layout_height="200px"
+            android:src="@drawable/biglogo"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="সহীহ নামাজ ও দোয়া শিক্ষা"
             android:fontFamily="@font/solaiman_lipi"
-            android:layout_marginTop="10dp"
             android:textColor="@color/colorPrimaryDark"
             android:textStyle="bold"
             android:textSize="20sp"/>
@@ -27,7 +26,9 @@
             android:layout_height="wrap_content"
             android:text="admin@voltagelab.com"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:layout_marginBottom="20dp"
+            />
     </LinearLayout>
 
 

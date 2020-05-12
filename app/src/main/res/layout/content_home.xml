@@ -139,7 +139,7 @@
                             android:layout_height="50dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/common" />
+                            android:src="@drawable/tayammum" />
 
                         <TextView
                             android:id="@+id/educationText"
@@ -183,7 +183,7 @@
                             android:layout_height="50dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/common" />
+                            android:src="@drawable/owakto" />
 
                         <TextView
                             android:id="@+id/financeTxt"
