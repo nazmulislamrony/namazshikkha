@@ -7,12 +7,7 @@
     android:orientation="vertical"
     tools:context=".Activity.SixthButton">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/sixth_toolbar"
-        android:background="@color/colorPrimary"
-        android:layout_width="match_parent"
-        android:theme="@style/ToolbarThemeOverLay"
-        android:layout_height="?actionBarSize"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

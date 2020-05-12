@@ -24,15 +24,12 @@ public class SecondButton extends AppCompatActivity {
     SecondRecyclerView secondRecyclerAdapter;
     List<SecondStore> secondStores;
     DbAsset databaseAsset;
-    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second_button);
-        toolbar=findViewById(R.id.namToolbar);
 
-        setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("গোসল");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

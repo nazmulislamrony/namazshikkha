@@ -6,7 +6,8 @@
         <item name="colorPrimary">#16931B</item>
         <item name="colorPrimaryDark">#028308</item>
         <item name="colorAccent">#16931B</item>
-
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
         <item name="fontFamily">@font/solaiman_lipi</item>
     </style>
 
@@ -22,11 +23,15 @@
 
 
     <!--    Add font family to the toolbar for new activity button -->
-    <style name="ToolbarThemeOverLay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+    <style name="ToolbarThemeOverLay" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">#16931B</item>
         <item name="colorPrimaryDark">#028308</item>
         <item name="colorAccent">#16931B</item>
         <item name="fontFamily">@font/solaiman_lipi</item>
+    </style>
+
+    <style name="customizAppTheme.AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimaryDark">@color/colorAccent</item>
     </style>
 
 

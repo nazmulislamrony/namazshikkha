@@ -27,15 +27,12 @@ public class ThirdButton extends AppCompatActivity {
     ThirdRecyclerView thirdRecyclerViewAdapter;
     List<ThirdStore> thirdStores;
     DbAsset databaseAsset;
-    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third_button);
 
-        toolbar=findViewById(R.id.thirdToolbar);
-        setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("তায়াম্মুম");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

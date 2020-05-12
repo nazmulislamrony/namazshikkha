@@ -23,16 +23,13 @@ public class NinthButton extends AppCompatActivity {
     NinthRecyclerView ninthRecyclerViewAdapter;
     List<NinthStore> ninthStores;
     DbAsset databaseAsset;
-    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ninth_button);
 
-        toolbar=findViewById(R.id.ninth_toolbar);
 
-        setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("জানাজার নামাজ");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

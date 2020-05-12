@@ -25,16 +25,13 @@ public class SeventhButton extends AppCompatActivity {
     SeventhRecyclerView seventhRecyclerViewAdapter;
     List<SeventhStore> seventhStores;
     DbAsset databaseAsset;
-    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seventh_button);
 
-        toolbar=findViewById(R.id.seventh_toolbar);
 
-        setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("ঈদের নামাজ");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

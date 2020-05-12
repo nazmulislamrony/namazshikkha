@@ -21,7 +21,6 @@ import java.util.List;
 
 public class FirstButton extends AppCompatActivity {
 
-    Toolbar namazToolbar;
 
     RecyclerView recyclerViewer;
     RecyclerViewFirst classRecyclerAdapter;
@@ -33,9 +32,7 @@ public class FirstButton extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_button);
 
-        namazToolbar=findViewById(R.id.namToolbar);
 
-        setSupportActionBar(namazToolbar);
         getSupportActionBar().setTitle("ওযু");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

@@ -5,14 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/activity"
     tools:context=".Activity.FirstButton">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/namToolbar"
-        android:background="@color/colorPrimary"
-        android:layout_width="match_parent"
-        android:theme="@style/ToolbarThemeOverLay"
-        android:layout_height="?actionBarSize"/>
+
 
 
     <androidx.recyclerview.widget.RecyclerView

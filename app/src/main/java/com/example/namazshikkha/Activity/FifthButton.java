@@ -25,17 +25,14 @@ public class FifthButton extends AppCompatActivity {
     FifthRecyclerView fifthRecyclerViewAdapter;
     List<FifthStore> fifthStores;
     DbAsset databaseAsset;
-    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fifth_button);
 
-        toolbar=findViewById(R.id.fifth_toolbar);
         recyclerViewer=findViewById(R.id.fifth_recyclerView);
 
-        setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("নামাজের মাসাআলা");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

@@ -27,7 +27,6 @@ public class FourthButton extends AppCompatActivity {
     FourthRecyclerView fourthRecyclerViewAdapter;
     List<FourthStore> fourthStores;
     DbAsset databaseAsset;
-    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +34,7 @@ public class FourthButton extends AppCompatActivity {
         setContentView(R.layout.activity_fourth_button);
 
 
-        toolbar=findViewById(R.id.fourth_toolbar);
 
-        setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("নামাজের ওয়াক্ত ও রাকাআত");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

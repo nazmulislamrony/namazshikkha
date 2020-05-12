@@ -23,16 +23,13 @@ public class SixthButton extends AppCompatActivity {
     SixthRecyclerView sixthRecyclerViewAdapter;
     List<SixthStore> sixthStores;
     DbAsset databaseAsset;
-    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sixth_button);
 
-        toolbar=findViewById(R.id.sixth_toolbar);
 
-        setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("নামাজ আদায়ের নিয়ম");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

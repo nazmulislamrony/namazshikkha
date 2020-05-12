@@ -25,16 +25,13 @@ public class EighthButton extends AppCompatActivity {
     EighthRecyclerView eighthRecyclerViewAdapter;
     List<EighthStore> eighthStores;
     DbAsset databaseAsset;
-    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eighth_button);
 
-        toolbar=findViewById(R.id.eighth_toolbar);
 
-        setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("তাহাজ্জুদ ও তারাবি");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

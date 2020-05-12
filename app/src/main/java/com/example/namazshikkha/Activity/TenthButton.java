@@ -25,7 +25,6 @@ public class TenthButton extends AppCompatActivity {
     List<TenthStore> tenthStores;
     TenthRecyclerView tenthRecyclerViewAdapter;
     DbAsset databaseAsset;
-    Toolbar tenthToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +32,9 @@ public class TenthButton extends AppCompatActivity {
         setContentView(R.layout.activity_tenth_button);
 
         recyclerView=findViewById(R.id.tenthRecyclerview);
-        tenthToolbar=findViewById(R.id.tenthToolbar);
         databaseAsset=new DbAsset(this);
         tenthStores=databaseAsset.tenthStores();
 
-        setSupportActionBar(tenthToolbar);
         getSupportActionBar().setTitle("সূরা");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

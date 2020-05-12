@@ -19,7 +19,6 @@ import java.util.List;
 
 public class EleventhButton extends AppCompatActivity {
 
-    Toolbar eleventhToolbar;
     RecyclerView recyclerView;
     EleventRecyclerView eleventRecyclerViewAdapter;
     List<EleventhStore> eleventhStores;
@@ -30,12 +29,10 @@ public class EleventhButton extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eleventh_button);
-        eleventhToolbar=findViewById(R.id.eleventToolbar);
         recyclerView=findViewById(R.id.eleventhRecycler);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        setSupportActionBar(eleventhToolbar);
         getSupportActionBar().setTitle("দুয়া");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

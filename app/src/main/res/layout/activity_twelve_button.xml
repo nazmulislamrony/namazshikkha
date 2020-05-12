@@ -10,12 +10,6 @@
 
     tools:context=".Activity.TwelveButton">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/twelveToolbar"
-        android:background="@color/colorPrimary"
-        android:layout_width="match_parent"
-        android:theme="@style/ToolbarThemeOverLay"
-        android:layout_height="?actionBarSize"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

@@ -20,7 +20,6 @@ import java.util.List;
 
 public class TwelveButton extends AppCompatActivity {
 
-    Toolbar twelveTool;
     RecyclerView recyclerView;
     TwelveRecyclerView twelveRecyclerView;
     List<TwelveStore> twelveStores;
@@ -32,12 +31,10 @@ public class TwelveButton extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_twelve_button);
 
-        twelveTool=findViewById(R.id.twelveToolbar);
         recyclerView=findViewById(R.id.twelveRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         database=new DbAsset(this);
 
-        setSupportActionBar(twelveTool);
         getSupportActionBar().setTitle("চিত্রসহ নামাজ");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         twelveStores=database.twelveStores();
