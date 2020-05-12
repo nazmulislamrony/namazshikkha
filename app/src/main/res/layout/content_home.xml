@@ -384,7 +384,7 @@
                             android:layout_height="50dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/back" />
+                            android:src="@drawable/common" />
 
                         <TextView
                             android:id="@+id/backTxt"
@@ -440,7 +440,7 @@
                             android:layout_height="50dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/icon" />
+                            android:src="@drawable/doa" />
 
                         <TextView
                             android:id="@+id/lastTxt"
@@ -484,7 +484,7 @@
                             android:layout_height="50dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/back" />
+                            android:src="@drawable/common" />
 
                         <TextView
                             android:id="@+id/lastBackTxt"
@@ -539,7 +539,7 @@
                             android:layout_height="50dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/goal" />
+                            android:src="@drawable/doa" />
 
                         <TextView
                             android:id="@+id/goalLast"
@@ -583,7 +583,7 @@
                             android:layout_height="50dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/health" />
+                            android:src="@drawable/common" />
 
                         <TextView
                             android:id="@+id/healthLasttxt"
