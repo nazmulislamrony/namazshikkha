@@ -283,7 +283,7 @@
                             android:layout_height="50dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/common" />
+                            android:src="@drawable/namazadayerniom" />
 
                         <TextView
                             android:id="@+id/healthTxt"
@@ -340,7 +340,7 @@
                             android:layout_height="50dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/common" />
+                            android:src="@drawable/eidnamaz" />
 
                         <TextView
                             android:id="@+id/iconText"
@@ -384,7 +384,7 @@
                             android:layout_height="50dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/common" />
+                            android:src="@drawable/tarabi" />
 
                         <TextView
                             android:id="@+id/backTxt"
@@ -440,7 +440,7 @@
                             android:layout_height="50dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/doa" />
+                            android:src="@drawable/janaja" />
 
                         <TextView
                             android:id="@+id/lastTxt"
@@ -484,7 +484,7 @@
                             android:layout_height="50dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/common" />
+                            android:src="@drawable/surah" />
 
                         <TextView
                             android:id="@+id/lastBackTxt"
@@ -583,7 +583,7 @@
                             android:layout_height="50dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/common" />
+                            android:src="@drawable/chitro" />
 
                         <TextView
                             android:id="@+id/healthLasttxt"
