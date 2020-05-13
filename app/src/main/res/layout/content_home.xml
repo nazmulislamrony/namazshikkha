@@ -93,7 +93,7 @@
                             android:layout_below="@+id/comfortImg"
                             android:text="গোসল"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="18dp"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/solaiman_lipi"
                             android:textColor="#000000"
                             android:textSize="18sp"
@@ -135,8 +135,8 @@
 
                         <ImageView
                             android:id="@+id/eduImg"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
                             android:src="@drawable/tayammum" />
@@ -179,8 +179,8 @@
 
                         <ImageView
                             android:id="@+id/financeImg"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
                             android:src="@drawable/owakto" />
@@ -235,8 +235,8 @@
 
                         <ImageView
                             android:id="@+id/goalImg"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
                             android:src="@drawable/masala" />
@@ -279,8 +279,8 @@
 
                         <ImageView
                             android:id="@+id/healthImg"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
                             android:src="@drawable/namazadayerniom" />
@@ -336,8 +336,8 @@
 
                         <ImageView
                             android:id="@+id/iconImg"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
                             android:src="@drawable/eidnamaz" />
@@ -364,7 +364,6 @@
 
                     </RelativeLayout>
 
-
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
@@ -380,8 +379,8 @@
 
                         <ImageView
                             android:id="@+id/backImg"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
                             android:src="@drawable/tarabi" />
@@ -436,8 +435,8 @@
 
                         <ImageView
                             android:id="@+id/lastIcon"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
                             android:src="@drawable/janaja" />
@@ -461,7 +460,6 @@
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent" />
 
-
                     </RelativeLayout>
 
 
@@ -480,8 +478,8 @@
 
                         <ImageView
                             android:id="@+id/lastBackImg"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
                             android:src="@drawable/surah" />
@@ -535,8 +533,8 @@
 
                         <ImageView
                             android:id="@+id/goalLatImg"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
                             android:src="@drawable/doa" />
@@ -579,8 +577,8 @@
 
                         <ImageView
                             android:id="@+id/healthLast"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
                             android:src="@drawable/chitro" />
