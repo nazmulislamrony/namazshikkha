@@ -52,6 +52,7 @@ public class TwelveContentReader extends AppCompatActivity {
 
         if (twelveStore.getId()==1){
             first.setImageResource(R.drawable.first);
+
             second.setImageResource(R.drawable.second);
             third.setImageResource(R.drawable.third);
             fourth.setImageResource(R.drawable.fourth);
