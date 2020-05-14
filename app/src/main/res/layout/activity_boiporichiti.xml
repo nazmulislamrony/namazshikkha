@@ -19,11 +19,9 @@
             android:layout_marginTop="2dp"
             android:lineSpacingExtra="3dp"
             android:text="@string/bookInfo"
-            android:padding="5dp"
+            android:padding="12dp"
             android:textSize="18sp"
             android:textColor="#595151"/>
-
-
     </RelativeLayout>
 
 
