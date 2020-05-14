@@ -13,6 +13,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -84,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         tenth = findViewById(R.id.tenthbtn);
         eleventh = findViewById(R.id.elevenbtn);
         twelve = findViewById(R.id.twelvebtn);
+
 
 
         // -------------Collapsing toolbar Layout------------------------
@@ -214,6 +217,23 @@ public class MainActivity extends AppCompatActivity {
                         intent.setData(data);
                         startActivity(intent);
                         break;
+
+//                    case R.id.rating:
+//                        Uri uri = Uri.parse("market://details?id=" + context.getPackageName());
+//                        Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+//                        // To count with Play market backstack, After pressing back button,
+//                        // to taken back to our application, we need to add following flags to intent.
+//                        goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
+//                                Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
+//                                Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+//                        try {
+//                            startActivity(goToMarket);
+//                        } catch (ActivityNotFoundException e) {
+//                            startActivity(new Intent(Intent.ACTION_VIEW,
+//                                    Uri.parse("http://play.google.com/store/apps/details?id=" + context.getPackageName())));
+//                        }
+//                        break;
+
 
                     case R.id.facebook:
                         final String urlFb = "fb://page/" + "623249964534978";

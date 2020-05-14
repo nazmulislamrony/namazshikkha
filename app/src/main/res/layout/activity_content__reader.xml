@@ -10,8 +10,8 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
         >
         <TextView
             android:id="@+id/first_body_content"

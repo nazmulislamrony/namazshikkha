@@ -55,7 +55,7 @@
                             android:fontFamily="@font/solaiman_lipi"
                             android:text="ওযু"
                             android:textColor="#000000"
-                            android:textSize="18sp"
+                            android:textSize="17sp"
                              />
 
                         <Button
@@ -96,7 +96,7 @@
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/solaiman_lipi"
                             android:textColor="#000000"
-                            android:textSize="18sp"
+                            android:textSize="17sp"
                            />
 
                         <Button
@@ -151,7 +151,7 @@
                             android:fontFamily="@font/solaiman_lipi"
                             android:text="তায়াম্মুম"
                             android:textColor="#000000"
-                            android:textSize="18sp"
+                            android:textSize="17sp"
                              />
 
                         <Button
@@ -196,7 +196,7 @@
                             android:text="ওয়াক্ত ও রাকাআত"
                             android:textAlignment="center"
                             android:textColor="#000000"
-                            android:textSize="18sp"
+                            android:textSize="17sp"
                             android:gravity="center_horizontal" />
 
                         <Button
@@ -251,7 +251,7 @@
                             android:fontFamily="@font/solaiman_lipi"
                             android:text="নামাজের মাসআলা"
                             android:textColor="#000000"
-                            android:textSize="18sp"
+                            android:textSize="17sp"
                             />
 
                         <Button
@@ -297,7 +297,7 @@
                             android:textAlignment="center"
 
                             android:textColor="#000000"
-                            android:textSize="18sp"
+                            android:textSize="17sp"
                             android:gravity="center_horizontal" />
 
                         <Button
@@ -352,7 +352,7 @@
                             android:fontFamily="@font/solaiman_lipi"
                             android:text="ঈদের নামাজ"
                             android:textColor="#000000"
-                            android:textSize="18sp"
+                            android:textSize="17sp"
                            />
 
                         <Button
@@ -396,7 +396,7 @@
                             android:text="তাহাজ্জুদ ও তারাবি"
                             android:textAlignment="center"
                             android:textColor="#000000"
-                            android:textSize="18sp"
+                            android:textSize="17sp"
                             android:gravity="center_horizontal" />
 
                         <Button
@@ -451,7 +451,7 @@
                             android:fontFamily="@font/solaiman_lipi"
                             android:text="জানাজার নামাজ"
                             android:textColor="#000000"
-                            android:textSize="18sp"
+                            android:textSize="17sp"
                            />
 
                         <Button
@@ -494,7 +494,7 @@
                             android:fontFamily="@font/solaiman_lipi"
                             android:text="সূরা"
                             android:textColor="#000000"
-                            android:textSize="18sp"
+                            android:textSize="17sp"
                             />
 
                         <Button
@@ -549,7 +549,7 @@
                             android:fontFamily="@font/solaiman_lipi"
                             android:text="দুয়া"
                             android:textColor="#000000"
-                            android:textSize="18sp"
+                            android:textSize="17sp"
                             />
 
                         <Button
@@ -593,7 +593,7 @@
                             android:fontFamily="@font/solaiman_lipi"
                             android:text="চিত্রসহ নামাজ"
                             android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:textSize="17sp" />
 
                         <Button
                             android:id="@+id/twelvebtn"
