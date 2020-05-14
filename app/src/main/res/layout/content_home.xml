@@ -139,7 +139,7 @@
                             android:layout_height="60dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/masala" />
+                            android:src="@drawable/tayammum" />
 
                         <TextView
                             android:id="@+id/educationText"
@@ -383,7 +383,7 @@
                             android:layout_height="60dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/masala" />
+                            android:src="@drawable/tarabi" />
 
                         <TextView
                             android:id="@+id/backTxt"
@@ -482,7 +482,7 @@
                             android:layout_height="60dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/masala" />
+                            android:src="@drawable/surah" />
 
                         <TextView
                             android:id="@+id/lastBackTxt"
