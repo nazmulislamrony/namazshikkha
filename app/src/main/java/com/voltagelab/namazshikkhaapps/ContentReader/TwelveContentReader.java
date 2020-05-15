@@ -43,7 +43,6 @@ public class TwelveContentReader extends AppCompatActivity {
 
         getSupportActionBar().setTitle(twelveStore.getName());
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        Log.d("datashow","checkval: "+twelveStore.getName());
 
 
         if (twelveStore.getId()==1){
