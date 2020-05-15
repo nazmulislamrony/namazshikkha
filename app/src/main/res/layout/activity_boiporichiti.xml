@@ -16,15 +16,13 @@
             android:id="@+id/textBoo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:lineSpacingMultiplier="1.7"
             android:layout_marginTop="2dp"
-            android:lineSpacingExtra="3dp"
             android:text="@string/bookInfo"
             android:padding="12dp"
             android:textSize="18sp"
             android:textColor="#595151"/>
     </RelativeLayout>
-
-
 
 
 
