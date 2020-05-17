@@ -547,7 +547,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/solaiman_lipi"
-                            android:text="দুয়া"
+                            android:text="দোয়া"
                             android:textColor="#000000"
                             android:textSize="17sp"
                             />

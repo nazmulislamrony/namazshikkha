@@ -32,7 +32,7 @@ public class EleventhButton extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        getSupportActionBar().setTitle("দুয়া");
+        getSupportActionBar().setTitle("দোয়া");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         db=new DbAsset(this);
