@@ -25,7 +25,7 @@ import java.util.List;
 public class DbAsset extends SQLiteAssetHelper {
 
     private static String DATABASE_NAME="namaz.db";
-    private static int VERSION_NUMBER=1;
+    private static int VERSION_NUMBER=2;
 
     public DbAsset(Context context) {
         super(context, DATABASE_NAME, null, VERSION_NUMBER);

@@ -54,7 +54,7 @@ public class TwelveContentReader extends AppCompatActivity {
             fifth.setImageResource(R.drawable.fifth);
 
             sixth.setImageResource(R.drawable.six);
-            seventh.setImageResource(R.drawable.second);
+            seventh.setImageResource(R.drawable.seven);
             eight.setImageResource(R.drawable.eight);
             nine.setImageResource(R.drawable.nine);
             tenth.setImageResource(R.drawable.ten);
