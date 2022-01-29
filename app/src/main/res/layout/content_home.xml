@@ -80,28 +80,28 @@
                         android:layout_height="match_parent">
 
                         <ImageView
-                            android:id="@+id/comfortImg"
+                            android:id="@+id/lastBackImg"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/gosol" />
+                            android:src="@drawable/surah" />
 
                         <TextView
-                            android:id="@+id/comfortText"
+                            android:id="@+id/lastBackTxt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/comfortImg"
-                            android:text="গোসল"
+                            android:layout_below="@+id/lastBackImg"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/solaiman_lipi"
+                            android:text="সূরা"
                             android:textColor="#000000"
                             android:textSize="17sp"
-                           />
+                            />
 
                         <Button
-                            android:id="@+id/secondbtn"
+                            android:id="@+id/tenthbtn"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent" />

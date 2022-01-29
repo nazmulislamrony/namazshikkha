@@ -10,7 +10,6 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -25,9 +24,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import com.readystatesoftware.android.sqliteassethelper.BuildConfig;
-import com.voltagelab.namazshikkhaapps.Activity.AlQuran.AlQuranActivity;
-import com.voltagelab.namazshikkhaapps.Activity.AlQuran.SurahFragment;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.model.SurahActivity;
 import com.voltagelab.namazshikkhaapps.Activity.EighthButton;
 import com.voltagelab.namazshikkhaapps.Activity.EleventhButton;
@@ -42,7 +38,6 @@ import com.voltagelab.namazshikkhaapps.Activity.SixthButton;
 import com.voltagelab.namazshikkhaapps.Activity.TenthButton;
 import com.voltagelab.namazshikkhaapps.Activity.ThirdButton;
 import com.voltagelab.namazshikkhaapps.Activity.TwelveButton;
-import com.voltagelab.namazshikkhaapps.DrawerButton.BoiporichitiActivity;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.navigation.NavigationView;
 

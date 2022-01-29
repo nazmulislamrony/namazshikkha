@@ -15,6 +15,7 @@ import android.view.View;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.Config;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.SurahDataSource;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.adapter.SurahAdapter;
+import com.voltagelab.namazshikkhaapps.Activity.AlQuran.ayahtype.AlQuranActivity;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.ayahword.AyahWordActivity;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.intrface.OnItemClickListener;
 import com.voltagelab.namazshikkhaapps.R;
@@ -58,15 +59,17 @@ public class SurahActivity extends AppCompatActivity {
                         long surah_id = surah.getId();
                         long ayah_number = surah.getAyahNumber();
                         String surah_name = surah.getNameTranslate();
+                        String surah_name_arabic = surah.getNameArabic();
 
-                        Log.d("SurahFragment", "ID: " + surah_id + " Surah Name: " + surah_name);
+                        Log.d("SurahFragment", "ID: " + surah_id + " Surah Name: " + surah_name_arabic);
 
                         Bundle dataBundle = new Bundle();
                         dataBundle.putLong(SurahDataSource.SURAH_ID_TAG, surah_id);
                         dataBundle.putLong(SurahDataSource.SURAH_AYAH_NUMBER, ayah_number);
                         dataBundle.putString(SurahDataSource.SURAH_NAME_TRANSLATE, surah_name);
+                        dataBundle.putString(SurahDataSource.SURAH_NAME_ARABIC, surah_name_arabic);
 
-                        Intent intent = new Intent(SurahActivity.this, AyahWordActivity.class);
+                        Intent intent = new Intent(SurahActivity.this, AlQuranActivity.class);
                         intent.putExtras(dataBundle);
                         startActivity(intent);
                     }

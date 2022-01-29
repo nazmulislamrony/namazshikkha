@@ -20,7 +20,14 @@
         <item name="fontFamily">@font/solaiman_lipi</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
 
+    </style>
 
     <!--    Add font family to the toolbar for new activity button -->
     <style name="ToolbarThemeOverLay" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -35,6 +42,8 @@
     </style>
 
 
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 <!--        Collapsing toolbar text size-->
 
