@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp"
+    tools:context=".Activity.SadkaiyeJariya">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="এপের ডেভেলপমেন্ট চালিয়ে নিতে সহযোগিতা করুন"
+        android:fontFamily="@font/solaiman_lipi"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/solaiman_lipi"
+        android:text="@string/arthik_onudan"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:fontFamily="@font/solaiman_lipi"
+        android:text="আমাদের এপে কোন বিজ্ঞাপন নেই"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/solaiman_lipi"
+        android:text="@string/no_ads"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:fontFamily="@font/solaiman_lipi"
+        android:text="দান করুন"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/solaiman_lipi"
+        android:text="@string/donate_each_month"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/solaiman_lipi"
+        android:text="@string/no_gift_jakat"/>
+
+
+
+</LinearLayout>

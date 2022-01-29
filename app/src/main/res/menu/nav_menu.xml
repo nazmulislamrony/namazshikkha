@@ -26,6 +26,11 @@
             android:icon="@drawable/ic_share_black_24dp"
             android:title="শেয়ার করুন" />
 
+        <item
+            android:id="@+id/sadkaye_jariya"
+            android:icon="@drawable/ic_donate"
+            android:title="সাদকায়ে জারিয়া" />
+
     </group>
 
 

@@ -7,126 +7,115 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-
-        android:largeHeap="true"
-
         android:theme="@style/AppTheme">
-
         <activity
-            android:name="com.voltagelab.namazshikkhaapps.ContentReader.EleventhContentReader"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.Activity.EleventhButton"
+            android:name=".Activity.SadkaiyeJariya"
+            android:exported="false" />
+        <activity
+            android:name=".ContentReader.EleventhContentReader"
+            android:parentActivityName=".Activity.EleventhButton"
             android:theme="@style/AppThemeActionBar" />
         <activity
-            android:name="com.voltagelab.namazshikkhaapps.Activity.EleventhButton"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.MainActivity"
-            android:theme="@style/AppThemeActionBar"
-            />
-        <activity
-            android:name="com.voltagelab.namazshikkhaapps.ContentReader.TwelveContentReader"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.Activity.TwelveButton"
+            android:name=".Activity.EleventhButton"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppThemeActionBar" />
         <activity
-            android:name="com.voltagelab.namazshikkhaapps.Activity.TwelveButton"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.MainActivity"
-            android:theme="@style/AppThemeActionBar"
-            />
-        <activity
-            android:name="com.voltagelab.namazshikkhaapps.DrawerButton.BoiporichitiActivity"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.MainActivity"
+            android:name=".ContentReader.TwelveContentReader"
+            android:parentActivityName=".Activity.TwelveButton"
             android:theme="@style/AppThemeActionBar" />
         <activity
-            android:name="com.voltagelab.namazshikkhaapps.ContentReader.TenthContentReader"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.Activity.NinthButton"
+            android:name=".Activity.TwelveButton"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppThemeActionBar" />
         <activity
-            android:name="com.voltagelab.namazshikkhaapps.Activity.TenthButton"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.MainActivity"
-            android:theme="@style/AppThemeActionBar"
-            />
-        <activity
-            android:name="com.voltagelab.namazshikkhaapps.ContentReader.NinthContentReader"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.Activity.NinthButton"
-            android:theme="@style/AppThemeActionBar"
-            />
-        <activity
-            android:name="com.voltagelab.namazshikkhaapps.Activity.NinthButton"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.MainActivity"
-            android:theme="@style/AppThemeActionBar"
-            />
-        <activity
-            android:name="com.voltagelab.namazshikkhaapps.ContentReader.EighthContentReader"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.Activity.EighthButton"
+            android:name=".DrawerButton.BoiporichitiActivity"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppThemeActionBar" />
         <activity
-            android:name="com.voltagelab.namazshikkhaapps.Activity.EighthButton"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.MainActivity"
-            android:theme="@style/AppThemeActionBar"
-            />
-        <activity
-            android:name="com.voltagelab.namazshikkhaapps.ContentReader.SeventhContentReader"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.Activity.SeventhButton"
+            android:name=".ContentReader.TenthContentReader"
+            android:parentActivityName=".Activity.NinthButton"
             android:theme="@style/AppThemeActionBar" />
         <activity
-            android:name="com.voltagelab.namazshikkhaapps.Activity.SeventhButton"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.MainActivity"
-            android:theme="@style/AppThemeActionBar"
-            />
-        <activity
-            android:name="com.voltagelab.namazshikkhaapps.ContentReader.SixthContentReader"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.Activity.SixthButton"
+            android:name=".Activity.TenthButton"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppThemeActionBar" />
         <activity
-            android:name="com.voltagelab.namazshikkhaapps.Activity.SixthButton"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.MainActivity"
-            android:theme="@style/AppThemeActionBar"
-            />
-        <activity
-            android:name="com.voltagelab.namazshikkhaapps.ContentReader.FifthContentReader"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.Activity.FifthButton"
+            android:name=".ContentReader.NinthContentReader"
+            android:parentActivityName=".Activity.NinthButton"
             android:theme="@style/AppThemeActionBar" />
         <activity
-            android:name="com.voltagelab.namazshikkhaapps.Activity.FifthButton"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.MainActivity"
-            android:theme="@style/AppThemeActionBar"
-            />
-        <activity
-            android:name="com.voltagelab.namazshikkhaapps.ContentReader.FourthContentReader"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.Activity.FourthButton"
+            android:name=".Activity.NinthButton"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppThemeActionBar" />
         <activity
-            android:name="com.voltagelab.namazshikkhaapps.Activity.FourthButton"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.MainActivity"
-            android:theme="@style/AppThemeActionBar"
-            />
-        <activity
-            android:name="com.voltagelab.namazshikkhaapps.ContentReader.ThirdContentReader"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.Activity.ThirdButton"
+            android:name=".ContentReader.EighthContentReader"
+            android:parentActivityName=".Activity.EighthButton"
             android:theme="@style/AppThemeActionBar" />
         <activity
-            android:name="com.voltagelab.namazshikkhaapps.Activity.ThirdButton"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.MainActivity"
-            android:theme="@style/AppThemeActionBar"/>
-        <activity
-            android:name="com.voltagelab.namazshikkhaapps.ContentReader.SecondContentReader"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.Activity.SecondButton"
+            android:name=".Activity.EighthButton"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppThemeActionBar" />
         <activity
-            android:name="com.voltagelab.namazshikkhaapps.Activity.SecondButton"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.MainActivity"
-            android:theme="@style/AppThemeActionBar"/>
-        <activity
-            android:name="com.voltagelab.namazshikkhaapps.ContentReader.ContentReader"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.Activity.FirstButton"
+            android:name=".ContentReader.SeventhContentReader"
+            android:parentActivityName=".Activity.SeventhButton"
             android:theme="@style/AppThemeActionBar" />
         <activity
-            android:name="com.voltagelab.namazshikkhaapps.Activity.FirstButton"
-            android:theme="@style/AppThemeActionBar"
-            android:parentActivityName="com.voltagelab.namazshikkhaapps.MainActivity"
-            />
-
-        <activity android:name="com.voltagelab.namazshikkhaapps.MainActivity"
+            android:name=".Activity.SeventhButton"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".ContentReader.SixthContentReader"
+            android:parentActivityName=".Activity.SixthButton"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".Activity.SixthButton"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".ContentReader.FifthContentReader"
+            android:parentActivityName=".Activity.FifthButton"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".Activity.FifthButton"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".ContentReader.FourthContentReader"
+            android:parentActivityName=".Activity.FourthButton"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".Activity.FourthButton"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".ContentReader.ThirdContentReader"
+            android:parentActivityName=".Activity.ThirdButton"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".Activity.ThirdButton"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".ContentReader.SecondContentReader"
+            android:parentActivityName=".Activity.SecondButton"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".Activity.SecondButton"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".ContentReader.ContentReader"
+            android:parentActivityName=".Activity.FirstButton"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".Activity.FirstButton"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -134,9 +123,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-
     </application>
 
 </manifest>

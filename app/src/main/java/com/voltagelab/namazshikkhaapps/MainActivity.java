@@ -10,6 +10,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -24,12 +25,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.readystatesoftware.android.sqliteassethelper.BuildConfig;
 import com.voltagelab.namazshikkhaapps.Activity.EighthButton;
 import com.voltagelab.namazshikkhaapps.Activity.EleventhButton;
 import com.voltagelab.namazshikkhaapps.Activity.FifthButton;
 import com.voltagelab.namazshikkhaapps.Activity.FirstButton;
 import com.voltagelab.namazshikkhaapps.Activity.FourthButton;
 import com.voltagelab.namazshikkhaapps.Activity.NinthButton;
+import com.voltagelab.namazshikkhaapps.Activity.SadkaiyeJariya;
 import com.voltagelab.namazshikkhaapps.Activity.SecondButton;
 import com.voltagelab.namazshikkhaapps.Activity.SeventhButton;
 import com.voltagelab.namazshikkhaapps.Activity.SixthButton;
@@ -79,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
         tenth = findViewById(R.id.tenthbtn);
         eleventh = findViewById(R.id.elevenbtn);
         twelve = findViewById(R.id.twelvebtn);
-
 
 
         // -------------Collapsing toolbar Layout------------------------
@@ -174,8 +176,6 @@ public class MainActivity extends AppCompatActivity {
 
 
                     case R.id.motamotnav:
-
-
                         new AlertDialog.Builder(MainActivity.this, R.style.MyDialog)
                                 .setTitle("মতামত")
                                 .setMessage("আসসালামু আলাইকুম। এই এপ্স এ যদি কোন ভুল পরিলক্ষীত হয় অথবা আপনার কোন মূল্যবান মতামত বা পরামর্শ থাকলে আমাদের জানান। আপনার মতামত আমাদের এগিয়ে যেতে সাহায্য করবে ইনশা আল্লাহ।")
@@ -193,11 +193,15 @@ public class MainActivity extends AppCompatActivity {
                                 .show();
                         break;
 
+                    case R.id.sadkaye_jariya:
+                        startActivity(new Intent(MainActivity.this,SadkaiyeJariya.class));
+                        break;
+
                     case R.id.shareapp:
                         Intent sendIntent = new Intent();
                         sendIntent.setAction(Intent.ACTION_SEND);
                         sendIntent.putExtra(Intent.EXTRA_TEXT,
-                                "সহীহ নামাজ ও দোয়া শিক্ষা এপ ডাউনলোড করুনঃ https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID);
+                                "সহীহ নামাজ ও দোয়া শিক্ষা এপ ডাউনলোড করুনঃ https://play.google.com/store/apps/details?id=" + "com.voltagelab.namazshikkhaapps");
                         sendIntent.setType("text/plain");
                         startActivity(sendIntent);
                         break;
