@@ -8,9 +8,9 @@
         android:checkableBehavior="single">
 
         <item
-            android:id="@+id/bookPorichit"
-            android:title="বই পরিচিতি"
-            android:icon="@drawable/ic_library_books_black_24dp"/>
+            android:id="@+id/sadkaye_jariya"
+            android:icon="@drawable/ic_donate"
+            android:title="সাদকায়ে জারিয়া" />
         <item
             android:id="@+id/motamotnav"
             android:icon="@drawable/ic_chat_black_24dp"
@@ -26,10 +26,7 @@
             android:icon="@drawable/ic_share_black_24dp"
             android:title="শেয়ার করুন" />
 
-        <item
-            android:id="@+id/sadkaye_jariya"
-            android:icon="@drawable/ic_donate"
-            android:title="সাদকায়ে জারিয়া" />
+
 
     </group>
 

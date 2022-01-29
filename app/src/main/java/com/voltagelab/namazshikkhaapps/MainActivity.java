@@ -26,6 +26,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.readystatesoftware.android.sqliteassethelper.BuildConfig;
+import com.voltagelab.namazshikkhaapps.Activity.AlQuran.AlQuranActivity;
+import com.voltagelab.namazshikkhaapps.Activity.AlQuran.SurahFragment;
+import com.voltagelab.namazshikkhaapps.Activity.AlQuran.model.SurahActivity;
 import com.voltagelab.namazshikkhaapps.Activity.EighthButton;
 import com.voltagelab.namazshikkhaapps.Activity.EleventhButton;
 import com.voltagelab.namazshikkhaapps.Activity.FifthButton;
@@ -111,11 +114,14 @@ public class MainActivity extends AppCompatActivity {
         tenthButton();
         eleventhButton();
         twelveButton();
+        QuranButton();
 
 
         navigationOnClickListener();
         drawerTitleColor();
     }
+
+
 
     //  ====================== new Alert Dialog builder ===========================================
 
@@ -169,10 +175,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
-                    case R.id.bookPorichit:
-                        intent = new Intent(MainActivity.this, BoiporichitiActivity.class);
-                        startActivity(intent);
-                        break;
+//                    case R.id.bookPorichit:
+//                        intent = new Intent(MainActivity.this, BoiporichitiActivity.class);
+//                        startActivity(intent);
+//                        break;
 
 
                     case R.id.motamotnav:
@@ -398,6 +404,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, TwelveButton.class);
                 startActivity(intent);
+            }
+        });
+
+    }
+
+    private void QuranButton() {
+        Button btnAlQuran = findViewById(R.id.btn_alquran);
+        btnAlQuran.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, SurahActivity.class));
             }
         });
     }

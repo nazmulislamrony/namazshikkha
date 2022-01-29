@@ -12,14 +12,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Activity.SadkaiyeJariya"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppThemeActionBar"
+            android:name=".Activity.AlQuran.AlQuranActivity"
             android:exported="false" />
+        <activity
+            android:name=".Activity.SadkaiyeJariya"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppThemeActionBar" />
         <activity
             android:name=".ContentReader.EleventhContentReader"
             android:parentActivityName=".Activity.EleventhButton"
             android:theme="@style/AppThemeActionBar" />
+
+        <activity
+            android:name=".Activity.AlQuran.model.SurahActivity"
+            android:parentActivityName=".Activity.EleventhButton"
+            android:theme="@style/AppThemeActionBar" />
+
+        <activity
+            android:name=".Activity.AlQuran.ayahword.AyahWordActivity"
+            android:parentActivityName=".Activity.AlQuran.model.SurahActivity"
+            />
+
         <activity
             android:name=".Activity.EleventhButton"
             android:parentActivityName=".MainActivity"
