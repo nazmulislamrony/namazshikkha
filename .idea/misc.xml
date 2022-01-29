@@ -3,8 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/ic_baseline_content_copy_24.xml" value="0.3165" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/ic_donate.xml" value="0.145" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/ic_email_black_24dp.xml" value="0.202" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/ic_share_black_24dp.xml" value="0.231" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/ripple_effect.xml" value="0.145" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/sadkaiye_dialog.xml" value="0.145" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/shape_stat.xml" value="0.145" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/activity_boiporichiti.xml" value="0.1" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/activity_fourth_button.xml" value="0.1" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/activity_sadkaiye_jariya.xml" value="0.33" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/sadkaiye_jariya_dialog.xml" value="0.28055555555555556" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/menu/nav_menu.xml" value="0.3851851851851852" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.231" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.231" />

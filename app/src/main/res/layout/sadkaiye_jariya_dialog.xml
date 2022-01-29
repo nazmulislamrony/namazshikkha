@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txt_dia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/solaiman_lipi"
+        android:text="@string/payment_top"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/shape_stat"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:id="@+id/bkash_payment_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <TextView
+                android:id="@+id/qidtext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="2.5"
+                android:padding="8sp"
+                android:text="bKash (Send Money)"
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/img_bkash_number_copy"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_weight="0.5"
+                android:src="@drawable/ic_copy" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bkash_payment_heading"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:text="Account Number: 01713509349" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bkash_payment_heading"
+                android:paddingLeft="8dp"
+                android:text="Account Type: Personal" />
+
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/shape_stat"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:id="@+id/bkash_payment_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <TextView
+                android:id="@+id/qidtext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="2.5"
+                android:padding="8sp"
+                android:text="Rocket (Send Money)"
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/img_rocket_number_copy"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_weight="0.5"
+                android:src="@drawable/ic_copy" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bkash_payment_heading"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:text="Account Number: 017135093490" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bkash_payment_heading"
+                android:paddingLeft="8dp"
+                android:text="Account Type: Personal" />
+
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/shape_stat"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:id="@+id/bkash_payment_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <TextView
+                android:id="@+id/qidtext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="2.5"
+                android:padding="8sp"
+                android:text="Nagad (Send Money)"
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/img_nagad_number_copy"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_weight="0.5"
+                android:src="@drawable/ic_copy" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bkash_payment_heading"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:text="Account Number: 01713509349" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bkash_payment_heading"
+                android:paddingLeft="8dp"
+                android:text="Account Type: Personal" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

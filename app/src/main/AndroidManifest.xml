@@ -13,6 +13,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Activity.SadkaiyeJariya"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppThemeActionBar"
             android:exported="false" />
         <activity
             android:name=".ContentReader.EleventhContentReader"
