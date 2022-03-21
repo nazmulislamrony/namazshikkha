@@ -48,7 +48,7 @@
     <string name="donate_now">নিচের বাটনে ক্লিক করে সাধ্যমত প্রতি মাসে বা এককালীন আর্থিক অনুদান পাঠাতে পারেন।</string>
     <string name="payment_top">আমরা নিশ্চিত করছি যে নিচের নম্বর গুলো সঠিক এবং এসব নম্বরে অনুদান পাঠালে আমরাই রিসিভ করবো। নম্বর ব্যাক্তিগত হওয়ায় একান্ত জরুরী ব্যতিত এগুলোতে ফোন না দেয়ার অনুরোধ রইলো।</string>
 
-    <string name="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</string>
+    <string name="bismillah">بِسۡمِ اللّٰهِ الرَّحۡمٰنِ الرَّحِیۡمِ</string>
     <string name="title_activity_test">TestActivity</string>
     <string name="cancel">Cancel</string>
     <string name="rootWord">Root</string>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1046289287143",
+    "project_id": "namazshikkha-5b99d",
+    "storage_bucket": "namazshikkha-5b99d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1046289287143:android:4ba6e74820eb3725be5f42",
+        "android_client_info": {
+          "package_name": "com.voltagelab.namazshikkhaapps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1046289287143-sfsfhapnccefqlt5rklv56atp06c58qb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqD46mNdoUrYAvMTNgnEpW9PBG_dkWxjU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1046289287143-sfsfhapnccefqlt5rklv56atp06c58qb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

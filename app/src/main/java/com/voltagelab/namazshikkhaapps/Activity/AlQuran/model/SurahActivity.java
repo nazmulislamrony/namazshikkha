@@ -69,7 +69,8 @@ public class SurahActivity extends AppCompatActivity {
                         dataBundle.putString(SurahDataSource.SURAH_NAME_TRANSLATE, surah_name);
                         dataBundle.putString(SurahDataSource.SURAH_NAME_ARABIC, surah_name_arabic);
 
-                        Intent intent = new Intent(SurahActivity.this, AlQuranActivity.class);
+//                        Intent intent = new Intent(SurahActivity.this, AlQuranActivity.class);
+                        Intent intent = new Intent(SurahActivity.this, AyahWordActivity.class);
                         intent.putExtras(dataBundle);
                         startActivity(intent);
                     }
