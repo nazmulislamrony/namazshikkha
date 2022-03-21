@@ -16,7 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,7 +24,7 @@ import com.voltagelab.namazshikkhaapps.R;
 import java.util.ArrayList;
 
 
-public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
+public class VerseAdapter extends RecyclerView.Adapter<VerseAdapter.ViewHolder> {
 
     private Context mcontext;
 
@@ -33,17 +32,18 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     private Typeface faceArabic;
 
-    public ArrayList<AyatDet> ayatlist = new ArrayList<>();
+    public ArrayList<AyatDetails> ayatlist = new ArrayList<>();
 
-    int surahId;
 
     SharedPreferences pre;
+    long surahId;
 
 
 
-    public MainAdapter(Context context, ArrayList<AyatDet> aylist) {
+    public VerseAdapter(Context context, ArrayList<AyatDetails> aylist, long surahId) {
         this.mcontext = context;
         this.ayatlist = aylist;
+        this.surahId = surahId;
         faceArabic = Typeface.createFromAsset(context.getAssets(), "fonts/noorehuda.ttf");
         pre = context.getSharedPreferences("fontsize",MODE_PRIVATE);
 
@@ -59,45 +59,30 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-
-
-        final AyatDet ayat = ayatlist.get(position);
-
-        surahId = ayat.getSurahId();
-
-        int pos=position;
-
-        if (surahId == 9) {
-            pos = position + 1;
-        }
-
-        final AyatDet ayatm;
-        if (pos == ayatlist.size()){
-            ayatm = ayatlist.get(pos-1);
+        final AyatDetails ayat = ayatlist.get(position);
+        if (surahId==1) {
+            holder.txtversenumber.setText(position+1+"");
         } else {
-            ayatm = ayatlist.get(pos);
+            holder.txtversenumber.setText(ayat.getVerse_id());
         }
-
         holder.ayat.setTypeface(faceArabic);
-        holder.ayat.setText(ayatm.getAyatdet());
+        holder.ayat.setText(ayat.getQuran_quotes());
+        holder.ayattranslate.setText(ayat.getQuran_translation());
+
 
         holder.ayat.setTextSize(TypedValue.COMPLEX_UNIT_SP,pre.getInt("size",30));
 
-        String[] seperated = ayatm.getAyatdet().split(" ");
+        String[] seperated = ayat.getQuran_quotes().split(" ");
         String numbering = "";
 
         for (int idsad = 0; idsad < seperated.length; idsad++) {
             Log.d("checkstrinarray", seperated[idsad]);
-            String tempspace = ayatm.getAyatdet().replace("[\\u0600-\\u06FF]", " ");
+            String tempspace = ayat.getQuran_quotes().replace("[\\u0600-\\u06FF]", " ");
             numbering  = tempspace;
             numbering = numbering + idsad;
         }
-
         Spannable spannable = new SpannableString(numbering);
-
         spannable.setSpan(new ForegroundColorSpan(Color.RED), 0, 2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-//        holder.bottom_desc.setText(spannable, TextView.BufferType.SPANNABLE);
 
     }
 
@@ -111,6 +96,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView ayat;
+        TextView ayattranslate;
+        TextView txtversenumber;
         TextView bottom_desc;
         CardView cv;
         View mview;
@@ -118,6 +105,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             super(itemView);
             cv = (CardView) itemView.findViewById(R.id.cardViewmain);
             ayat = (TextView) itemView.findViewById(R.id.ayatmain);
+            ayattranslate = (TextView) itemView.findViewById(R.id.txt_bangla_ayat);
+            txtversenumber = (TextView) itemView.findViewById(R.id.txt_verse_numbe);
 
 
 //            bottom_desc = (TextView) itemView.findViewById(R.id.bottom_desc);

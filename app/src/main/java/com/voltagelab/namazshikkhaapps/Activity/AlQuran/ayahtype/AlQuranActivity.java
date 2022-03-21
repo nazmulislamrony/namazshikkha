@@ -24,10 +24,6 @@ import java.util.ArrayList;
 public class AlQuranActivity extends AppCompatActivity {
 
     RecyclerView rvmain;
-    TextView tooltext1, tooltext2;
-    private ArrayList<String> ayatlist = new ArrayList<>();
-    private ArrayList<String> ayatidslist = new ArrayList<>();
-    private ArrayList<AyatDet> ayatdetlist = new ArrayList<>();
     public static String surahName;
     public LinearLayoutManager layoutManager;
 
@@ -39,14 +35,8 @@ public class AlQuranActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
-
         rvmain =  findViewById(R.id.rvmain);
-//        tooltext1 = findViewById(R.id.tooltext1);
-//        tooltext2 = findViewById(R.id.tooltext2);
         layoutManager = new LinearLayoutManager(this);
-
         ActionBar actionBar;
         actionBar = getSupportActionBar();
 
@@ -73,22 +63,16 @@ public class AlQuranActivity extends AppCompatActivity {
 
         DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
         databaseAccess.open();
-        ayatlist = databaseAccess.getQuotes((int) surahid);
-        ayatidslist = databaseAccess.getQuotesId((int) surahid);
-        databaseAccess.close();
-        Typeface faceArab = Typeface.createFromAsset(this.getAssets(), "fonts/noorehuda.ttf");
-//        tooltext1.setTypeface(faceArab);
-//        tooltext1.setText(surahNameArabic);
-//        tooltext2.setText(surahName);
 
-        ayatlist.add(0, "بِسۡمِ اللّٰهِ الرَّحۡمٰنِ الرَّحِیۡمِ");
-        ayatidslist.add(0, "0-0");
 
-        for (int i = 0; i < ayatlist.size(); i++) {
-            ayatdetlist.add(new AyatDet(ayatlist.get(i), (int) surahid, 0, "", ""));
+        ArrayList<AyatDetails> ayatDetails = new ArrayList<>();
+        ayatDetails = databaseAccess.getAyahDetails((int) surahid);
+
+        for (int i = 0; i < ayatDetails.size(); i++) {
+            Log.d("check_data","data: "+ayatDetails.get(i).quran_quotes);
         }
 
-       MainAdapter adapter = new MainAdapter(this, ayatdetlist);
+        VerseAdapter adapter = new VerseAdapter(this, ayatDetails, surahid);
         rvmain.setAdapter(adapter);
         rvmain.setLayoutManager(layoutManager);
 

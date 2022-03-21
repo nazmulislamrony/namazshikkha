@@ -32,6 +32,28 @@
             android:textSize="30sp"
             android:textStyle="bold" />
 
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_bangla_ayat"
+                android:fontFamily="@font/solaiman_lipi"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:text="বাংলা ফন্ট"
+                android:gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/solaiman_lipi"
+            android:id="@+id/txt_verse_numbe"
+            android:layout_marginLeft="5dp"
+            android:text="১"/>
+
+
         <!--        <TextView-->
         <!--            android:id="@+id/bottom_desc"-->
         <!--            android:layout_width="match_parent"-->

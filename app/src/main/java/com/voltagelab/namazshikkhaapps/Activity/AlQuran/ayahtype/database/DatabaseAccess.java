@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.DatabaseHelper;
+import com.voltagelab.namazshikkhaapps.Activity.AlQuran.ayahtype.AyatDet;
+import com.voltagelab.namazshikkhaapps.Activity.AlQuran.ayahtype.AyatDetails;
 
 import java.util.ArrayList;
 
@@ -60,12 +62,23 @@ public class DatabaseAccess {
      *
      * @return a List of quotes
      */
-    public ArrayList<String> getQuotes(int surahId) {
-        ArrayList<String> list = new ArrayList<>();
-        Cursor cursor = database.rawQuery("select arabic_indopak from quran_verses where sura_id = '" + surahId + "'", null);
+
+
+    public ArrayList<AyatDetails> getAyahDetails(int surahId) {
+        ArrayList<AyatDetails> list = new ArrayList<>();
+        Cursor cursor = database.rawQuery("select arabic_indopak, verse_id, bn_muhi from quran_verses where sura_id = '" + surahId + "'", null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            list.add(cursor.getString(0));
+            String arabic = cursor.getString(0);
+            String verseid = cursor.getString(1);
+            String bn_muhi = cursor.getString(2);
+            AyatDetails ayatDetails = new AyatDetails(verseid,arabic,bn_muhi);
+
+            if (surahId!=9 && verseid.equals("1")) {
+                list.add(0,new AyatDetails("","بِسۡمِ اللّٰهِ الرَّحۡمٰنِ الرَّحِیۡمِ", "শুরু করছি আল্লাহর নামে যিনি পরম করুণাময়, অতি দয়ালু।"));
+            }
+
+            list.add(ayatDetails);
             cursor.moveToNext();
         }
         cursor.close();
@@ -76,18 +89,8 @@ public class DatabaseAccess {
 
 
 
-    //==========================for getting question id of sura mode=================================================================================================
-    public ArrayList<String> getQuotesId(int surahId) {
-        ArrayList<String> list = new ArrayList<>();
-        Cursor cursor = database.rawQuery("select sura_id,verse_id from quran_verses where sura_id = '" + surahId + "'", null);
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            list.add(cursor.getString(0) + "-" + cursor.getString(1));
-            cursor.moveToNext();
-        }
-        cursor.close();
-        return list;
-    }
+
+
 
 
 
