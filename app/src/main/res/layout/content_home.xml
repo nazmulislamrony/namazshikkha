@@ -114,45 +114,6 @@
 
             </LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:padding="20dp"
-                android:background="@drawable/shape_stat"
-                android:layout_marginBottom="20dp"
-                android:orientation="vertical">
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:text="বাংলা ফন্ট চেক"
-                        android:id="@+id/fist_hint"
-                        android:fontFamily="@font/solaiman_lipi"
-                        android:layout_height="20dp"/>
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:text="বাংলা ফন্ট চেক"
-                            android:layout_below="@+id/fist_hint"
-                            android:layout_marginTop="5dp"
-                            android:fontFamily="@font/solaiman_lipi"
-                            android:layout_height="20dp"/>
-
-                <TextView
-                    android:text="DONATE"
-                    android:layout_marginTop="20dp"
-                    android:layout_width="wrap_content"
-                    android:id="@+id/donate_button"
-                    android:textColor="@color/colorPrimary"
-                    android:textStyle="bold"
-                    android:layout_alignParentRight="true"
-                    android:layout_height="wrap_content"/>
-
-
-            </RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="135dp"
@@ -348,6 +309,49 @@
 
 
             </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="10dp"
+                android:id="@+id/rv_sadkaye_jariya"
+                android:background="@drawable/shape_stat"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/fist_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="16sp"
+                    android:fontFamily="@font/solaiman_lipi"
+                    android:text="সাদকায়ে জারিয়ায় অংশগ্রহণ করুন" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text=" রমজানে দানের গুরুত্ব অনেক বেশি, এপের ডেভেলপমেন্ট কে চালিয়ে নিতে সহযোগিতা করুন"
+                    android:layout_below="@+id/fist_hint"
+                    android:layout_marginTop="10dp"
+                    android:textSize="8sp"
+                    android:fontFamily="@font/solaiman_lipi"
+                    android:layout_height="20dp"/>
+
+                <TextView
+                    android:id="@+id/donate_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="40dp"
+                    android:text="DONATE"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+
+            </RelativeLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"

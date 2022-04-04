@@ -7,22 +7,94 @@
     android:id="@+id/btn_start"
     tools:context=".Activity.Tasbih.TasbihActivity">
 
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+            >
+
+
+
+
+
+                    <TextView
+                        android:id="@+id/tooltext2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="5dp"
+                        android:gravity="center"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/solaiman_lipi"
+                        android:paddingTop="1dp"
+                        android:layout_gravity="center"
+                        android:text="তাসবিহ"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp" />
+
+
+                <Button
+                    android:id="@+id/img_vibrator"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/vibrate" />
+
+
+            </RelativeLayout>
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <ImageView
         android:layout_width="wrap_content"
-        android:src="@drawable/tasbihimgs"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_height="wrap_content"/>
+        android:src="@drawable/tasbihimgs" />
 
     <TextView
+        android:id="@+id/tasbih_count"
         style="@style/TextAppearance.AppCompat.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tasbih_count"
         android:layout_centerInParent="true"
-        android:paddingBottom="40dp"
-        android:text="100"
+        android:paddingBottom="45dp"
+        android:text="0"
         android:textColor="@color/colorPrimary"
-        android:textSize="30sp" />
+        android:textSize="40sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="check"
+        android:layout_alignParentEnd="true"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_above="@+id/btn_reset"
+        android:textAlignment="center"
+        android:layout_marginBottom="20dp"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/solaiman_lipi"
+        android:text="@string/tasbih_count_txt"
+        android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/btn_reset"
@@ -30,8 +102,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
+        android:textStyle="bold"
+        android:textSize="20sp"
         android:backgroundTint="@color/colorPrimary"
-        android:text="Reset"
+        android:text="পুনরায় শুরু করুন"
+        android:fontFamily="@font/solaiman_lipi"
         android:textColor="#fff" />
 
 </RelativeLayout>

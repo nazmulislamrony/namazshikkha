@@ -23,6 +23,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.model.SurahActivity;
 import com.voltagelab.namazshikkhaapps.Activity.EighthButton;
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     Button first, second, third, fourth, fifth, sixth, seventh, eight, ninthBtn, tenth, eleventh, twelve, tasbihBtn;
+    RelativeLayout rvSadkayeJariya;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar_top);
         drawerLayout = findViewById(R.id.drawer);
         navigationView = findViewById(R.id.nav_view);
+        rvSadkayeJariya = findViewById(R.id.rv_sadkaye_jariya);
 
 
         first = findViewById(R.id.firstbtn);
@@ -113,10 +116,20 @@ public class MainActivity extends AppCompatActivity {
         twelveButton();
         QuranButton();
         tasbihBtn();
+        sadkiyeJariya();
 
 
         navigationOnClickListener();
         drawerTitleColor();
+    }
+
+    private void sadkiyeJariya() {
+        rvSadkayeJariya.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, SadkaiyeJariya.class));
+            }
+        });
     }
 
     private void tasbihBtn() {

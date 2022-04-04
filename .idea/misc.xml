@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/custom_ripple.xml" value="0.202" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/ic_baseline_content_copy_24.xml" value="0.3165" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/ic_baseline_vibration_24.xml" value="0.3155" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/ic_donate.xml" value="0.145" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/ic_email_black_24dp.xml" value="0.202" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/ic_share_black_24dp.xml" value="0.231" />
@@ -26,9 +27,10 @@
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/activity_main2.xml" value="0.5395833333333333" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/activity_sadkaiye_jariya.xml" value="0.33" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/activity_surah.xml" value="0.31296296296296294" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/activity_tasbih.xml" value="0.23425925925925925" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/ayat_main_sample.xml" value="0.30925925925925923" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/collapsing_toolbar.xml" value="0.40636042402826855" />
-        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/content_home.xml" value="0.5" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/content_home.xml" value="0.3853564547206166" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/corpus_layout.xml" value="0.1" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/fragment_ayah_word.xml" value="0.1" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/fragment_surah.xml" value="0.31296296296296294" />
