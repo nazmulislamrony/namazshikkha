@@ -32,6 +32,7 @@ import com.voltagelab.namazshikkhaapps.Activity.FifthButton;
 import com.voltagelab.namazshikkhaapps.Activity.FirstButton;
 import com.voltagelab.namazshikkhaapps.Activity.FourthButton;
 import com.voltagelab.namazshikkhaapps.Activity.NinthButton;
+import com.voltagelab.namazshikkhaapps.Activity.NintyNineNames.NintyNineNames;
 import com.voltagelab.namazshikkhaapps.Activity.SadkaiyeJariya;
 import com.voltagelab.namazshikkhaapps.Activity.SecondButton;
 import com.voltagelab.namazshikkhaapps.Activity.SeventhButton;
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     Intent intent;
 
 
-    Button first, second, third, fourth, fifth, sixth, seventh, eight, ninthBtn, tenth, eleventh, twelve, tasbihBtn;
+    Button first, second, third, fourth, fifth, sixth, seventh, eight, ninthBtn, tenth, eleventh, twelve, tasbihBtn, all_names_of_creator;
     RelativeLayout rvSadkayeJariya;
 
     @Override
@@ -85,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         eleventh = findViewById(R.id.elevenbtn);
         twelve = findViewById(R.id.twelvebtn);
         tasbihBtn = findViewById(R.id.tasbihbtn);
+        all_names_of_creator = findViewById(R.id.names_of_creator);
 
 
         // -------------Collapsing toolbar Layout------------------------
@@ -117,10 +119,20 @@ public class MainActivity extends AppCompatActivity {
         QuranButton();
         tasbihBtn();
         sadkiyeJariya();
+        namesOfCreator();
 
 
         navigationOnClickListener();
         drawerTitleColor();
+    }
+
+    private void namesOfCreator() {
+        all_names_of_creator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, NintyNineNames.class));
+            }
+        });
     }
 
     private void sadkiyeJariya() {
