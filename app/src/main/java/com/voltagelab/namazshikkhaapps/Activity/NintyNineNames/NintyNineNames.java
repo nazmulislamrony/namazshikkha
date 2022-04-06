@@ -1,6 +1,8 @@
 package com.voltagelab.namazshikkhaapps.Activity.NintyNineNames;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -18,16 +20,21 @@ import java.util.HashMap;
 
 public class NintyNineNames extends AppCompatActivity {
 
+    NintyNineAdapters nintyNineAdapters;
+    RecyclerView rvnintynine;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ninty_nine_names);
+        rvnintynine = findViewById(R.id.rvnintynine);
 
         getAllJsonData();
 
     }
 
     private void getAllJsonData() {
+        ArrayList<NintyNimesModel> nintyNineList = new ArrayList<>();
         try {
             JSONObject obj = new JSONObject(loadJSONFromAsset());
             JSONArray m_jArry = obj.getJSONArray("results");
@@ -40,16 +47,31 @@ public class NintyNineNames extends AppCompatActivity {
                 String formula_value = jo_inside.getString("id");
                 String url_value = jo_inside.getString("eng_name");
 
+                String id = jo_inside.getString("id");
+                String icon = jo_inside.getString("icon");
+                String eng_name = jo_inside.getString("eng_name");
+                String bn_name = jo_inside.getString("bn_name");
+                String bn_meaning = jo_inside.getString("bn_meaning");
+                String eng_meaning = jo_inside.getString("eng_meaning");
+                String explanation = jo_inside.getString("explanation");
+                String fazilat = jo_inside.getString("fazilat");
                 //Add your values in your `ArrayList` as below:
-                m_li = new HashMap<String, String>();
-                m_li.put("id", formula_value);
-                m_li.put("eng_name", url_value);
-
-                formList.add(m_li);
+                NintyNimesModel nintyNimesModel = new NintyNimesModel(id,icon, eng_name, bn_name,bn_meaning,eng_meaning,explanation,fazilat);
+                nintyNineList.add(nintyNimesModel);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+
+        nintyNineAdapters = new NintyNineAdapters(nintyNineList, this);
+
+        rvnintynine.setAdapter(nintyNineAdapters);
+
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
+        rvnintynine.setLayoutManager(mLayoutManager);
+
+        Log.d("testdata","data");
     }
 
 

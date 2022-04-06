@@ -16,7 +16,6 @@ import com.voltagelab.namazshikkhaapps.Activity.AlQuran.Config;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.SurahDataSource;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.adapter.SurahAdapter;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.ayahtype.AlQuranActivity;
-import com.voltagelab.namazshikkhaapps.Activity.AlQuran.ayahword.AyahWordActivity;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.intrface.OnItemClickListener;
 import com.voltagelab.namazshikkhaapps.R;
 

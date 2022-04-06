@@ -25,6 +25,7 @@
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/activity_fourth_button.xml" value="0.1" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/activity_main2.xml" value="0.5395833333333333" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/activity_ninty_nine_names.xml" value="0.3125" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/activity_sadkaiye_jariya.xml" value="0.33" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/activity_surah.xml" value="0.31296296296296294" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/activity_tasbih.xml" value="0.23425925925925925" />
@@ -32,8 +33,15 @@
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/collapsing_toolbar.xml" value="0.40636042402826855" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/content_home.xml" value="0.3853564547206166" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/corpus_layout.xml" value="0.1" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/expandable_row.xml" value="0.4283154121863799" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/fragment_ayah_word.xml" value="0.1" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/fragment_surah.xml" value="0.31296296296296294" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/list_item_genre.xml" value="0.5175925925925926" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/list_view.xml" value="0.55" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/list_view_nintynine.xml" value="0.4536256323777403" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/myrow.xml" value="0.55" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/nav_header.xml" value="0.55" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/purosh_namaz.xml" value="0.55" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/row_ayah_word.xml" value="0.31296296296296294" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/row_surah.xml" value="0.31296296296296294" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/sadkaiye_jariya_dialog.xml" value="0.28055555555555556" />

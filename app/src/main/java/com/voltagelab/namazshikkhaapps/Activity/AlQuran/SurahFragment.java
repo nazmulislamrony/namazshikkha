@@ -1,7 +1,6 @@
 package com.voltagelab.namazshikkhaapps.Activity.AlQuran;
 
 import android.app.Fragment;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;

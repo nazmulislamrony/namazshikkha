@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/custom_ripple"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/linearLayout"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/textListing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/solaiman_lipi"
+            android:padding="15dp"
+            android:text="test"
+            android:textColor="#108E0D"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#fff"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/expandable_layout"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/nintyninechild"
+            android:text="hello"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>
