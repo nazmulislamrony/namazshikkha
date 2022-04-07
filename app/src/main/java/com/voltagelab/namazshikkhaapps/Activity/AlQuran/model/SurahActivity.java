@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class SurahActivity extends AppCompatActivity {
 
     static String lang;
-    private ArrayList<Surah> surahArrayList;
+    private ArrayList<SurahModel> surahModelArrayList;
     private RecyclerView mRecyclerView;
     private SurahAdapter surahAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -38,8 +38,8 @@ public class SurahActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.recycler_surah_view);
 
 
-        surahArrayList = getSurahArrayList();
-        surahAdapter = new SurahAdapter(surahArrayList, this);
+        surahModelArrayList = getSurahArrayList();
+        surahAdapter = new SurahAdapter(surahModelArrayList, this);
 
         mRecyclerView.setAdapter(surahAdapter);
 
@@ -53,12 +53,12 @@ public class SurahActivity extends AppCompatActivity {
                 new OnItemClickListener() {
                     @Override
                     public void onItemClick(View v, int position) {
-                        Surah surah = (Surah) surahAdapter.getItem(position);
+                        SurahModel surahModel = (SurahModel) surahAdapter.getItem(position);
 
-                        long surah_id = surah.getId();
-                        long ayah_number = surah.getAyahNumber();
-                        String surah_name = surah.getNameTranslate();
-                        String surah_name_arabic = surah.getNameArabic();
+                        long surah_id = surahModel.getId();
+                        long ayah_number = surahModel.getAyahNumber();
+                        String surah_name = surahModel.getNameTranslate();
+                        String surah_name_arabic = surahModel.getNameArabic();
 
                         Log.d("SurahFragment", "ID: " + surah_id + " Surah Name: " + surah_name_arabic);
 
@@ -75,10 +75,10 @@ public class SurahActivity extends AppCompatActivity {
                     }
                 });
     }
-    private ArrayList<Surah> getSurahArrayList() {
-        ArrayList<Surah> surahArrayList = new ArrayList<Surah>();
+    private ArrayList<SurahModel> getSurahArrayList() {
+        ArrayList<SurahModel> surahModelArrayList = new ArrayList<SurahModel>();
         SurahDataSource surahDataSource = new SurahDataSource(this);
-        surahArrayList = surahDataSource.getBanglaSurahArrayList();
+        surahModelArrayList = surahDataSource.getBanglaSurahArrayList();
 //        switch (lang) {
 //            case Config.LANG_BN:
 //                surahArrayList = surahDataSource.getBanglaSurahArrayList();
@@ -91,6 +91,6 @@ public class SurahActivity extends AppCompatActivity {
 //                break;
 //        }
 
-        return surahArrayList;
+        return surahModelArrayList;
     }
 }

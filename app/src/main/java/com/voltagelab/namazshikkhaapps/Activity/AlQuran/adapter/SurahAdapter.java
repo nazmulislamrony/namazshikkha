@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.intrface.OnItemClickListener;
-import com.voltagelab.namazshikkhaapps.Activity.AlQuran.model.Surah;
+import com.voltagelab.namazshikkhaapps.Activity.AlQuran.model.SurahModel;
 import com.voltagelab.namazshikkhaapps.R;
 
 import java.util.ArrayList;
@@ -21,13 +21,13 @@ import java.util.ArrayList;
 public class SurahAdapter extends RecyclerView.Adapter<SurahAdapter.SurahViewHolder> {
 
   OnItemClickListener mItemClickListener;
-  private ArrayList<Surah> surahArrayList;
+  private ArrayList<SurahModel> surahModelArrayList;
   private Context context;
   private Typeface faceName;
 
 
-  public SurahAdapter(ArrayList<Surah> surahArrayList, Context context) {
-    this.surahArrayList = surahArrayList;
+  public SurahAdapter(ArrayList<SurahModel> surahModelArrayList, Context context) {
+    this.surahModelArrayList = surahModelArrayList;
     this.context = context;
     faceName = Typeface.createFromAsset(context.getAssets(), "fonts/noorehuda.ttf");
   }
@@ -44,10 +44,10 @@ public class SurahAdapter extends RecyclerView.Adapter<SurahAdapter.SurahViewHol
   @Override
   public void onBindViewHolder(SurahViewHolder holder, int position) {
 
-    Surah surah = surahArrayList.get(position);
-    holder.surah_idTextView.setText(surah.getId() + ".");
-    holder.translateTextView.setText(surah.getNameTranslate());
-    holder.arabicTextView.setText(surah.getNameArabic());
+    SurahModel surahModel = surahModelArrayList.get(position);
+    holder.surah_idTextView.setText(surahModel.getId() + ".");
+    holder.translateTextView.setText(surahModel.getNameTranslate());
+    holder.arabicTextView.setText(surahModel.getNameArabic());
     holder.arabicTextView.setTypeface(faceName);
 
 //    if (position % 2 == 0) {
@@ -62,17 +62,17 @@ public class SurahAdapter extends RecyclerView.Adapter<SurahAdapter.SurahViewHol
   public long getItemId(int position) {
     //  Surah surah = surahArrayList.get(position);
 
-    return surahArrayList.get(position).getId();
+    return surahModelArrayList.get(position).getId();
   }
 
   public Object getItem(int position) {
 
-    return surahArrayList.get(position);
+    return surahModelArrayList.get(position);
   }
 
   @Override
   public int getItemCount() {
-    return surahArrayList.size();
+    return surahModelArrayList.size();
   }
 
   public void SetOnItemClickListener(final OnItemClickListener mItemClickListener) {

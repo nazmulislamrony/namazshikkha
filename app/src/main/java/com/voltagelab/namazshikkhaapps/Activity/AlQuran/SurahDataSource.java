@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.voltagelab.namazshikkhaapps.Activity.AlQuran.model.Surah;
+import com.voltagelab.namazshikkhaapps.Activity.AlQuran.model.SurahModel;
 
 import java.util.ArrayList;
 
@@ -30,9 +30,9 @@ public class SurahDataSource {
     databaseHelper = new DatabaseHelper(context);
   }
 
-  public ArrayList<Surah> getEnglishSurahArrayList() {
+  public ArrayList<SurahModel> getEnglishSurahArrayList() {
 
-    ArrayList<Surah> surahArrayList = new ArrayList<>();
+    ArrayList<SurahModel> surahModelArrayList = new ArrayList<>();
     SQLiteDatabase db = databaseHelper.getReadableDatabase();
     cursor =
         db.rawQuery(
@@ -41,24 +41,24 @@ public class SurahDataSource {
 
     cursor.moveToFirst();
     while (!cursor.isAfterLast()) {
-      Surah surah = new Surah();
-      surah.setId(cursor.getLong(cursor.getColumnIndexOrThrow(SURAH_ID)));
-      surah.setNameArabic(cursor.getString(cursor.getColumnIndexOrThrow(SURAH_NAME_ARABIC)));
-      surah.setNameTranslate(cursor.getString(cursor.getColumnIndexOrThrow(SURAH_NAME_ENGLISH)));
-      surah.setAyahNumber(cursor.getLong(cursor.getColumnIndexOrThrow(SURAH_AYAH_NUMBER)));
-      surahArrayList.add(surah);
+      SurahModel surahModel = new SurahModel();
+      surahModel.setId(cursor.getLong(cursor.getColumnIndexOrThrow(SURAH_ID)));
+      surahModel.setNameArabic(cursor.getString(cursor.getColumnIndexOrThrow(SURAH_NAME_ARABIC)));
+      surahModel.setNameTranslate(cursor.getString(cursor.getColumnIndexOrThrow(SURAH_NAME_ENGLISH)));
+      surahModel.setAyahNumber(cursor.getLong(cursor.getColumnIndexOrThrow(SURAH_AYAH_NUMBER)));
+      surahModelArrayList.add(surahModel);
       cursor.moveToNext();
     }
     cursor.close();
     db.close();
-    return surahArrayList;
+    return surahModelArrayList;
   }
 
-  public ArrayList<Surah> getBanglaSurahArrayList() {
+  public ArrayList<SurahModel> getBanglaSurahArrayList() {
 
     long banglaStart = 28;
 
-    ArrayList<Surah> surahArrayList = new ArrayList<>();
+    ArrayList<SurahModel> surahModelArrayList = new ArrayList<>();
     SQLiteDatabase db = databaseHelper.getReadableDatabase();
     cursor =
         db.rawQuery(
@@ -67,22 +67,22 @@ public class SurahDataSource {
 
     cursor.moveToFirst();
     while (!cursor.isAfterLast()) {
-      Surah surah = new Surah();
-      surah.setId(cursor.getLong(cursor.getColumnIndexOrThrow(SURAH_ID)));
-      surah.setNameArabic(cursor.getString(cursor.getColumnIndexOrThrow(SURAH_NAME_ARABIC)));
-      surah.setNameTranslate(cursor.getString(cursor.getColumnIndexOrThrow(SURAH_NAME_BANGLA)));
-      surah.setAyahNumber(cursor.getLong(cursor.getColumnIndexOrThrow(SURAH_AYAH_NUMBER)));
-      surahArrayList.add(surah);
+      SurahModel surahModel = new SurahModel();
+      surahModel.setId(cursor.getLong(cursor.getColumnIndexOrThrow(SURAH_ID)));
+      surahModel.setNameArabic(cursor.getString(cursor.getColumnIndexOrThrow(SURAH_NAME_ARABIC)));
+      surahModel.setNameTranslate(cursor.getString(cursor.getColumnIndexOrThrow(SURAH_NAME_BANGLA)));
+      surahModel.setAyahNumber(cursor.getLong(cursor.getColumnIndexOrThrow(SURAH_AYAH_NUMBER)));
+      surahModelArrayList.add(surahModel);
       cursor.moveToNext();
     }
     cursor.close();
     db.close();
-    return surahArrayList;
+    return surahModelArrayList;
   }
 
-  public ArrayList<Surah> getIndonesianSurahArrayList() {
+  public ArrayList<SurahModel> getIndonesianSurahArrayList() {
 
-    ArrayList<Surah> surahArrayList = new ArrayList<>();
+    ArrayList<SurahModel> surahModelArrayList = new ArrayList<>();
     SQLiteDatabase db = databaseHelper.getReadableDatabase();
     cursor =
         db.rawQuery(
@@ -91,17 +91,17 @@ public class SurahDataSource {
 
     cursor.moveToFirst();
     while (!cursor.isAfterLast()) {
-      Surah surah = new Surah();
-      surah.setId(cursor.getLong(cursor.getColumnIndexOrThrow(SURAH_ID)));
-      surah.setNameArabic(cursor.getString(cursor.getColumnIndexOrThrow(SURAH_NAME_ARABIC)));
-      surah.setNameTranslate(cursor.getString(cursor.getColumnIndexOrThrow(SURAH_ARTI_NAMA)));
-      surah.setAyahNumber(cursor.getLong(cursor.getColumnIndexOrThrow(SURAH_AYAH_NUMBER)));
-      surahArrayList.add(surah);
+      SurahModel surahModel = new SurahModel();
+      surahModel.setId(cursor.getLong(cursor.getColumnIndexOrThrow(SURAH_ID)));
+      surahModel.setNameArabic(cursor.getString(cursor.getColumnIndexOrThrow(SURAH_NAME_ARABIC)));
+      surahModel.setNameTranslate(cursor.getString(cursor.getColumnIndexOrThrow(SURAH_ARTI_NAMA)));
+      surahModel.setAyahNumber(cursor.getLong(cursor.getColumnIndexOrThrow(SURAH_AYAH_NUMBER)));
+      surahModelArrayList.add(surahModel);
       cursor.moveToNext();
     }
     cursor.close();
     db.close();
-    return surahArrayList;
+    return surahModelArrayList;
   }
 
 

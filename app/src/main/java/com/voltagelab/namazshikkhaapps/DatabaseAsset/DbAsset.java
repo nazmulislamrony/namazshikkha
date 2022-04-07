@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 
+import com.voltagelab.namazshikkhaapps.Activity.NintyNineNames.NintyNimesModel;
 import com.voltagelab.namazshikkhaapps.Model.ContentStore;
 import com.voltagelab.namazshikkhaapps.Model.EighthStore;
 import com.voltagelab.namazshikkhaapps.Model.EleventhStore;
@@ -24,12 +25,26 @@ import java.util.List;
 
 public class DbAsset extends SQLiteAssetHelper {
 
-    private static String DATABASE_NAME="namaz-upgrade_2-3.db";
-    private static int VERSION_NUMBER=3;
+    private static String DATABASE_NAME="namaz-upgrade_3-4.db";
+    private static int VERSION_NUMBER=4;
+    private static Cursor cursor;
+
 
     public DbAsset(Context context) {
         super(context, DATABASE_NAME, null, VERSION_NUMBER);
     }
+
+    public  static String ID = "id";
+    public  static String AR_NAME = "ar_name";
+    public  static String EN_NAME = "en_name";
+    public  static String BN_NAME = "bn_name";
+    public  static String BN_MEANING = "bn_meaning";
+    public  static String EN_MEANING = "en_meaning";
+    public  static String FAZILAT_BN = "fazilat_bn";
+    public  static String FAZILAT_EN = "fazilat_en";
+    public  static String REFERENCES = "reference";
+
+
 
     //------------- Function to get all data from database---------------------
 
@@ -338,6 +353,34 @@ public class DbAsset extends SQLiteAssetHelper {
 
         }
         return result;
+    }
+
+    public ArrayList<NintyNimesModel> getAllNames() {
+        SQLiteDatabase db=getReadableDatabase();
+        ArrayList<NintyNimesModel> nintyNimesModelArrayList = new ArrayList<>();
+        cursor =
+                db.rawQuery(
+                        "SELECT * FROM nintyninenames",
+                        null);
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            NintyNimesModel nintyNimesModel = new NintyNimesModel();
+            nintyNimesModel.setId(cursor.getString(cursor.getColumnIndexOrThrow(ID)));
+            nintyNimesModel.setAr_name(cursor.getString(cursor.getColumnIndexOrThrow(AR_NAME)));
+            nintyNimesModel.setEn_name(cursor.getString(cursor.getColumnIndexOrThrow(EN_NAME)));
+            nintyNimesModel.setBn_name(cursor.getString(cursor.getColumnIndexOrThrow(BN_NAME)));
+            nintyNimesModel.setBn_meaning(cursor.getString(cursor.getColumnIndexOrThrow(BN_MEANING)));
+            nintyNimesModel.setEn_meaning(cursor.getString(cursor.getColumnIndexOrThrow(EN_MEANING)));
+            nintyNimesModel.setFazilat_bn(cursor.getString(cursor.getColumnIndexOrThrow(FAZILAT_BN)));
+            nintyNimesModel.setFazilat_en(cursor.getString(cursor.getColumnIndexOrThrow(FAZILAT_EN)));
+            nintyNimesModel.setReference(cursor.getString(cursor.getColumnIndexOrThrow(REFERENCES)));
+            nintyNimesModelArrayList.add(nintyNimesModel);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        db.close();
+        return nintyNimesModelArrayList;
     }
 
 

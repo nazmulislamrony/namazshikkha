@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.intrface.OnItemClickListener;
 import com.voltagelab.namazshikkhaapps.Activity.NintyNineNames.NintyNimesModel;
+import com.voltagelab.namazshikkhaapps.EnglishToBangla;
 import com.voltagelab.namazshikkhaapps.R;
 
 import java.util.ArrayList;
@@ -26,21 +27,18 @@ public class NintyNineAdapters extends RecyclerView.Adapter<NintyNineAdapters.Su
   private ArrayList<NintyNimesModel> nintyNineList;
   private Context context;
   private Typeface faceName;
-
+  EnglishToBangla englishToBangla;
 
   public NintyNineAdapters(ArrayList<NintyNimesModel> nintyNineLists, Context context) {
     this.nintyNineList = nintyNineLists;
     this.context = context;
+    englishToBangla = new EnglishToBangla();
   }
 
   @Override
   public SurahViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
     View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_view_nintynine, parent, false);
     SurahViewHolder viewHolder = new SurahViewHolder(view);
-
-
-
     return viewHolder;
   }
 
@@ -49,8 +47,12 @@ public class NintyNineAdapters extends RecyclerView.Adapter<NintyNineAdapters.Su
 
     NintyNimesModel nintyninemodes = nintyNineList.get(position);
 
-    holder.textListing.setText(nintyninemodes.eng_name);
-    holder.nintyninechild.setText(nintyninemodes.bn_name);
+    holder.txt_bn_name.setText(nintyninemodes.getBn_name());
+    holder.txt_ar_name.setText(nintyninemodes.getAr_name());
+    holder.txt_bn_meaning.setText("অর্থঃ "+nintyninemodes.getBn_meaning());
+    holder.txt_bn_fajilat.setText(nintyninemodes.getFazilat_bn());
+    holder.serial_of_id.setText(englishToBangla.getDigitBanglaFromEnglish(nintyninemodes.getId()));
+    holder.references_details.setText(nintyninemodes.getReference());
 
     boolean isExpandable = nintyninemodes.isExpandable();
     holder.expandableLayout.setVisibility(isExpandable ? View.VISIBLE : View.GONE);
@@ -84,19 +86,23 @@ public class NintyNineAdapters extends RecyclerView.Adapter<NintyNineAdapters.Su
   public class SurahViewHolder extends RecyclerView.ViewHolder
           implements View.OnClickListener // current clickListerner
   {
-    public TextView textListing, nintyninechild;
+    public TextView txt_bn_name, txt_ar_name, txt_bn_meaning, txt_bn_fajilat, serial_of_id, references_details;
     RelativeLayout expandableLayout;
-    LinearLayout linearLayout;
+    RelativeLayout rlayout;
 
     public SurahViewHolder(View view) {
       super(view);
-      textListing = view.findViewById(R.id.textListing);
+      serial_of_id = view.findViewById(R.id.serial_of_names);
+      txt_bn_name = view.findViewById(R.id.txt_bn_name);
+      txt_ar_name = view.findViewById(R.id.txt_ar_name);
+      txt_bn_meaning = view.findViewById(R.id.txt_bn_meaning);
+      txt_bn_fajilat = view.findViewById(R.id.txt_bn_fajilat);
+      references_details = view.findViewById(R.id.references_details);
       view.setOnClickListener(this); // current clickListerner
-      linearLayout = view.findViewById(R.id.linearLayout);
+      rlayout = view.findViewById(R.id.linearLayout);
       expandableLayout = view.findViewById(R.id.expandable_layout);
-      nintyninechild = view.findViewById(R.id.nintyninechild);
 
-      linearLayout.setOnClickListener(new View.OnClickListener() {
+      rlayout.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
           NintyNimesModel nintyninemodes = nintyNineList.get(getAdapterPosition());

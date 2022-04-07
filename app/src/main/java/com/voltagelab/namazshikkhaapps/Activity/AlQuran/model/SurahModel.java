@@ -1,7 +1,7 @@
 package com.voltagelab.namazshikkhaapps.Activity.AlQuran.model;
 
 /** Created by Sadmansamee on 7/19/15. */
-public class Surah {
+public class SurahModel {
   private Long id;
   private Long no;
   private String nameEnglish;

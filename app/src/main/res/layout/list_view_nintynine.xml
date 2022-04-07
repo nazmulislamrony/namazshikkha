@@ -1,45 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/custom_ripple"
     >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
+        android:orientation="vertical"
         android:id="@+id/linearLayout"
-        android:layout_height="wrap_content">
+        android:backgroundTint="#F4F3F3"
+        android:background="@drawable/shape_stat"
+        android:layout_height="100dp">
+
         <TextView
-            android:id="@+id/textListing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="1"
+            android:id="@+id/serial_of_names"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="20dp"
+            android:id="@+id/separator_first"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="32dp"
+            android:background="@color/colorPrimary"/>
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/solaiman_lipi"
-            android:padding="15dp"
-            android:text="test"
-            android:textColor="#108E0D"
-            android:textSize="20sp"
-            android:textStyle="normal" />
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/separator_first">
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/txt_bn_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/solaiman_lipi"
+                android:gravity="center"
+                android:text="আর-রহমান"
+                android:textColor="#108E0D"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txthyphen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/txt_bn_name"
+                android:fontFamily="@font/solaiman_lipi"
+                android:gravity="center"
+                android:text=" - "
+                android:textColor="#108E0D"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_ar_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/txthyphen"
+                android:fontFamily="@font/solaiman_lipi"
+                android:gravity="center"
+                android:text="test"
+                android:textColor="#108E0D"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/tasbih"
+                app:tint="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/txt_bn_meaning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+
+                android:fontFamily="@font/solaiman_lipi"
+                android:text="অর্থঃ পরম দয়ালু"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
 
 
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#fff"/>
+<!--    <View-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0.5dp"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:background="@color/colorPrimary"/>-->
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:id="@+id/expandable_layout"
+        android:padding="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:src="@drawable/tasbih"
+            android:id="@+id/img_names"
+            android:layout_height="50dp"/>
 
 
         <TextView
+            android:id="@+id/txt_bn_fajilatcolon"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/nintyninechild"
-            android:text="hello"/>
+            android:layout_below="@+id/img_names"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/solaiman_lipi"
+            android:text="পাঠের ফজিলতঃ"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_bn_fajilat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_bn_fajilatcolon"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/solaiman_lipi"
+            android:text="পাঠের ফজিলত আলোচনা করা হবে এখানে। "
+            android:textColor="@color/colorPrimary"
+            android:textStyle="normal" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/separator_afterbnfajilat"
+            android:layout_below="@+id/txt_bn_fajilat"
+            android:background="@color/colorAccent"/>
+
+        <TextView
+            android:id="@+id/references_names"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/separator_afterbnfajilat"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/solaiman_lipi"
+            android:text="References in Quran:"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/references_details"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/references_names"
+            android:textStyle="normal"
+            android:textAlignment="center"
+            android:fontFamily="@font/solaiman_lipi"
+            android:textColor="@color/colorPrimary"
+            android:text="References in details given" />
+
 
     </RelativeLayout>
 

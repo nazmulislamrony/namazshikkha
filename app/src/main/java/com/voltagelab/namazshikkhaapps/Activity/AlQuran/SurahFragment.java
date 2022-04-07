@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.adapter.SurahAdapter;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.intrface.OnItemClickListener;
-import com.voltagelab.namazshikkhaapps.Activity.AlQuran.model.Surah;
+import com.voltagelab.namazshikkhaapps.Activity.AlQuran.model.SurahModel;
 import com.voltagelab.namazshikkhaapps.R;
 
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class SurahFragment extends Fragment {
 
   static String lang;
-  private ArrayList<Surah> surahArrayList;
+  private ArrayList<SurahModel> surahModelArrayList;
   private RecyclerView mRecyclerView;
   private SurahAdapter surahAdapter;
   private RecyclerView.LayoutManager mLayoutManager;
@@ -43,7 +43,7 @@ public class SurahFragment extends Fragment {
     super.onCreate(savedInstanceState);
     SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
     lang = sp.getString(Config.LANG, Config.defaultLang);
-    surahArrayList = getSurahArrayList();
+    surahModelArrayList = getSurahArrayList();
   }
 
   @Override
@@ -51,7 +51,7 @@ public class SurahFragment extends Fragment {
       LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.fragment_surah, container, false);
     mRecyclerView = view.findViewById(R.id.recycler_surah_view);
-    surahAdapter = new SurahAdapter(surahArrayList, getActivity());
+    surahAdapter = new SurahAdapter(surahModelArrayList, getActivity());
 
     return view;
   }
@@ -72,11 +72,11 @@ public class SurahFragment extends Fragment {
         new OnItemClickListener() {
           @Override
           public void onItemClick(View v, int position) {
-            Surah surah = (Surah) surahAdapter.getItem(position);
+            SurahModel surahModel = (SurahModel) surahAdapter.getItem(position);
 
-            long surah_id = surah.getId();
-            long ayah_number = surah.getAyahNumber();
-            String surah_name = surah.getNameTranslate();
+            long surah_id = surahModel.getId();
+            long ayah_number = surahModel.getAyahNumber();
+            String surah_name = surahModel.getNameTranslate();
 
             Log.d("SurahFragment", "ID: " + surah_id + " Surah Name: " + surah_name);
 
@@ -92,22 +92,22 @@ public class SurahFragment extends Fragment {
         });
   }
 
-  private ArrayList<Surah> getSurahArrayList() {
-    ArrayList<Surah> surahArrayList = new ArrayList<Surah>();
+  private ArrayList<SurahModel> getSurahArrayList() {
+    ArrayList<SurahModel> surahModelArrayList = new ArrayList<SurahModel>();
     SurahDataSource surahDataSource = new SurahDataSource(getActivity());
 
     switch (lang) {
       case Config.LANG_BN:
-        surahArrayList = surahDataSource.getBanglaSurahArrayList();
+        surahModelArrayList = surahDataSource.getBanglaSurahArrayList();
         break;
       case Config.LANG_INDO:
-        surahArrayList = surahDataSource.getIndonesianSurahArrayList();
+        surahModelArrayList = surahDataSource.getIndonesianSurahArrayList();
         break;
       case Config.LANG_EN:
-        surahArrayList = surahDataSource.getEnglishSurahArrayList();
+        surahModelArrayList = surahDataSource.getEnglishSurahArrayList();
         break;
     }
 
-    return surahArrayList;
+    return surahModelArrayList;
   }
 }
