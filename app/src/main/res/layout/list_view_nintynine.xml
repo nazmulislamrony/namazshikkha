@@ -114,10 +114,11 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:layout_width="match_parent"
-            android:src="@drawable/tasbih"
             android:id="@+id/img_names"
-            android:layout_height="50dp"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:tint="@color/colorPrimary"
+            android:src="@drawable/n1" />
 
 
         <TextView
@@ -127,6 +128,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/solaiman_lipi"
             android:text="পাঠের ফজিলতঃ"
+            android:layout_marginTop="10dp"
             android:textColor="@color/colorPrimary"
             android:textStyle="bold" />
 
