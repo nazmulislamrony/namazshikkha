@@ -2,17 +2,15 @@ package com.voltagelab.namazshikkhaapps.Activity.Tasbih;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.voltagelab.namazshikkhaapps.Helper;
 import com.voltagelab.namazshikkhaapps.R;
 
 public class TasbihActivity extends AppCompatActivity {
@@ -26,10 +24,13 @@ public class TasbihActivity extends AppCompatActivity {
     public int reset = 0;
     public int nilai1 =0;
 
+    Helper helper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasbih);
+        setTitle("তাসবিহ");
 
         btnReset = findViewById(R.id.btn_reset);
         tasbihCount = findViewById(R.id.tasbih_count);
@@ -75,7 +76,7 @@ public class TasbihActivity extends AppCompatActivity {
                 Log.d("isvibrator_tring","" +isVibrator);
 //                btn_start.setText(nilai_string);
                 String nilai1_string = String.valueOf(nilai1);
-                tasbihCount.setText(nilai1_string);
+                tasbihCount.setText(helper.getDigitBanglaFromEnglish(nilai1_string));
 
             }
         });
@@ -89,7 +90,8 @@ public class TasbihActivity extends AppCompatActivity {
                 String nilai_string = String.valueOf(nilai);
 //                btn_start.setText(nilai_string);
                 String nilai1_string = String.valueOf(nilai1);
-                tasbihCount.setText(nilai1_string);
+
+                tasbihCount.setText(helper.getDigitBanglaFromEnglish(nilai1_string));
 
             }
 

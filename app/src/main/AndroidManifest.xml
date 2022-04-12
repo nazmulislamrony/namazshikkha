@@ -15,11 +15,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Activity.NintyNineNames.NintyNineNames"
+            android:name=".Activity.SettingsActivity"
             android:exported="false" />
         <activity
+            android:name=".Activity.NintyNineNames.NintyNineNames"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
             android:name=".Activity.Tasbih.TasbihActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activity.AlQuran.ayahtype.AlQuranActivity"
             android:parentActivityName=".Activity.AlQuran.ayahword.AyahWordActivity" />
@@ -138,7 +145,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/AppTheme">
+            android:theme="@style/Theme.DarkMode">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

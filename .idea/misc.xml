@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/custom_ripple.xml" value="0.202" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/ic_baseline_arrow_downward_24.xml" value="0.275" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/ic_baseline_arrow_forward_24.xml" value="0.2" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/ic_baseline_content_copy_24.xml" value="0.3165" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/ic_baseline_vibration_24.xml" value="0.3155" />
@@ -14,6 +15,7 @@
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/ripple_effect.xml" value="0.145" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/sadkaiye_dialog.xml" value="0.145" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/shape_stat.xml" value="0.145" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout-normal/activity_main.xml" value="0.5536458333333333" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout-small/activity_main.xml" value="0.8214285714285714" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout-small/ayat_main_sample.xml" value="0.30925925925925923" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout-xlarge/fragment_ayah_word.xml" value="0.23472222222222222" />
@@ -29,6 +31,7 @@
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/activity_main2.xml" value="0.5395833333333333" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/activity_ninty_nine_names.xml" value="0.3125" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/activity_sadkaiye_jariya.xml" value="0.33" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/activity_settings.xml" value="0.18" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/activity_surah.xml" value="0.31296296296296294" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/activity_tasbih.xml" value="0.23425925925925925" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/ayat_main_sample.xml" value="0.30925925925925923" />

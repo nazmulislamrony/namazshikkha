@@ -56,4 +56,7 @@
     <string name="copy">Copy</string>
     <string name="share">Share</string>
     <string name="tasbih_count_txt">তাসবীহ গণনার জন্য স্ক্রিনের যে কোন জায়গায় ট্যাপ করুন। \n বিঃদ্রঃ রাসূল (সাঃ) ডান হাতের আঙ্গুলের সাহায্যে তাসবীহ গণনা করতেন তাই এই ডান হাতের আঙ্গুল দিয়ে গণনা করা উত্তম।</string>
+
+    <string name="night_mode_off">NIGHT MODE OFF</string>
+    <string name="night_mode_on">NIGHT MODE ON</string>
 </resources>

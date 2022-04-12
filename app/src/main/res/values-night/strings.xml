@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">সহীহ নামাজ ও দোয়া শিক্ষা</string>
+
+    <string name="navigation_drawer_open">open drawer</string>
+    <string name="navigation_drawer_close">close drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="bookInfo">
+       <b>বইয়ের নামঃ  </b>
+
+        নামাজ আদায় পদ্ধতি \n
+
+       <b>লেখকঃ</b>
+
+        মুফতি আমীর হামজা \n
+        বি.এ (অনার্স), এম.এ, কামিল (ফিকহ)\n\n
+
+        <b>বইয়ের নামঃ</b>
+        হিসনুল মুসলিম (দোয়া ও জিকর) \n
+
+        <b>লেখকঃ</b>
+        ড. সাঈদ ইবন আলী ইবন ওয়াহফ আল-ক্কাহত্বানী। \n
+
+        <b>অনুবাদ ও সম্পাদনাঃ</b>
+        ড. আবু বকর মুহাম্মদ যাকারিয়া।
+
+        \n\n
+       <b>বইয়ের নামঃ</b>
+        ইসলাম, নামাজ ও তাসাউফ শিক্ষা \n
+
+        <b>লেখকঃ</b>
+        আলহাজ্ব শাহ মোঃ সাইফুল ইসলাম
+    </string>
+
+    <string name="arthik_onudan">একটি বাড়ি বানাতে যেমন জায়গা কিনতে হয়, ইট-বালু কিনতে হয়, ইঞ্জিনিয়ার লেবার খরচ দিতে হয় সেরকম একটি এপের প্রতিনিয়ত আপডেটের জন্য ইঞ্জিনিয়ার দেরকে পেমেন্ট করতে হয়।
+    তাই এপের নিয়মিত আপডেটের জন্য আপনার ডোনেশন প্রয়োজন।</string>
+
+    <string name="no_ads">আমাদের এপে কোন প্রকার বিজ্ঞাপন নেই। ইউজাররা এপ ডাউনলোড করলে বা ইউজ করলে কোন প্রকার ইনকাম হয় না। তাহলে ইঞ্জিনিয়ারদের পেমেন্টগুলো কিভাবে করা হয়? <b>আপনাদের পাঠানো ডোনেশনের মাধ্যমে </b></string>
+
+
+    <string name="donate_each_month">আপনি যদি এই এপের মাধ্যমে উপকৃত হয়ে থাকেন তবে আপনার সাধ্য মত এখানে ডোনেট করতে পারেন। প্রতি মাসে অন্তত ১০০ টাকা অনুদান ও ইনশা-আল্লাহ প্রজেক্টটিকে অনেক দূর এগিয়ে নিবে যা <b>সাদকায়ে জারিয়া হিসেবে আপনার আমলনামায় যোগ হবে।</b></string>
+
+    <string name="no_gift_jakat">বিঃদ্রঃ যাকাত, ফিতরা, কুরবানীর পশুর চামড়ার টাকা এখানে দেয়া যাবেনা।</string>
+
+    <string name="donate_now">নিচের বাটনে ক্লিক করে সাধ্যমত প্রতি মাসে বা এককালীন আর্থিক অনুদান পাঠাতে পারেন।</string>
+    <string name="payment_top">আমরা নিশ্চিত করছি যে নিচের নম্বর গুলো সঠিক এবং এসব নম্বরে অনুদান পাঠালে আমরাই রিসিভ করবো। নম্বর ব্যাক্তিগত হওয়ায় একান্ত জরুরী ব্যতিত এগুলোতে ফোন না দেয়ার অনুরোধ রইলো।</string>
+
+    <string name="bismillah">بِسۡمِ اللّٰهِ الرَّحۡمٰنِ الرَّحِیۡمِ</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="cancel">Cancel</string>
+    <string name="rootWord">Root</string>
+
+    <string name="copy">Copy</string>
+    <string name="share">Share</string>
+    <string name="tasbih_count_txt">তাসবীহ গণনার জন্য স্ক্রিনের যে কোন জায়গায় ট্যাপ করুন। \n বিঃদ্রঃ রাসূল (সাঃ) ডান হাতের আঙ্গুলের সাহায্যে তাসবীহ গণনা করতেন তাই এই ডান হাতের আঙ্গুল দিয়ে গণনা করা উত্তম।</string>
+
+        <string name="night_mode_off">NIGHT MODE OFF</string>
+        <string name="night_mode_on">NIGHT MODE ON</string>
+</resources>

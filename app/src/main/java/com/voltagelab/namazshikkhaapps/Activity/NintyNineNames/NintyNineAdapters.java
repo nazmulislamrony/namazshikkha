@@ -1,12 +1,13 @@
 package com.voltagelab.namazshikkhaapps.Activity.NintyNineNames;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Typeface;
-import android.util.Log;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -14,8 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.intrface.OnItemClickListener;
-import com.voltagelab.namazshikkhaapps.Activity.NintyNineNames.NintyNimesModel;
-import com.voltagelab.namazshikkhaapps.EnglishToBangla;
+import com.voltagelab.namazshikkhaapps.Helper;
 import com.voltagelab.namazshikkhaapps.R;
 
 import java.util.ArrayList;
@@ -27,12 +27,12 @@ public class NintyNineAdapters extends RecyclerView.Adapter<NintyNineAdapters.Su
   private ArrayList<NintyNimesModel> nintyNineList;
   private Context context;
   private Typeface faceName;
-  EnglishToBangla englishToBangla;
+  Helper helper;
 
   public NintyNineAdapters(ArrayList<NintyNimesModel> nintyNineLists, Context context) {
     this.nintyNineList = nintyNineLists;
     this.context = context;
-    englishToBangla = new EnglishToBangla();
+    helper = new Helper(context);
   }
 
   @Override
@@ -51,26 +51,31 @@ public class NintyNineAdapters extends RecyclerView.Adapter<NintyNineAdapters.Su
     holder.txt_ar_name.setText(nintyninemodes.getAr_name());
     holder.txt_bn_meaning.setText("অর্থঃ "+nintyninemodes.getBn_meaning());
     holder.txt_bn_fajilat.setText(nintyninemodes.getFazilat_bn());
-    holder.serial_of_id.setText(englishToBangla.getDigitBanglaFromEnglish(nintyninemodes.getId()));
+    holder.serial_of_id.setText(helper.getDigitBanglaFromEnglish(nintyninemodes.getId()));
     holder.references_details.setText(nintyninemodes.getReference());
+    String imagename = "n"+nintyninemodes.getId();
+    Resources res = context.getResources();
+    int resID = res.getIdentifier(imagename , "drawable", context.getPackageName());
+    Drawable drawable = res.getDrawable(resID );
+    holder.namesimage.setImageDrawable(drawable );
 
     boolean isExpandable = nintyninemodes.isExpandable();
     holder.expandableLayout.setVisibility(isExpandable ? View.VISIBLE : View.GONE);
-
-    Log.d("check_nintynine",": "+nintyninemodes.getId());
-
+    if (isExpandable) {
+      holder.arrowforward.setImageResource(R.drawable.ic_baseline_arrow_downward_24);
+    } else {
+      holder.arrowforward.setImageResource(R.drawable.ic_baseline_arrow_forward_24);
+    }
   }
 
   @Override
   public long getItemId(int position) {
     //  Surah surah = surahArrayList.get(position);
-
     long data =  Long.parseLong(nintyNineList.get(position).getId());
     return data;
   }
 
   public Object getItem(int position) {
-
     return nintyNineList.get(position);
   }
 
@@ -89,6 +94,7 @@ public class NintyNineAdapters extends RecyclerView.Adapter<NintyNineAdapters.Su
     public TextView txt_bn_name, txt_ar_name, txt_bn_meaning, txt_bn_fajilat, serial_of_id, references_details;
     RelativeLayout expandableLayout;
     RelativeLayout rlayout;
+    ImageView namesimage, arrowforward;
 
     public SurahViewHolder(View view) {
       super(view);
@@ -98,6 +104,8 @@ public class NintyNineAdapters extends RecyclerView.Adapter<NintyNineAdapters.Su
       txt_bn_meaning = view.findViewById(R.id.txt_bn_meaning);
       txt_bn_fajilat = view.findViewById(R.id.txt_bn_fajilat);
       references_details = view.findViewById(R.id.references_details);
+      namesimage = view.findViewById(R.id.img_names);
+      arrowforward = view.findViewById(R.id.arrow_forward);
       view.setOnClickListener(this); // current clickListerner
       rlayout = view.findViewById(R.id.linearLayout);
       expandableLayout = view.findViewById(R.id.expandable_layout);

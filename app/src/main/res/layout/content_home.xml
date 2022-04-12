@@ -55,7 +55,7 @@
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/solaiman_lipi"
                             android:text="আল-কোরআন"
-                            android:textColor="#000000"
+                            android:textColor="@color/textColor"
                             android:textSize="17sp"
                              />
 
@@ -118,6 +118,64 @@
                 android:layout_width="match_parent"
                 android:layout_height="135dp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/goalLatImg"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:tint="@color/colorPrimary"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="20dp"
+                            android:src="@drawable/n1" />
+
+                        <TextView
+                            android:id="@+id/names_ofcreator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/goalLatImg"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/solaiman_lipi"
+                            android:text="আল্লাহর ৯৯ নাম অর্থসহ ও ফজিলত"
+                            android:textColor="#000000"
+                            android:textSize="17sp"
+                            />
+
+                        <Button
+                            android:id="@+id/names_of_creator"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent" />
+
+
+                    </RelativeLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="135dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
@@ -151,6 +209,7 @@
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/solaiman_lipi"
                             android:text="ওযু"
+
                             android:textColor="#000000"
                             android:textSize="17sp"
                              />
@@ -312,7 +371,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="90dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:padding="10dp"
@@ -325,26 +384,26 @@
                 <TextView
                     android:id="@+id/fist_hint"
                     android:layout_width="wrap_content"
-                    android:layout_height="16sp"
+                    android:layout_height="wrap_content"
                     android:fontFamily="@font/solaiman_lipi"
                     android:text="সাদকায়ে জারিয়ায় অংশগ্রহণ করুন" />
 
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:text=" রমজানে দানের গুরুত্ব অনেক বেশি, এপের ডেভেলপমেন্ট কে চালিয়ে নিতে সহযোগিতা করুন"
+                    android:text="রমজানে দানের গুরুত্ব অনেক বেশি, এপের ডেভেলপমেন্ট কে চালিয়ে নিতে সহযোগিতা করুন"
                     android:layout_below="@+id/fist_hint"
                     android:layout_marginTop="10dp"
-                    android:textSize="8sp"
+                    android:textSize="10sp"
                     android:fontFamily="@font/solaiman_lipi"
-                    android:layout_height="20dp"/>
+                    android:layout_height="wrap_content"/>
 
                 <TextView
                     android:id="@+id/donate_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="50dp"
                     android:text="DONATE"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="bold" />
@@ -743,63 +802,6 @@
 
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
-
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="135dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="20dp"
-                android:orientation="horizontal">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="20dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:id="@+id/goalLatImg"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="20dp"
-                            android:src="@drawable/doa" />
-
-                        <TextView
-                            android:id="@+id/names_ofcreator"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/goalLatImg"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="15dp"
-                            android:fontFamily="@font/solaiman_lipi"
-                            android:text="99 Names of Allah"
-                            android:textColor="#000000"
-                            android:textSize="17sp"
-                            />
-
-                        <Button
-                            android:id="@+id/names_of_creator"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@android:color/transparent" />
-
-
-                    </RelativeLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-
 
 
             </LinearLayout>

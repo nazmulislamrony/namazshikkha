@@ -27,6 +27,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
+
     </style>
 
     <!--    Add font family to the toolbar for new activity button -->

@@ -16,6 +16,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
+            android:background="@color/colorPrimary"
             android:layout_height="wrap_content"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
@@ -74,10 +75,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:fontFamily="@font/solaiman_lipi"
         android:paddingBottom="45dp"
-        android:text="0"
+        android:text="০"
         android:textColor="@color/colorPrimary"
-        android:textSize="40sp" />
+        android:textSize="60sp" />
 
     <TextView
         android:layout_width="match_parent"

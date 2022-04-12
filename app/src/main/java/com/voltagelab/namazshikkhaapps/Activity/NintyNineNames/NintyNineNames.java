@@ -30,15 +30,14 @@ public class NintyNineNames extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ninty_nine_names);
+        setTitle("আল্লাহর ৯৯ নাম অর্থসহ ও ফজিলত");
         rvnintynine = findViewById(R.id.rvnintynine);
         nintyninelist = new ArrayList<>();
         DbAsset databaseAsset=new DbAsset(this);
         nintyninelist = databaseAsset.getAllNames();
 
         nintyNineAdapters = new NintyNineAdapters(nintyninelist, this);
-
         rvnintynine.setAdapter(nintyNineAdapters);
-
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         rvnintynine.setLayoutManager(mLayoutManager);
     }

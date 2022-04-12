@@ -4,11 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+
+import android.app.UiModeManager;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -19,12 +22,21 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.TextAppearanceSpan;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
+
+import com.batoulapps.adhan.CalculationMethod;
+import com.batoulapps.adhan.CalculationParameters;
+import com.batoulapps.adhan.Coordinates;
+import com.batoulapps.adhan.Madhab;
+import com.batoulapps.adhan.PrayerTimes;
+import com.batoulapps.adhan.data.DateComponents;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.model.SurahActivity;
 import com.voltagelab.namazshikkhaapps.Activity.EighthButton;
 import com.voltagelab.namazshikkhaapps.Activity.EleventhButton;
@@ -35,6 +47,7 @@ import com.voltagelab.namazshikkhaapps.Activity.NinthButton;
 import com.voltagelab.namazshikkhaapps.Activity.NintyNineNames.NintyNineNames;
 import com.voltagelab.namazshikkhaapps.Activity.SadkaiyeJariya;
 import com.voltagelab.namazshikkhaapps.Activity.SecondButton;
+import com.voltagelab.namazshikkhaapps.Activity.SettingsActivity;
 import com.voltagelab.namazshikkhaapps.Activity.SeventhButton;
 import com.voltagelab.namazshikkhaapps.Activity.SixthButton;
 import com.voltagelab.namazshikkhaapps.Activity.Tasbih.TasbihActivity;
@@ -44,7 +57,11 @@ import com.voltagelab.namazshikkhaapps.Activity.TwelveButton;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.navigation.NavigationView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.TimeZone;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
 
     Typeface typeface;
     Intent intent;
-
 
     Button first, second, third, fourth, fifth, sixth, seventh, eight, ninthBtn, tenth, eleventh, twelve, tasbihBtn, all_names_of_creator;
     RelativeLayout rvSadkayeJariya;
@@ -87,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
         twelve = findViewById(R.id.twelvebtn);
         tasbihBtn = findViewById(R.id.tasbihbtn);
         all_names_of_creator = findViewById(R.id.names_of_creator);
-
 
         // -------------Collapsing toolbar Layout------------------------
 
@@ -124,6 +139,39 @@ public class MainActivity extends AppCompatActivity {
 
         navigationOnClickListener();
         drawerTitleColor();
+
+
+//        Log.d("restult","date ---> " + today.getDay() + " / " + today.getMonth() + " / " + today.getYear());
+//        Log.d("restult","imsaak --fajar-> "+imsaak +",  "+prayerTimes.fajr());
+//        Log.d("restult","imsaak --sunrise-> " +prayerTimes.shuruq());
+//        Log.d("restult","imsaak --Zuhr-> " +prayerTimes.thuhr());
+//        Log.d("restult","imsaak --asr-> " + prayerTimes.assr());
+//        Log.d("restult","imsaak --Maghrib --->" + prayerTimes.maghrib());
+//        Log.d("restult","imsaak --isha --->" + prayerTimes.ishaa());
+
+
+        Coordinates coordinates = new Coordinates(23.8103, 90.4125);
+
+        DateComponents date = new DateComponents(2015, 11, 1);
+        DateComponents date1 = DateComponents.from(new Date());
+        CalculationParameters params =
+                CalculationMethod.MUSLIM_WORLD_LEAGUE.getParameters();
+        params.madhab = Madhab.HANAFI;
+        params.adjustments.fajr = 2;
+        PrayerTimes prayerTimes = new PrayerTimes(coordinates, date1, params);
+
+
+        SimpleDateFormat formatter = new SimpleDateFormat("hh:mm a");
+        formatter.setTimeZone(TimeZone.getTimeZone("America/New_York"));
+        formatter.format(prayerTimes.fajr);
+
+//        Log.d("restult","date ---> " + today.getDay() + " / " + today.getMonth() + " / " + today.getYear());
+        Log.d("restult", "imsaak --fajar-> " + ",  " + prayerTimes.fajr);
+        Log.d("restult", "imsaak --dhuhr-> " + prayerTimes.dhuhr);
+        Log.d("restult", "imsaak --asr-> " + prayerTimes.asr);
+        Log.d("restult", "imsaak --Maghrib-> " + prayerTimes.maghrib);
+        Log.d("restult", "imsaak --isha --->" + prayerTimes.isha);
+        Log.d("restult", "imsaak -- --->" + prayerTimes.nextPrayer());
     }
 
     private void namesOfCreator() {
@@ -231,8 +279,12 @@ public class MainActivity extends AppCompatActivity {
                                 .show();
                         break;
 
+                    case R.id.settings:
+                        startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+                        break;
+
                     case R.id.sadkaye_jariya:
-                        startActivity(new Intent(MainActivity.this,SadkaiyeJariya.class));
+                        startActivity(new Intent(MainActivity.this, SadkaiyeJariya.class));
                         break;
 
                     case R.id.shareapp:
@@ -254,7 +306,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.rating:
-                        Uri uri = Uri.parse("market://details?id=com.voltagelab.namazshikkhaapps" + getBaseContext().getPackageName());
+                        Uri uri = Uri.parse("market://details?id=" + getBaseContext().getPackageName());
                         Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
                         // To count with Play market backstack, After pressing back button,
                         // to taken back to our application, we need to add following flags to intent.
@@ -285,6 +337,8 @@ public class MainActivity extends AppCompatActivity {
                             final String urlBrowser = "https://www.facebook.com/" + "623249964534978";
                             intent.setData(Uri.parse(urlBrowser));
                         }
+
+
 
                         startActivity(intent);
                 }

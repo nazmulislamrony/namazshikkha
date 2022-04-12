@@ -3,14 +3,14 @@ apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 31
-    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.voltagelab.namazshikkhaapps"
         minSdkVersion 16
         targetSdkVersion 31
-        versionCode 6
-        versionName "1.4"
+        versionCode 7
+        versionName "1.5"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -53,4 +53,5 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.thoughtbot:expandablerecyclerview:1.4'
 
+    implementation 'com.batoulapps.adhan:adhan:1.2.1'
 }
