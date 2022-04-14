@@ -1,9 +1,16 @@
 package com.voltagelab.namazshikkhaapps;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.Toolbar;
 
 public class Helper {
     Context context;
@@ -11,7 +18,7 @@ public class Helper {
     public static SharedPreferences pref;
     SharedPreferences.Editor editor;
     public static final String THEMESETS = "themeset";
-    public static final String DEFAULTTHEMESETS = "লাইট";
+    public static final String DEFAULTTHEMESETS = "light";
 
     private static final char[] banglaDigits = {'০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'};
     private static final char[] englishDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
@@ -79,9 +86,30 @@ public class Helper {
 
     public void themeChange() {
        String name =  (getSessionString(THEMESETS,DEFAULTTHEMESETS));
-       if (name.equals("লাইট")) {
+       if (name.equals("light")) {
 
-       } else if (name.equals("ডার্ক"))
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+           Log.d("check_in_dat","if");
+           AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+       } else if (name.equals("dark")){
+           Log.d("check_in_dat","else if");
+           AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+       } else {
+           Log.d("check_in_dat","else ");
+           AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+       }
     }
+
+    public void backButtonPressed( Activity activity) {
+        ImageView backArrow = activity.findViewById(R.id.back_arrow);
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.onBackPressed();
+            }
+        });
+    }
+
+
+
 }

@@ -24,6 +24,10 @@
 
     <color name="backgroundColor">#FCFCFC</color>
     <color name="textColor">#000000</color>
+    <color name="appbartextColor">#FCFCFC</color>
+    <color name="appbarcolor">#16931B</color>
+
+    <color name="listtextcolor">#16931B</color>
 
 
 </resources>

@@ -23,4 +23,7 @@
     <!--    for Normal/Light Mode-->
     <color name="backgroundColor">#212121</color>
     <color name="textColor">#FFFFFF</color>
+    <color name="appbartextColor">#FFFFFF</color>
+    <color name="listtextcolor">#FFFFFF</color>
+    <color name="appbarcolor">#212121</color>
 </resources>

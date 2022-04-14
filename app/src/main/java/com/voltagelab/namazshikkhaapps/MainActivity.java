@@ -81,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Helper helper = new Helper(this);
+        helper.themeChange();
         //-----------------Hooks--------------------
 
         toolbar = findViewById(R.id.toolbar_top);
@@ -187,7 +189,13 @@ public class MainActivity extends AppCompatActivity {
         rvSadkayeJariya.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, SadkaiyeJariya.class));
+                Toast.makeText(MainActivity.this, "clc", Toast.LENGTH_SHORT).show();
+                try {
+                    getPackageManager().getPackageInfo("com.facebook.katana", 0);
+                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("fb://groups/359779002578811")));
+                } catch (Exception e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/groups/359779002578811")));
+                }
             }
         });
     }

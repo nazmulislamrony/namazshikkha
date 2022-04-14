@@ -7,6 +7,7 @@ import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -20,6 +21,7 @@ public class TasbihActivity extends AppCompatActivity {
     TextView tasbihCount;
     boolean isVibrator;
 
+
     public int nilai = 0;
     public int reset = 0;
     public int nilai1 =0;
@@ -30,7 +32,8 @@ public class TasbihActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasbih);
-        setTitle("তাসবিহ");
+        Helper helper = new Helper(this);
+        helper.backButtonPressed(this);
 
         btnReset = findViewById(R.id.btn_reset);
         tasbihCount = findViewById(R.id.tasbih_count);

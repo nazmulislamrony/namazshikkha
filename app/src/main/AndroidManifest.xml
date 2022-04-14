@@ -16,6 +16,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Activity.SettingsActivity"
+            android:theme="@style/Theme.DarkMode"
+            android:label=""
             android:exported="false" />
         <activity
             android:name=".Activity.NintyNineNames.NintyNineNames"

@@ -16,6 +16,7 @@ import com.voltagelab.namazshikkhaapps.Activity.AlQuran.Config;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.SurahDataSource;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.adapter.SurahAdapter;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.ayahtype.AlQuranActivity;
+import com.voltagelab.namazshikkhaapps.Activity.AlQuran.ayahtype.database.DatabaseAccess;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.intrface.OnItemClickListener;
 import com.voltagelab.namazshikkhaapps.R;
 
@@ -29,6 +30,8 @@ public class SurahActivity extends AppCompatActivity {
     private SurahAdapter surahAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
+    private ArrayList<ModelSura> suraList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,8 +41,52 @@ public class SurahActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.recycler_surah_view);
 
 
-        surahModelArrayList = getSurahArrayList();
-        surahAdapter = new SurahAdapter(surahModelArrayList, this);
+//        surahModelArrayList = getSurahArrayList();
+//        surahAdapter = new SurahAdapter(surahModelArrayList, this);
+//
+//        mRecyclerView.setAdapter(surahAdapter);
+//
+//        mRecyclerView.setHasFixedSize(true);
+//        // use a linear layout manager
+//        mLayoutManager = new LinearLayoutManager(this);
+//        mRecyclerView.setLayoutManager(mLayoutManager);
+//        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+//        surahAdapter.SetOnItemClickListener(
+//                new OnItemClickListener() {
+//                    @Override
+//                    public void onItemClick(View v, int position) {
+//                        SurahModel surahModel = (SurahModel) surahAdapter.getItem(position);
+//
+//                        long surah_id = surahModel.getId();
+//                        long ayah_number = surahModel.getAyahNumber();
+//                        String surah_name = surahModel.getNameTranslate();
+//                        String surah_name_arabic = surahModel.getNameArabic();
+//
+//                        Log.d("SurahFragment", "ID: " + surah_id + " Surah Name: " + surah_name_arabic);
+//
+//                        Bundle dataBundle = new Bundle();
+//                        dataBundle.putLong(SurahDataSource.SURAH_ID_TAG, surah_id);
+//                        dataBundle.putLong(SurahDataSource.SURAH_AYAH_NUMBER, ayah_number);
+//                        dataBundle.putString(SurahDataSource.SURAH_NAME_TRANSLATE, surah_name);
+//                        dataBundle.putString(SurahDataSource.SURAH_NAME_ARABIC, surah_name_arabic);
+//
+//                        Intent intent = new Intent(SurahActivity.this, AlQuranActivity.class);
+////                        Intent intent = new Intent(SurahActivity.this, AyahWordActivity.class);
+//                        intent.putExtras(dataBundle);
+//                        startActivity(intent);
+//                    }
+//                });
+
+
+
+
+
+        DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
+        databaseAccess.open();
+        suraList = databaseAccess.getAllSurahList();
+
+        surahAdapter = new SurahAdapter(suraList, this);
 
         mRecyclerView.setAdapter(surahAdapter);
 
@@ -49,31 +96,6 @@ public class SurahActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        surahAdapter.SetOnItemClickListener(
-                new OnItemClickListener() {
-                    @Override
-                    public void onItemClick(View v, int position) {
-                        SurahModel surahModel = (SurahModel) surahAdapter.getItem(position);
-
-                        long surah_id = surahModel.getId();
-                        long ayah_number = surahModel.getAyahNumber();
-                        String surah_name = surahModel.getNameTranslate();
-                        String surah_name_arabic = surahModel.getNameArabic();
-
-                        Log.d("SurahFragment", "ID: " + surah_id + " Surah Name: " + surah_name_arabic);
-
-                        Bundle dataBundle = new Bundle();
-                        dataBundle.putLong(SurahDataSource.SURAH_ID_TAG, surah_id);
-                        dataBundle.putLong(SurahDataSource.SURAH_AYAH_NUMBER, ayah_number);
-                        dataBundle.putString(SurahDataSource.SURAH_NAME_TRANSLATE, surah_name);
-                        dataBundle.putString(SurahDataSource.SURAH_NAME_ARABIC, surah_name_arabic);
-
-                        Intent intent = new Intent(SurahActivity.this, AlQuranActivity.class);
-//                        Intent intent = new Intent(SurahActivity.this, AyahWordActivity.class);
-                        intent.putExtras(dataBundle);
-                        startActivity(intent);
-                    }
-                });
     }
     private ArrayList<SurahModel> getSurahArrayList() {
         ArrayList<SurahModel> surahModelArrayList = new ArrayList<SurahModel>();

@@ -8,8 +8,8 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 /** Created by Sadmansamee on 7/19/15. */
 public class DatabaseHelper extends SQLiteAssetHelper {
 
-  public static final String DATABASE_NAME = "wordbyword.db";
-  public static final int DATABASE_VERSION = 1;
+  public static final String DATABASE_NAME = "wordbyword-upgrade_1-2.db";
+  public static final int DATABASE_VERSION = 2;
 
   public DatabaseHelper(Context context) {
     super(context, DATABASE_NAME, null, DATABASE_VERSION);

@@ -4,11 +4,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.DatabaseHelper;
-import com.voltagelab.namazshikkhaapps.Activity.AlQuran.ayahtype.AyatDet;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.ayahtype.AyatDetails;
+import com.voltagelab.namazshikkhaapps.Activity.AlQuran.model.ModelSura;
 
 import java.util.ArrayList;
 
@@ -63,6 +62,12 @@ public class DatabaseAccess {
      * @return a List of quotes
      */
 
+    private String ID ="id";
+    private String BNSURANAME ="name";
+    private String NAMEARABIC ="name_ar";
+    private String BN_MEANING ="meaning";
+    private String BN_AYAT ="ayat";
+    private String BN_PLACE ="place";
 
     public ArrayList<AyatDetails> getAyahDetails(int surahId) {
         ArrayList<AyatDetails> list = new ArrayList<>();
@@ -83,6 +88,25 @@ public class DatabaseAccess {
         }
         cursor.close();
         return list;
+    }
+
+    public ArrayList<ModelSura> getAllSurahList() {
+        ArrayList<ModelSura> surahlist = new ArrayList<>();
+        Cursor cursor = database.rawQuery("select * from sura ", null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            ModelSura modelSura = new ModelSura();
+            modelSura.setId(cursor.getString(cursor.getColumnIndexOrThrow(ID)));
+            modelSura.setBnSuraName(cursor.getString(cursor.getColumnIndexOrThrow(BNSURANAME)));
+            modelSura.setName_arabic(cursor.getString(cursor.getColumnIndexOrThrow(NAMEARABIC)));
+            modelSura.setBn_meaning(cursor.getString(cursor.getColumnIndexOrThrow(BN_MEANING)));
+            modelSura.setAyat(cursor.getString(cursor.getColumnIndexOrThrow(BN_AYAT)));
+            modelSura.setPlace_bn(cursor.getString(cursor.getColumnIndexOrThrow(BN_PLACE)));
+            surahlist.add(modelSura);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return surahlist;
     }
 
 
