@@ -23,127 +23,128 @@
             android:name=".Activity.NintyNineNames.NintyNineNames"
             android:exported="false"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppThemeActionBar" />
+            android:theme="@style/Theme.DarkMode" />
         <activity
             android:name=".Activity.Tasbih.TasbihActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/Theme.DarkMode" />
         <activity
             android:name=".Activity.AlQuran.ayahtype.AlQuranActivity"
+            android:theme="@style/Theme.DarkMode"
             android:parentActivityName=".Activity.AlQuran.ayahword.AyahWordActivity" />
         <activity
             android:name=".Activity.SadkaiyeJariya"
             android:exported="false"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppThemeActionBar" />
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".ContentReader.EleventhContentReader"
-            android:parentActivityName=".Activity.EleventhButton"
-            android:theme="@style/AppThemeActionBar" />
+            android:name=".Activity.namazshikkha.ContentReader.EleventhContentReader"
+            android:parentActivityName=".Activity.namazshikkha.DoaActivity"
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".Activity.AlQuran.model.SurahActivity"
-            android:parentActivityName=".Activity.EleventhButton"
-            android:theme="@style/AppThemeActionBar" />
+            android:name=".Activity.AlQuran.SurahActivity"
+            android:parentActivityName=".Activity.namazshikkha.DoaActivity"
+            android:theme="@style/Theme.DarkMode" />
         <activity
             android:name=".Activity.AlQuran.ayahword.AyahWordActivity"
-            android:parentActivityName=".Activity.AlQuran.model.SurahActivity" />
+            android:parentActivityName=".Activity.AlQuran.SurahActivity" />
         <activity
-            android:name=".Activity.EleventhButton"
+            android:name=".Activity.namazshikkha.DoaActivity"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppThemeActionBar" />
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".ContentReader.TwelveContentReader"
-            android:parentActivityName=".Activity.TwelveButton"
-            android:theme="@style/AppThemeActionBar" />
+            android:name=".Activity.namazshikkha.ContentReader.TwelveContentReader"
+            android:parentActivityName=".Activity.namazshikkha.ChitrosohoNamazActivity"
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".Activity.TwelveButton"
+            android:name=".Activity.namazshikkha.ChitrosohoNamazActivity"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppThemeActionBar" />
+            android:theme="@style/Theme.DarkMode" />
         <activity
             android:name=".DrawerButton.BoiporichitiActivity"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppThemeActionBar" />
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".ContentReader.TenthContentReader"
-            android:parentActivityName=".Activity.NinthButton"
-            android:theme="@style/AppThemeActionBar" />
+            android:name=".Activity.namazshikkha.ContentReader.TenthContentReader"
+            android:parentActivityName=".Activity.namazshikkha.JanajarNamazActivity"
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".Activity.TenthButton"
+            android:name=".Activity.namazshikkha.SurahActivityNamazShikkha"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppThemeActionBar" />
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".ContentReader.NinthContentReader"
-            android:parentActivityName=".Activity.NinthButton"
-            android:theme="@style/AppThemeActionBar" />
+            android:name=".Activity.namazshikkha.ContentReader.NinthContentReader"
+            android:parentActivityName=".Activity.namazshikkha.JanajarNamazActivity"
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".Activity.NinthButton"
+            android:name=".Activity.namazshikkha.JanajarNamazActivity"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppThemeActionBar" />
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".ContentReader.EighthContentReader"
-            android:parentActivityName=".Activity.EighthButton"
-            android:theme="@style/AppThemeActionBar" />
+            android:name=".Activity.namazshikkha.ContentReader.EighthContentReader"
+            android:parentActivityName=".Activity.namazshikkha.TahajjodTaraviActivity"
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".Activity.EighthButton"
+            android:name=".Activity.namazshikkha.TahajjodTaraviActivity"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppThemeActionBar" />
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".ContentReader.SeventhContentReader"
-            android:parentActivityName=".Activity.SeventhButton"
-            android:theme="@style/AppThemeActionBar" />
+            android:name=".Activity.namazshikkha.ContentReader.SeventhContentReader"
+            android:parentActivityName=".Activity.namazshikkha.EidNamazActivity"
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".Activity.SeventhButton"
+            android:name=".Activity.namazshikkha.EidNamazActivity"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppThemeActionBar" />
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".ContentReader.SixthContentReader"
-            android:parentActivityName=".Activity.SixthButton"
-            android:theme="@style/AppThemeActionBar" />
+            android:name=".Activity.namazshikkha.ContentReader.SixthContentReader"
+            android:parentActivityName=".Activity.namazshikkha.NamazAdayerNiomActivity"
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".Activity.SixthButton"
+            android:name=".Activity.namazshikkha.NamazAdayerNiomActivity"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppThemeActionBar" />
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".ContentReader.FifthContentReader"
-            android:parentActivityName=".Activity.FifthButton"
-            android:theme="@style/AppThemeActionBar" />
+            android:name=".Activity.namazshikkha.ContentReader.FifthContentReader"
+            android:parentActivityName=".Activity.namazshikkha.NamazerMasalActivity"
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".Activity.FifthButton"
+            android:name=".Activity.namazshikkha.NamazerMasalActivity"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppThemeActionBar" />
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".ContentReader.FourthContentReader"
-            android:parentActivityName=".Activity.FourthButton"
-            android:theme="@style/AppThemeActionBar" />
+            android:name=".Activity.namazshikkha.ContentReader.FourthContentReader"
+            android:parentActivityName=".Activity.namazshikkha.NamazerOwaktoActivity"
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".Activity.FourthButton"
+            android:name=".Activity.namazshikkha.NamazerOwaktoActivity"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppThemeActionBar" />
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".ContentReader.ThirdContentReader"
-            android:parentActivityName=".Activity.ThirdButton"
-            android:theme="@style/AppThemeActionBar" />
+            android:name=".Activity.namazshikkha.ContentReader.ThirdContentReader"
+            android:parentActivityName=".Activity.namazshikkha.TayamommumActivity"
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".Activity.ThirdButton"
+            android:name=".Activity.namazshikkha.TayamommumActivity"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppThemeActionBar" />
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".ContentReader.SecondContentReader"
-            android:parentActivityName=".Activity.SecondButton"
-            android:theme="@style/AppThemeActionBar" />
+            android:name=".Activity.namazshikkha.ContentReader.SecondContentReader"
+            android:parentActivityName=".Activity.namazshikkha.GosolActivity"
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".Activity.SecondButton"
+            android:name=".Activity.namazshikkha.GosolActivity"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppThemeActionBar" />
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".ContentReader.ContentReader"
-            android:parentActivityName=".Activity.FirstButton"
-            android:theme="@style/AppThemeActionBar" />
+            android:name=".Activity.namazshikkha.ContentReader.ContentReader"
+            android:parentActivityName=".Activity.namazshikkha.OjuActivity"
+            android:theme="@style/Theme.DarkMode" />
         <activity
-            android:name=".Activity.FirstButton"
+            android:name=".Activity.namazshikkha.OjuActivity"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppThemeActionBar" />
+            android:theme="@style/Theme.DarkMode" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

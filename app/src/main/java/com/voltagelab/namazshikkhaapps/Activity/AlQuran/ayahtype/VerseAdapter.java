@@ -19,6 +19,7 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.voltagelab.namazshikkhaapps.Helper;
 import com.voltagelab.namazshikkhaapps.R;
 
 import java.util.ArrayList;
@@ -36,11 +37,11 @@ public class VerseAdapter extends RecyclerView.Adapter<VerseAdapter.ViewHolder> 
 
 
     SharedPreferences pre;
-    long surahId;
+    int surahId;
 
 
 
-    public VerseAdapter(Context context, ArrayList<AyatDetails> aylist, long surahId) {
+    public VerseAdapter(Context context, ArrayList<AyatDetails> aylist, int surahId) {
         this.mcontext = context;
         this.ayatlist = aylist;
         this.surahId = surahId;
@@ -61,9 +62,9 @@ public class VerseAdapter extends RecyclerView.Adapter<VerseAdapter.ViewHolder> 
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         final AyatDetails ayat = ayatlist.get(position);
         if (surahId==1) {
-            holder.txtversenumber.setText(position+1+"");
+            holder.txtversenumber.setText(Helper.getDigitBanglaFromEnglish(position+1+""));
         } else {
-            holder.txtversenumber.setText(ayat.getVerse_id());
+            holder.txtversenumber.setText(Helper.getDigitBanglaFromEnglish(ayat.getVerse_id()));
         }
         holder.ayat.setTypeface(faceArabic);
         holder.ayat.setText(ayat.getQuran_quotes());

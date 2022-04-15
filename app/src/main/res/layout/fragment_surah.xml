@@ -2,12 +2,44 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/appbarcolor"
+        android:theme="@style/Theme.DarkMode"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            app:tint="@color/appbartextColor" />
+
+
+        <TextView
+            android:id="@+id/tooltext2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:fontFamily="@font/solaiman_lipi"
+            android:gravity="center"
+            android:paddingTop="1dp"
+            android:paddingBottom="5dp"
+            android:text="সূরা তালিকা"
+            android:textColor="@color/appbartextColor"
+            android:textSize="20sp" />
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:padding="10dp"
         android:id="@+id/recycler_surah_view"
         android:layout_width="match_parent"
+        android:layout_below="@+id/toolbar"
         android:layout_height="wrap_content"
         android:scrollbars="vertical" />
 

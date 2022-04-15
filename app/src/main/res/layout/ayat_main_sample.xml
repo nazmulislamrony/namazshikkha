@@ -21,19 +21,25 @@
         android:orientation="vertical">
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColor"
+            android:fontFamily="@font/solaiman_lipi"
+            android:id="@+id/txt_verse_numbe"
+            android:layout_marginLeft="5dp"
+            android:text="১"/>
+
+        <TextView
             android:id="@+id/ayatmain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elevation="4dp"
-            android:gravity="center"
+            android:gravity="right"
             android:padding="10dp"
             android:text="TextView"
-            android:textColor="#000000"
+            android:textColor="@color/textColor"
             android:textSize="30sp"
             android:textStyle="bold" />
-
-
-
 
             <TextView
                 android:layout_width="match_parent"
@@ -41,17 +47,12 @@
                 android:id="@+id/txt_bangla_ayat"
                 android:fontFamily="@font/solaiman_lipi"
                 android:padding="5dp"
-                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textColor="@color/textColor"
                 android:text="বাংলা ফন্ট"
-                android:gravity="center_horizontal" />
+                android:gravity="left" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/solaiman_lipi"
-            android:id="@+id/txt_verse_numbe"
-            android:layout_marginLeft="5dp"
-            android:text="১"/>
+
 
 
         <!--        <TextView-->

@@ -15,13 +15,36 @@
 <!--        android:theme="@style/AppTheme.AppBarOverlay"-->
 <!--       >-->
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:background="@color/colorPrimary"
-            android:layout_width="match_parent"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/appbarcolor"
+        android:theme="@style/Theme.DarkMode"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:theme="@style/Base.ThemeOverlay.AppCompat.Dark"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            app:tint="@color/appbartextColor" />
+
+
+        <TextView
+            android:id="@+id/tooltext2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:fontFamily="@font/solaiman_lipi"
+            android:gravity="center"
+            android:paddingTop="1dp"
+            android:paddingBottom="5dp"
+            android:text="সূরা তালিকা"
+            android:textColor="@color/appbartextColor"
+            android:textSize="20sp" />
+    </androidx.appcompat.widget.Toolbar>
 
 <!--        </androidx.appcompat.widget.Toolbar>-->
 

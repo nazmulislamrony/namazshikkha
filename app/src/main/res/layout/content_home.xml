@@ -43,8 +43,8 @@
                             android:layout_height="60dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:tint="@color/colorPrimary"
-                            android:src="@drawable/ic_reading_quran" />
+                            android:src="@drawable/ic_reading_quran"
+                            android:tint="@color/colorPrimary" />
 
                         <TextView
                             android:id="@+id/humanText"
@@ -56,8 +56,7 @@
                             android:fontFamily="@font/solaiman_lipi"
                             android:text="আল-কোরআন"
                             android:textColor="@color/textColor"
-                            android:textSize="17sp"
-                             />
+                            android:textSize="17sp" />
 
                         <Button
                             android:id="@+id/btn_alquran"
@@ -85,7 +84,7 @@
                             android:layout_height="60dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/surah" />
+                            android:src="@drawable/tasbih" />
 
                         <TextView
                             android:id="@+id/lastBackTxt"
@@ -95,13 +94,12 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/solaiman_lipi"
-                            android:text="সূরা"
+                            android:text="তাসবীহ"
                             android:textColor="@color/textColor"
-                            android:textSize="17sp"
-                            />
+                            android:textSize="17sp" />
 
                         <Button
-                            android:id="@+id/tenthbtn"
+                            android:id="@+id/tasbihbtn"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent" />
@@ -110,6 +108,50 @@
 
 
                 </androidx.cardview.widget.CardView>
+
+
+                <!--                <androidx.cardview.widget.CardView-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_height="match_parent"-->
+                <!--                    android:layout_gravity="center"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:orientation="vertical">-->
+
+                <!--                    <RelativeLayout-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="match_parent">-->
+
+                <!--                        <ImageView-->
+                <!--                            android:id="@+id/lastBackImg"-->
+                <!--                            android:layout_width="60dp"-->
+                <!--                            android:layout_height="60dp"-->
+                <!--                            android:layout_centerHorizontal="true"-->
+                <!--                            android:layout_marginTop="20dp"-->
+                <!--                            android:src="@drawable/surah" />-->
+
+                <!--                        <TextView-->
+                <!--                            android:id="@+id/lastBackTxt"-->
+                <!--                            android:layout_width="wrap_content"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:layout_below="@+id/lastBackImg"-->
+                <!--                            android:layout_centerHorizontal="true"-->
+                <!--                            android:layout_marginTop="15dp"-->
+                <!--                            android:fontFamily="@font/solaiman_lipi"-->
+                <!--                            android:text="সূরা"-->
+                <!--                            android:textColor="@color/textColor"-->
+                <!--                            android:textSize="17sp"-->
+                <!--                            />-->
+
+                <!--                        <Button-->
+                <!--                            android:id="@+id/tenthbtn"-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="match_parent"-->
+                <!--                            android:background="@android:color/transparent" />-->
+
+                <!--                    </RelativeLayout>-->
+
+
+                <!--                </androidx.cardview.widget.CardView>-->
 
 
             </LinearLayout>
@@ -137,10 +179,10 @@
                             android:id="@+id/goalLatImg"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
-                            android:tint="@color/colorPrimary"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/n1" />
+                            android:src="@drawable/n1"
+                            android:tint="@color/colorPrimary" />
 
                         <TextView
                             android:id="@+id/names_ofcreator"
@@ -152,8 +194,7 @@
                             android:fontFamily="@font/solaiman_lipi"
                             android:text="আল্লাহর ৯৯ নাম অর্থসহ ও ফজিলত"
                             android:textColor="@color/textColor"
-                            android:textSize="17sp"
-                            />
+                            android:textSize="17sp" />
 
                         <Button
                             android:id="@+id/names_of_creator"
@@ -168,8 +209,50 @@
                 </androidx.cardview.widget.CardView>
 
 
-
             </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/rv_sadkaye_jariya"
+                android:layout_width="match_parent"
+                android:layout_height="95dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/shape_stat"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+
+                <TextView
+                    android:id="@+id/fist_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/solaiman_lipi"
+                    android:text="ফেসবুক গ্রুপে যুক্ত হোন"
+                    android:textColor="@color/textColor" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/fist_hint"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/solaiman_lipi"
+                    android:text="আপনার যেকোন অনুরোধ (নতুন ফিচার যুক্ত, মতামত) থাকলে তা আমাদের গ্রুপে পোস্ট করুন। ব্যবহার কারীদের সাথে সম্পর্ক স্থাপনের লক্ষে আমাদের এই পদক্ষেপ"
+                    android:textColor="@color/textColor"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/donate_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="60dp"
+                    android:text="JOIN"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+
+            </RelativeLayout>
 
 
             <LinearLayout
@@ -211,11 +294,10 @@
                             android:text="ওযু"
 
                             android:textColor="@color/textColor"
-                            android:textSize="17sp"
-                             />
+                            android:textSize="17sp" />
 
                         <Button
-                            android:id="@+id/firstbtn"
+                            android:id="@+id/btnoju"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent" />
@@ -247,13 +329,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/comfortImg"
-                            android:text="গোসল"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/solaiman_lipi"
+                            android:text="গোসল"
                             android:textColor="@color/textColor"
-                            android:textSize="17sp"
-                           />
+                            android:textSize="17sp" />
 
                         <Button
                             android:id="@+id/secondbtn"
@@ -307,8 +388,7 @@
                             android:fontFamily="@font/solaiman_lipi"
                             android:text="তায়াম্মুম"
                             android:textColor="@color/textColor"
-                            android:textSize="17sp"
-                             />
+                            android:textSize="17sp" />
 
                         <Button
                             android:id="@+id/thirdbtn"
@@ -349,11 +429,11 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/solaiman_lipi"
+                            android:gravity="center_horizontal"
                             android:text="ওয়াক্ত ও রাকাআত"
                             android:textAlignment="center"
                             android:textColor="@color/textColor"
-                            android:textSize="17sp"
-                            android:gravity="center_horizontal" />
+                            android:textSize="17sp" />
 
                         <Button
                             android:id="@+id/fourthbtn"
@@ -369,49 +449,6 @@
 
             </LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="95dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:padding="10dp"
-                android:id="@+id/rv_sadkaye_jariya"
-                android:background="@drawable/shape_stat"
-                android:layout_marginBottom="20dp"
-                android:orientation="vertical">
-
-
-                <TextView
-                    android:id="@+id/fist_hint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/solaiman_lipi"
-                    android:text="ফেসবুক গ্রুপে যুক্ত হোন"
-                    android:textColor="@color/textColor" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/fist_hint"
-                    android:layout_marginTop="10dp"
-                    android:textColor="@color/textColor"
-                    android:fontFamily="@font/solaiman_lipi"
-                    android:text="আপনার যেকোন অনুরোধ (নতুন ফিচার যুক্ত, মতামত) থাকলে তা আমাদের গ্রুপে পোস্ট করুন। ব্যবহার কারীদের সাথে সম্পর্ক স্থাপনের লক্ষে আমাদের এই পদক্ষেপ"
-                    android:textSize="10sp" />
-
-                <TextView
-                    android:id="@+id/donate_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="60dp"
-                    android:text="JOIN"
-                    android:textColor="@color/colorPrimary"
-                    android:textStyle="bold" />
-
-
-            </RelativeLayout>
 
 
             <LinearLayout
@@ -452,8 +489,7 @@
                             android:fontFamily="@font/solaiman_lipi"
                             android:text="নামাজের মাসআলা"
                             android:textColor="@color/textColor"
-                            android:textSize="17sp"
-                            />
+                            android:textSize="17sp" />
 
                         <Button
                             android:id="@+id/fifthbtn"
@@ -494,12 +530,12 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/solaiman_lipi"
+                            android:gravity="center_horizontal"
                             android:text="নামাজ আদায়ের নিয়ম"
-                            android:textAlignment="center"
 
+                            android:textAlignment="center"
                             android:textColor="@color/textColor"
-                            android:textSize="17sp"
-                            android:gravity="center_horizontal" />
+                            android:textSize="17sp" />
 
                         <Button
                             android:id="@+id/sixthbtn"
@@ -553,8 +589,7 @@
                             android:fontFamily="@font/solaiman_lipi"
                             android:text="ঈদের নামাজ"
                             android:textColor="@color/textColor"
-                            android:textSize="17sp"
-                           />
+                            android:textSize="17sp" />
 
                         <Button
                             android:id="@+id/seventhbtn"
@@ -594,11 +629,11 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/solaiman_lipi"
+                            android:gravity="center_horizontal"
                             android:text="তাহাজ্জুদ ও তারাবি"
                             android:textAlignment="center"
                             android:textColor="@color/textColor"
-                            android:textSize="17sp"
-                            android:gravity="center_horizontal" />
+                            android:textSize="17sp" />
 
                         <Button
                             android:id="@+id/eighthbtn"
@@ -652,113 +687,13 @@
                             android:fontFamily="@font/solaiman_lipi"
                             android:text="জানাজার নামাজ"
                             android:textColor="@color/textColor"
-                            android:textSize="17sp"
-                           />
+                            android:textSize="17sp" />
 
                         <Button
                             android:id="@+id/ninthbtn"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent" />
-
-                    </RelativeLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:id="@+id/lastBackImg"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="20dp"
-                            android:src="@drawable/tasbih" />
-
-                        <TextView
-                            android:id="@+id/lastBackTxt"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/lastBackImg"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="15dp"
-                            android:fontFamily="@font/solaiman_lipi"
-                            android:text="তাসবীহ"
-                            android:textColor="@color/textColor"
-                            android:textSize="17sp"
-                            />
-
-                        <Button
-                            android:id="@+id/tasbihbtn"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@android:color/transparent" />
-
-                    </RelativeLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="135dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="20dp"
-                android:orientation="horizontal">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="20dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:id="@+id/goalLatImg"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="20dp"
-                            android:src="@drawable/doa" />
-
-                        <TextView
-                            android:id="@+id/goalLast"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/goalLatImg"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="15dp"
-                            android:fontFamily="@font/solaiman_lipi"
-                            android:text="দোয়া"
-                            android:textColor="@color/textColor"
-                            android:textSize="17sp"
-                            />
-
-                        <Button
-                            android:id="@+id/elevenbtn"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@android:color/transparent" />
-
 
                     </RelativeLayout>
 
@@ -803,6 +738,61 @@
                             android:background="@android:color/transparent" />
 
                     </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="135dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/goalLatImg"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="20dp"
+                            android:src="@drawable/doa" />
+
+                        <TextView
+                            android:id="@+id/goalLast"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/goalLatImg"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/solaiman_lipi"
+                            android:text="দোয়া"
+                            android:textColor="@color/textColor"
+                            android:textSize="17sp" />
+
+                        <Button
+                            android:id="@+id/elevenbtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent" />
+
+
+                    </RelativeLayout>
+
+
                 </androidx.cardview.widget.CardView>
 
 

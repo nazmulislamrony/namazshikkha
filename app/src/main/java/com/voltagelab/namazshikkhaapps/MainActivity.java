@@ -4,14 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 
-import android.app.UiModeManager;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -37,29 +35,28 @@ import com.batoulapps.adhan.Coordinates;
 import com.batoulapps.adhan.Madhab;
 import com.batoulapps.adhan.PrayerTimes;
 import com.batoulapps.adhan.data.DateComponents;
-import com.voltagelab.namazshikkhaapps.Activity.AlQuran.model.SurahActivity;
-import com.voltagelab.namazshikkhaapps.Activity.EighthButton;
-import com.voltagelab.namazshikkhaapps.Activity.EleventhButton;
-import com.voltagelab.namazshikkhaapps.Activity.FifthButton;
-import com.voltagelab.namazshikkhaapps.Activity.FirstButton;
-import com.voltagelab.namazshikkhaapps.Activity.FourthButton;
-import com.voltagelab.namazshikkhaapps.Activity.NinthButton;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.DoaActivity;
+
 import com.voltagelab.namazshikkhaapps.Activity.NintyNineNames.NintyNineNames;
 import com.voltagelab.namazshikkhaapps.Activity.SadkaiyeJariya;
-import com.voltagelab.namazshikkhaapps.Activity.SecondButton;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.GosolActivity;
 import com.voltagelab.namazshikkhaapps.Activity.SettingsActivity;
-import com.voltagelab.namazshikkhaapps.Activity.SeventhButton;
-import com.voltagelab.namazshikkhaapps.Activity.SixthButton;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.EidNamazActivity;
 import com.voltagelab.namazshikkhaapps.Activity.Tasbih.TasbihActivity;
-import com.voltagelab.namazshikkhaapps.Activity.TenthButton;
-import com.voltagelab.namazshikkhaapps.Activity.ThirdButton;
-import com.voltagelab.namazshikkhaapps.Activity.TwelveButton;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.ChitrosohoNamazActivity;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.navigation.NavigationView;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.JanajarNamazActivity;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.NamazAdayerNiomActivity;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.NamazerMasalActivity;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.NamazerOwaktoActivity;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.OjuActivity;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.SurahActivityNamazShikkha;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.TahajjodTaraviActivity;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.TayamommumActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.TimeZone;
 
@@ -73,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
     Typeface typeface;
     Intent intent;
 
-    Button first, second, third, fourth, fifth, sixth, seventh, eight, ninthBtn, tenth, eleventh, twelve, tasbihBtn, all_names_of_creator;
+    Button btnoju, second, third, namazerOwakto, namazerMasala, namazAdayerNiom, seventh, tahajjodtarabi, ninthBtn, doaActivity, chitrosohoNamaz, tasbihBtn, all_names_of_creator;
     RelativeLayout rvSadkayeJariya;
 
     @Override
@@ -81,8 +78,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Helper helper = new Helper(this);
-        helper.themeChange();
+//        Helper helper = new Helper(this);
+//        helper.themeChange();
         //-----------------Hooks--------------------
 
         toolbar = findViewById(R.id.toolbar_top);
@@ -91,18 +88,18 @@ public class MainActivity extends AppCompatActivity {
         rvSadkayeJariya = findViewById(R.id.rv_sadkaye_jariya);
 
 
-        first = findViewById(R.id.firstbtn);
+        btnoju = findViewById(R.id.btnoju);
         second = findViewById(R.id.secondbtn);
         third = findViewById(R.id.thirdbtn);
-        fourth = findViewById(R.id.fourthbtn);
-        fifth = findViewById(R.id.fifthbtn);
-        sixth = findViewById(R.id.sixthbtn);
+        namazerOwakto = findViewById(R.id.fourthbtn);
+        namazerMasala = findViewById(R.id.fifthbtn);
+        namazAdayerNiom = findViewById(R.id.sixthbtn);
         seventh = findViewById(R.id.seventhbtn);
-        eight = findViewById(R.id.eighthbtn);
+        tahajjodtarabi = findViewById(R.id.eighthbtn);
         ninthBtn = findViewById(R.id.ninthbtn);
-        tenth = findViewById(R.id.tenthbtn);
-        eleventh = findViewById(R.id.elevenbtn);
-        twelve = findViewById(R.id.twelvebtn);
+//        surahBtn = findViewById(R.id.tenthbtn);
+        doaActivity = findViewById(R.id.elevenbtn);
+        chitrosohoNamaz = findViewById(R.id.twelvebtn);
         tasbihBtn = findViewById(R.id.tasbihbtn);
         all_names_of_creator = findViewById(R.id.names_of_creator);
 
@@ -121,18 +118,18 @@ public class MainActivity extends AppCompatActivity {
 
         //------------------------Different Methode------------------------
         setNavDrawer();
-        publicButton();
-        secondButton();
-        thirdButton();
-        fourthButton();
-        fifthButton();
-        sixthButton();
+        Oju();
+        gosolMethod();
+        tayammumMethod();
+        namazerOwaktoMethod();
+        namazerMasalaMethod();
+        namazAdayerNiomMethod();
         seventhButton();
-        eightButton();
+        tahajjodtarabiMethod();
         ninthButton();
-        tenthButton();
-        eleventhButton();
-        twelveButton();
+//        surahMethod();
+        doaMethod();
+        chitrosohoNamaz();
         QuranButton();
         tasbihBtn();
         sadkiyeJariya();
@@ -189,7 +186,6 @@ public class MainActivity extends AppCompatActivity {
         rvSadkayeJariya.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "clc", Toast.LENGTH_SHORT).show();
                 try {
                     getPackageManager().getPackageInfo("com.facebook.katana", 0);
                      startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("fb://groups/359779002578811")));
@@ -331,7 +327,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                     case R.id.facebook:
-                        final String urlFb = "fb://page/" + "623249964534978";
+                        final String urlFb = "fb://groups/359779002578811";
                         Intent intent = new Intent(Intent.ACTION_VIEW);
                         intent.setData(Uri.parse(urlFb));
 
@@ -342,7 +338,7 @@ public class MainActivity extends AppCompatActivity {
                                 packageManager.queryIntentActivities(intent,
                                         PackageManager.MATCH_DEFAULT_ONLY);
                         if (list.size() == 0) {
-                            final String urlBrowser = "https://www.facebook.com/" + "623249964534978";
+                            final String urlBrowser = "https://www.facebook.com/" + "/groups/359779002578811";
                             intent.setData(Uri.parse(urlBrowser));
                         }
 
@@ -359,11 +355,11 @@ public class MainActivity extends AppCompatActivity {
     }
     //-------------------first btn onclick listener intent --------------------------------------
 
-    public void publicButton() {
-        first.setOnClickListener(new View.OnClickListener() {
+    public void Oju() {
+        btnoju.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, FirstButton.class);
+                Intent intent = new Intent(MainActivity.this, OjuActivity.class);
                 startActivity(intent);
             }
         });
@@ -371,11 +367,11 @@ public class MainActivity extends AppCompatActivity {
 
     // --------------- second Button click listener ----------------------------------------
 
-    public void secondButton() {
+    public void gosolMethod() {
         second.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SecondButton.class);
+                Intent intent = new Intent(MainActivity.this, GosolActivity.class);
                 startActivity(intent);
             }
         });
@@ -383,11 +379,11 @@ public class MainActivity extends AppCompatActivity {
 
     //====================third button click listener ===========================================
 
-    public void thirdButton() {
+    public void tayammumMethod() {
         third.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ThirdButton.class);
+                Intent intent = new Intent(MainActivity.this, TayamommumActivity.class);
                 startActivity(intent);
             }
         });
@@ -397,11 +393,11 @@ public class MainActivity extends AppCompatActivity {
     //====================fourth button click listener ===========================================
 
 
-    public void fourthButton() {
-        fourth.setOnClickListener(new View.OnClickListener() {
+    public void namazerOwaktoMethod() {
+        namazerOwakto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, FourthButton.class);
+                Intent intent = new Intent(MainActivity.this, NamazerOwaktoActivity.class);
                 startActivity(intent);
             }
         });
@@ -409,11 +405,11 @@ public class MainActivity extends AppCompatActivity {
 
     // ===================fifth button click listener==============================================
 
-    public void fifthButton() {
-        fifth.setOnClickListener(new View.OnClickListener() {
+    public void namazerMasalaMethod() {
+        namazerMasala.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, FifthButton.class);
+                Intent intent = new Intent(MainActivity.this, NamazerMasalActivity.class);
                 startActivity(intent);
             }
         });
@@ -421,11 +417,11 @@ public class MainActivity extends AppCompatActivity {
 
     // ===================sixth button click listener==============================================
 
-    public void sixthButton() {
-        sixth.setOnClickListener(new View.OnClickListener() {
+    public void namazAdayerNiomMethod() {
+        namazAdayerNiom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SixthButton.class);
+                Intent intent = new Intent(MainActivity.this, NamazAdayerNiomActivity.class);
                 startActivity(intent);
             }
         });
@@ -438,7 +434,7 @@ public class MainActivity extends AppCompatActivity {
         seventh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SeventhButton.class);
+                Intent intent = new Intent(MainActivity.this, EidNamazActivity.class);
                 startActivity(intent);
             }
         });
@@ -446,11 +442,11 @@ public class MainActivity extends AppCompatActivity {
 
     // ===================eight button click listener==============================================
 
-    public void eightButton() {
-        eight.setOnClickListener(new View.OnClickListener() {
+    public void tahajjodtarabiMethod() {
+        tahajjodtarabi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, EighthButton.class);
+                Intent intent = new Intent(MainActivity.this, TahajjodTaraviActivity.class);
                 startActivity(intent);
             }
         });
@@ -463,7 +459,7 @@ public class MainActivity extends AppCompatActivity {
         ninthBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, NinthButton.class);
+                Intent intent = new Intent(MainActivity.this, JanajarNamazActivity.class);
                 startActivity(intent);
             }
         });
@@ -471,36 +467,35 @@ public class MainActivity extends AppCompatActivity {
 
     // ===================tenth button click listener==============================================
 
-    public void tenthButton() {
-        tenth.setOnClickListener(new View.OnClickListener() {
+//    public void surahMethod() {
+//        surahBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MainActivity.this, SurahActivityNamazShikkha.class);
+//                startActivity(intent);
+//            }
+//        });
+//    }
+
+    public void doaMethod() {
+        doaActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, TenthButton.class);
+                Intent intent = new Intent(MainActivity.this, DoaActivity.class);
                 startActivity(intent);
             }
         });
     }
 
-    public void eleventhButton() {
-        eleventh.setOnClickListener(new View.OnClickListener() {
+
+    public void chitrosohoNamaz() {
+        chitrosohoNamaz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, EleventhButton.class);
+                Intent intent = new Intent(MainActivity.this, ChitrosohoNamazActivity.class);
                 startActivity(intent);
             }
         });
-    }
-
-
-    public void twelveButton() {
-        twelve.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, TwelveButton.class);
-                startActivity(intent);
-            }
-        });
-
     }
 
     private void QuranButton() {
@@ -508,7 +503,7 @@ public class MainActivity extends AppCompatActivity {
         btnAlQuran.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, SurahActivity.class));
+                startActivity(new Intent(MainActivity.this, com.voltagelab.namazshikkhaapps.Activity.AlQuran.SurahActivity.class));
             }
         });
     }

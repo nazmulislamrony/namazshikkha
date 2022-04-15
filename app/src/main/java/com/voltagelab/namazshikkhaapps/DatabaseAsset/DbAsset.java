@@ -6,18 +6,18 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 
 import com.voltagelab.namazshikkhaapps.Activity.NintyNineNames.NintyNimesModel;
-import com.voltagelab.namazshikkhaapps.Model.ContentStore;
-import com.voltagelab.namazshikkhaapps.Model.EighthStore;
-import com.voltagelab.namazshikkhaapps.Model.EleventhStore;
-import com.voltagelab.namazshikkhaapps.Model.FifthStore;
-import com.voltagelab.namazshikkhaapps.Model.FourthStore;
-import com.voltagelab.namazshikkhaapps.Model.NinthStore;
-import com.voltagelab.namazshikkhaapps.Model.SecondStore;
-import com.voltagelab.namazshikkhaapps.Model.SeventhStore;
-import com.voltagelab.namazshikkhaapps.Model.SixthStore;
-import com.voltagelab.namazshikkhaapps.Model.TenthStore;
-import com.voltagelab.namazshikkhaapps.Model.ThirdStore;
-import com.voltagelab.namazshikkhaapps.Model.TwelveStore;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.Model.ContentStore;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.Model.EighthStore;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.Model.EleventhStore;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.Model.FifthStore;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.Model.FourthStore;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.Model.NinthStore;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.Model.SecondStore;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.Model.SeventhStore;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.Model.SixthStore;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.Model.TenthStore;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.Model.ThirdStore;
+import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.Model.TwelveStore;
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ import java.util.List;
 
 public class DbAsset extends SQLiteAssetHelper {
 
-    private static String DATABASE_NAME="namaz-upgrade_3-4.db";
+    private static String DATABASE_NAME="namaz-upgrade_4-5.db";
     private static int VERSION_NUMBER=4;
     private static Cursor cursor;
 
@@ -48,12 +48,13 @@ public class DbAsset extends SQLiteAssetHelper {
 
     //------------- Function to get all data from database---------------------
 
-    public List<ContentStore> getData(){
+
+    public List<ContentStore> getOju(){
         SQLiteDatabase sqLiteDatabase=getReadableDatabase();
         SQLiteQueryBuilder queryBuilder=new SQLiteQueryBuilder();
 
         String [] sqSelect={"id","name","content"};
-        String tableName="tbl_content";
+        String tableName="oju";
         queryBuilder.setTables(tableName);
         Cursor cursor=queryBuilder.query(sqLiteDatabase,sqSelect,null,null,null,null,null);
 
@@ -73,12 +74,12 @@ public class DbAsset extends SQLiteAssetHelper {
 
     // ----------------------- For second Table Data collect -------------------------------------------
 
-    public List<SecondStore> secondStor(){
+    public List<SecondStore> getGosolInfo(){
         SQLiteDatabase sqLiteDatabase=getReadableDatabase();
         SQLiteQueryBuilder queryBuilder=new SQLiteQueryBuilder();
 
         String [] sqSelect={"id", "name","content"};
-        String tableName="second_table";
+        String tableName="gosol";
         queryBuilder.setTables(tableName);
         Cursor cursor=queryBuilder.query(sqLiteDatabase,sqSelect,null,null,null,null,null);
 
@@ -98,12 +99,12 @@ public class DbAsset extends SQLiteAssetHelper {
 
     //====================== For Third table data collection ==============================================
 
-    public List<ThirdStore> thirdStore(){
+    public List<ThirdStore> getTayammum(){
         SQLiteDatabase sqLiteDatabase=getReadableDatabase();
         SQLiteQueryBuilder sqLiteQueryBuilder=new SQLiteQueryBuilder();
 
         String [] sqSelect={"id","name","content"};
-        String tableName="third_table";
+        String tableName="tayammum";
 
         sqLiteQueryBuilder.setTables(tableName);
         Cursor cursor=sqLiteQueryBuilder.query(sqLiteDatabase,sqSelect,null,null,null,null,null);
@@ -124,12 +125,12 @@ public class DbAsset extends SQLiteAssetHelper {
 
     //====================== For Fourth table data collection ==============================================
 
-    public List<FourthStore> fourthStores(){
+    public List<FourthStore> getNamazerOwakto(){
         SQLiteDatabase sqLiteDatabase=getReadableDatabase();
         SQLiteQueryBuilder sqLiteQueryBuilder=new SQLiteQueryBuilder();
 
         String [] sqSelect={"id","name","content"};
-        String tableName="fourth_table";
+        String tableName="namazer_owakto";
 
         sqLiteQueryBuilder.setTables(tableName);
         Cursor cursor=sqLiteQueryBuilder.query(sqLiteDatabase,sqSelect,null,null,null,null,null);
@@ -151,12 +152,12 @@ public class DbAsset extends SQLiteAssetHelper {
 
     //====================== For Fifth table data collection ==============================================
 
-    public List<FifthStore> fifthStores(){
+    public List<FifthStore> getNamazerMasal(){
         SQLiteDatabase sqLiteDatabase=getReadableDatabase();
         SQLiteQueryBuilder sqLiteQueryBuilder=new SQLiteQueryBuilder();
 
         String [] sqSelect={"id","name","content"};
-        String tableName="fifth_table";
+        String tableName="namazer_masala";
 
         sqLiteQueryBuilder.setTables(tableName);
         Cursor cursor=sqLiteQueryBuilder.query(sqLiteDatabase,sqSelect,null,null,null,null,null);
@@ -177,12 +178,12 @@ public class DbAsset extends SQLiteAssetHelper {
 
     //====================== For Sixth table data collection ==============================================
 
-    public List<SixthStore> sixthStores(){
+    public List<SixthStore> getNamazAdayerNiom(){
         SQLiteDatabase sqLiteDatabase=getReadableDatabase();
         SQLiteQueryBuilder sqLiteQueryBuilder=new SQLiteQueryBuilder();
 
         String [] sqSelect={"id","name","content"};
-        String tableName="sixth_table";
+        String tableName="namaz_adayer_niom";
 
         sqLiteQueryBuilder.setTables(tableName);
         Cursor cursor=sqLiteQueryBuilder.query(sqLiteDatabase,sqSelect,null,null,null,null,null);
@@ -202,12 +203,12 @@ public class DbAsset extends SQLiteAssetHelper {
 
     //====================== For Seventh table data collection ==============================================
 
-    public List<SeventhStore> seventhStores(){
+    public List<SeventhStore> getEidNamaz(){
         SQLiteDatabase sqLiteDatabase=getReadableDatabase();
         SQLiteQueryBuilder sqLiteQueryBuilder=new SQLiteQueryBuilder();
 
         String [] sqSelect={"id","name","content"};
-        String tableName="seventh_table";
+        String tableName="eid_namaz";
 
         sqLiteQueryBuilder.setTables(tableName);
         Cursor cursor=sqLiteQueryBuilder.query(sqLiteDatabase,sqSelect,null,null,null,null,null);
@@ -227,12 +228,12 @@ public class DbAsset extends SQLiteAssetHelper {
 
     //====================== For Eight table data collection ==============================================
 
-    public List<EighthStore> eighthStores(){
+    public List<EighthStore> getTahajjodtarabi(){
         SQLiteDatabase sqLiteDatabase=getReadableDatabase();
         SQLiteQueryBuilder sqLiteQueryBuilder=new SQLiteQueryBuilder();
 
         String [] sqSelect={"id","name","content"};
-        String tableName="eight_table";
+        String tableName="tahajjod";
 
         sqLiteQueryBuilder.setTables(tableName);
         Cursor cursor=sqLiteQueryBuilder.query(sqLiteDatabase,sqSelect,null,null,null,null,null);
@@ -253,12 +254,12 @@ public class DbAsset extends SQLiteAssetHelper {
 
     //====================== For Ninth table data collection ==============================================
 
-    public List<NinthStore> ninthStores(){
+    public List<NinthStore> getJanajarInfo(){
         SQLiteDatabase sqLiteDatabase=getReadableDatabase();
         SQLiteQueryBuilder sqLiteQueryBuilder=new SQLiteQueryBuilder();
 
         String [] sqSelect={"id","name","content"};
-        String tableName="ninth_table";
+        String tableName="janajar_namaz";
 
         sqLiteQueryBuilder.setTables(tableName);
         Cursor cursor=sqLiteQueryBuilder.query(sqLiteDatabase,sqSelect,null,null,null,null,null);
@@ -279,11 +280,11 @@ public class DbAsset extends SQLiteAssetHelper {
 
     // ========================== For Tenth table data collection ==============================================
 
-    public List<TenthStore> tenthStores(){
+    public List<TenthStore> getSurah(){
         SQLiteDatabase sqLiteDatabase=getReadableDatabase();
         SQLiteQueryBuilder sqLiteQueryBuilder=new SQLiteQueryBuilder();
         String [] sqselect={"id","name","content"};
-        String tableName="tenth_table";
+        String tableName="surah_list";
         sqLiteQueryBuilder.setTables(tableName);
         Cursor cursor=sqLiteQueryBuilder.query(sqLiteDatabase,sqselect,null,null,null,null,null);
 
@@ -303,12 +304,12 @@ public class DbAsset extends SQLiteAssetHelper {
 
     // ============================For Eleventh table data collection ====================================================
 
-    public List<EleventhStore> eleventhStores(){
+    public List<EleventhStore> getDoaActivity(){
         SQLiteDatabase sqLiteDatabase=getReadableDatabase();
         SQLiteQueryBuilder sqLiteQueryBuilder=new SQLiteQueryBuilder();
 
         String [] sqSelect={"id","name","content"};
-        String tableName="eleventh_table";
+        String tableName="doa";
 
         sqLiteQueryBuilder.setTables(tableName);
         Cursor cursor=sqLiteQueryBuilder.query(sqLiteDatabase,sqSelect,null,null,null,null,null);
@@ -330,12 +331,12 @@ public class DbAsset extends SQLiteAssetHelper {
 
     // =============================For Twelve table data collection ===========================================================
 
-    public List<TwelveStore> twelveStores(){
+    public List<TwelveStore> getChitrosohonamaz(){
         SQLiteDatabase sqLiteDatabase=getReadableDatabase();
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
 
         String [] sqSelect={"id","name"};
-        String tableName="twelve_table";
+        String tableName="chitrosoho_namaz";
 
         queryBuilder.setTables(tableName);
         Cursor cursor=queryBuilder.query(sqLiteDatabase,sqSelect,null,null,null,null,null);

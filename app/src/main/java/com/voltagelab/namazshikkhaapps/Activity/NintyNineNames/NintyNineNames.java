@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.voltagelab.namazshikkhaapps.DatabaseAsset.DbAsset;
+import com.voltagelab.namazshikkhaapps.Helper;
 import com.voltagelab.namazshikkhaapps.R;
 
 import org.json.JSONArray;
@@ -30,7 +31,9 @@ public class NintyNineNames extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ninty_nine_names);
-        setTitle("আল্লাহর ৯৯ নাম অর্থসহ ও ফজিলত");
+        Helper helper = new Helper(this);
+        helper.backButtonPressed(this);
+
         rvnintynine = findViewById(R.id.rvnintynine);
         nintyninelist = new ArrayList<>();
         DbAsset databaseAsset=new DbAsset(this);

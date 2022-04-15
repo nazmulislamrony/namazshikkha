@@ -12,14 +12,16 @@
         android:fontFamily="@font/solaiman_lipi"
         android:padding="15dp"
         android:text="test"
-        android:textColor="#108E0D"
+        android:textColor="@color/listtextcolor"
         android:textSize="20sp"
         android:textStyle="normal" />
 
     <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#fff"/>
+        android:id="@+id/divider"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/lineWidth"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/darker_gray" />
 
 
 </LinearLayout>

@@ -30,10 +30,27 @@ public class SettingsActivity extends AppCompatActivity {
         backArrow = findViewById(R.id.back_arrow);
         helper = new Helper(this);
         helper.backButtonPressed(this);
+        RadioButton radiolight, radiodark, radiodefault;
+        radiolight = findViewById(R.id.radiolight);
+        radiodark = findViewById(R.id.radiodark);
+        radiodefault = findViewById(R.id.radiodefault);
 
         radioThemeGroup = findViewById(R.id.radioGroupThemeSet);
 
         themeSet();
+
+
+        String name =  (helper.getSessionString(Helper.THEMESETS,Helper.DEFAULTTHEMESETS));
+        if (name.equals("light")) {
+            Log.d("check_in_dat","if");
+            radiolight.setChecked(true);
+        } else if (name.equals("dark")){
+            Log.d("check_in_dat","else if");
+            radiodark.setChecked(true);
+        } else {
+            Log.d("check_in_dat","else ");
+            radiodefault.setChecked(true);
+        }
 
     }
 
@@ -46,7 +63,6 @@ public class SettingsActivity extends AppCompatActivity {
 
                 int selectedId = radioThemeGroup.getCheckedRadioButtonId();
                 radioSelectedButton = findViewById(selectedId);
-                Toast.makeText(SettingsActivity.this, radioSelectedButton.getTag().toString()+"", Toast.LENGTH_SHORT).show();
                 helper.setSessionString(Helper.THEMESETS,radioSelectedButton.getTag().toString());
                 helper.themeChange();
             }

@@ -1,19 +1,25 @@
 package com.voltagelab.namazshikkhaapps.Activity.AlQuran.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.voltagelab.namazshikkhaapps.Activity.AlQuran.SurahDataSource;
+import com.voltagelab.namazshikkhaapps.Activity.AlQuran.ayahtype.AlQuranActivity;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.intrface.OnItemClickListener;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.model.ModelSura;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.model.SurahModel;
+import com.voltagelab.namazshikkhaapps.Helper;
 import com.voltagelab.namazshikkhaapps.R;
 
 import java.util.ArrayList;
@@ -46,17 +52,23 @@ public class SurahAdapter extends RecyclerView.Adapter<SurahAdapter.SurahViewHol
   public void onBindViewHolder(SurahViewHolder holder, int position) {
 
     ModelSura surahModel = surahModelArrayList.get(position);
-    holder.surah_idTextView.setText(surahModel.getId() + ".");
+    holder.surah_idTextView.setText(Helper.getDigitBanglaFromEnglish(surahModel.getId() + "."));
     holder.translateTextView.setText(surahModel.getBnSuraName());
     holder.arabicTextView.setText(surahModel.getName_arabic());
     holder.arabicTextView.setTypeface(faceName);
-
-//    if (position % 2 == 0) {
-//      holder.row_surah.setBackgroundColor(ContextCompat.getColor(context, R.color.mushaf3));
-//
-//    } else {
-//      holder.row_surah.setBackgroundColor(ContextCompat.getColor(context, R.color.mushaf2));
-//    }
+    holder.total_ayat.setText("আয়াত সংখ্যা "+surahModel.getAyat()+" টি");
+    holder.itemView.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+                        Bundle dataBundle = new Bundle();
+                        dataBundle.putString(SurahDataSource.SURAH_ID_TAG, surahModel.getId());
+                        dataBundle.putString(SurahDataSource.SURAH_NAME_TRANSLATE, surahModel.getBnSuraName());
+                        dataBundle.putString(SurahDataSource.SURAH_NAME_ARABIC, surahModel.getName_arabic());
+                        Intent intent = new Intent(context, AlQuranActivity.class);
+                        intent.putExtras(dataBundle);
+                        context.startActivity(intent);
+      }
+    });
   }
 
   @Override
@@ -87,8 +99,9 @@ public class SurahAdapter extends RecyclerView.Adapter<SurahAdapter.SurahViewHol
 
     public TextView surah_idTextView;
 
-    public TextView arabicTextView;
+    public TextView arabicTextView, total_ayat;
     public RelativeLayout row_surah;
+
 
     public SurahViewHolder(View view) {
       super(view);
@@ -96,6 +109,7 @@ public class SurahAdapter extends RecyclerView.Adapter<SurahAdapter.SurahViewHol
       arabicTextView = view.findViewById(R.id.arabic_textView);
       surah_idTextView = view.findViewById(R.id.surah_idTextView);
       row_surah = view.findViewById(R.id.row_surah);
+      total_ayat = view.findViewById(R.id.ayat_number);
 
       view.setOnClickListener(this); // current clickListerner
     }

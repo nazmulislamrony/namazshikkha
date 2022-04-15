@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -87,16 +89,17 @@ public class Helper {
     public void themeChange() {
        String name =  (getSessionString(THEMESETS,DEFAULTTHEMESETS));
        if (name.equals("light")) {
-
            Log.d("check_in_dat","if");
            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
        } else if (name.equals("dark")){
            Log.d("check_in_dat","else if");
            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
        } else {
            Log.d("check_in_dat","else ");
            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+
        }
     }
 

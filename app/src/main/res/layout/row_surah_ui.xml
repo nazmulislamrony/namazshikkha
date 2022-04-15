@@ -29,43 +29,42 @@
             android:id="@+id/translate_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/surah_idTextView"
             android:background="?android:attr/selectableItemBackground"
             android:fontFamily="@font/solaiman_lipi"
             android:text="আল ফাতিহা"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/listtextcolor"
-            android:textSize="14sp" />
-
+            android:textSize="16sp" />
 
 
         <TextView
+            android:id="@+id/ayat_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/translate_textView"
             android:layout_toRightOf="@+id/surah_idTextView"
-            android:textColor="@color/listtextcolor"
             android:background="?android:attr/selectableItemBackground"
             android:fontFamily="@font/solaiman_lipi"
             android:text="আয়াত সংখ্যা ৭ টি "
-            android:id="@+id/surah_meaning"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textSize="10sp" />
-
-        <TextView
-            android:id="@+id/bn_translate_meaning"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_below="@+id/translate_textView"
-            android:layout_toRightOf="@+id/surah_meaning"
-            android:background="?android:attr/selectableItemBackground"
-            android:fontFamily="@font/solaiman_lipi"
-            android:text="অর্থঃ আল ফাতিহা"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/listtextcolor"
-            android:textSize="14sp" />
+            android:textSize="10sp" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/bn_translate_meaning"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/translate_textView"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:layout_toRightOf="@+id/surah_meaning"-->
+<!--            android:background="?android:attr/selectableItemBackground"-->
+<!--            android:fontFamily="@font/solaiman_lipi"-->
+<!--            android:text="অর্থঃ আল ফাতিহা"-->
+<!--            android:textAppearance="@style/TextAppearance.AppCompat.Medium"-->
+<!--            android:textColor="@color/listtextcolor"-->
+<!--            android:textSize="14sp" />-->
 
 
         <TextView
@@ -76,12 +75,12 @@
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
             android:background="?android:attr/selectableItemBackground"
-            android:textSize="16sp"
-            android:textColor="@color/listtextcolor"
             android:gravity="center"
             android:text="Arabic Text"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large">
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/listtextcolor"
+            android:textSize="20sp">
 
         </TextView>
 

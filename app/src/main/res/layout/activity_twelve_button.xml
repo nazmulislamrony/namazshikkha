@@ -6,7 +6,38 @@
     android:layout_height="match_parent"
     android:background="@drawable/custom_ripple"
     android:orientation="vertical"
-    tools:context=".Activity.TwelveButton">
+    tools:context=".Activity.namazshikkha.ChitrosohoNamazActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:background="@color/appbarcolor"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.DarkMode"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:layout_height="wrap_content"
+            android:id="@+id/back_arrow"
+            app:tint="@color/appbartextColor" />
+
+
+        <TextView
+            android:id="@+id/tooltext2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:fontFamily="@font/solaiman_lipi"
+            android:gravity="center"
+            android:paddingTop="1dp"
+            android:paddingBottom="5dp"
+            android:text="নামাজ আদায়ের নিয়ম"
+            android:textColor="@color/appbartextColor"
+            android:textSize="20sp" />
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/twelveRecyclerView"

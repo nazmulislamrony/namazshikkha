@@ -10,18 +10,18 @@
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:id="@+id/linearLayout"
-        android:backgroundTint="#F4F3F3"
         android:background="@drawable/shape_stat"
-        android:layout_height="100dp">
+        android:backgroundTint="@color/textColor"
+        android:layout_height="80dp">
 
         <TextView
             android:id="@+id/serial_of_names"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="১"
             android:fontFamily="@font/solaiman_lipi"
-            android:textColor="@color/colorPrimary"
+            android:text="১"
+            android:textColor="@color/listtextcolor"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -31,7 +31,7 @@
             android:id="@+id/separator_first"
             android:layout_centerVertical="true"
             android:layout_marginLeft="32dp"
-            android:background="@color/colorPrimary"/>
+            android:background="@color/listtextcolor"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -47,8 +47,8 @@
                 android:fontFamily="@font/solaiman_lipi"
                 android:gravity="center"
                 android:text="আর-রহমান"
-                android:textColor="#108E0D"
-                android:textSize="20sp"
+                android:textColor="@color/listtextcolor"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -60,8 +60,8 @@
                 android:fontFamily="@font/solaiman_lipi"
                 android:gravity="center"
                 android:text=" - "
-                android:textColor="#108E0D"
-                android:textSize="20sp"
+                android:textColor="@color/listtextcolor"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -73,18 +73,18 @@
                 android:fontFamily="@font/solaiman_lipi"
                 android:gravity="center"
                 android:text="test"
-                android:textColor="#108E0D"
-                android:textSize="20sp"
+                android:textColor="@color/listtextcolor"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <ImageView
+                android:id="@+id/arrow_forward"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
                 android:layout_alignParentRight="true"
-                android:id="@+id/arrow_forward"
                 android:layout_centerVertical="true"
                 android:src="@drawable/ic_baseline_arrow_forward_24"
-                app:tint="@color/colorPrimary" />
+                app:tint="@color/listtextcolor" />
 
             <TextView
                 android:id="@+id/txt_bn_meaning"
@@ -94,7 +94,7 @@
 
                 android:fontFamily="@font/solaiman_lipi"
                 android:text="অর্থঃ পরম দয়ালু"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/listtextcolor"
                 android:textStyle="bold" />
 
         </RelativeLayout>
@@ -103,11 +103,12 @@
 
 
 
-<!--    <View-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="0.5dp"-->
-<!--        android:layout_marginTop="5dp"-->
-<!--        android:background="@color/colorPrimary"/>-->
+    <View
+        android:id="@+id/divider"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/lineWidth"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/darker_gray" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -122,18 +123,18 @@
             android:layout_height="100dp"
             android:layout_centerHorizontal="true"
             android:src="@drawable/n1"
-            android:tint="@color/colorPrimary" />
+            android:tint="@color/listtextcolor" />
 
 
         <TextView
             android:id="@+id/txt_bn_fajilatcolon"
             android:layout_width="match_parent"
-            android:layout_below="@+id/img_names"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/img_names"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/solaiman_lipi"
             android:text="পাঠের ফজিলতঃ"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/listtextcolor"
             android:textStyle="bold" />
 
         <TextView
@@ -144,7 +145,7 @@
             android:layout_marginTop="5dp"
             android:fontFamily="@font/solaiman_lipi"
             android:text="পাঠের ফজিলত আলোচনা করা হবে এখানে। "
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/listtextcolor"
             android:textStyle="normal" />
 
         <View
@@ -153,7 +154,7 @@
             android:layout_marginTop="5dp"
             android:id="@+id/separator_afterbnfajilat"
             android:layout_below="@+id/txt_bn_fajilat"
-            android:background="@color/colorAccent"/>
+            android:background="@color/listtextcolor"/>
 
         <TextView
             android:id="@+id/references_names"
@@ -164,7 +165,7 @@
             android:fontFamily="@font/solaiman_lipi"
             android:text="References in Quran:"
             android:textAlignment="center"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/listtextcolor"
             android:textStyle="bold" />
         <TextView
             android:id="@+id/references_details"
@@ -175,7 +176,7 @@
             android:textStyle="normal"
             android:textAlignment="center"
             android:fontFamily="@font/solaiman_lipi"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/listtextcolor"
             android:text="References in details given" />
 
 
