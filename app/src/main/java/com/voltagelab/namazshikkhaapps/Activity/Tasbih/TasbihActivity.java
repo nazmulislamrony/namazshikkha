@@ -17,7 +17,7 @@ import com.voltagelab.namazshikkhaapps.R;
 public class TasbihActivity extends AppCompatActivity {
 
     Button btnReset;
-    Button imgVibrator;
+    ImageView imgVibrator;
     TextView tasbihCount;
     boolean isVibrator;
 

@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.voltagelab.namazshikkhaapps.Helper;
 import com.voltagelab.namazshikkhaapps.R;
 
 public class SadkaiyeJariya extends AppCompatActivity {
@@ -23,8 +24,11 @@ public class SadkaiyeJariya extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sadkaiye_jariya);
-        getSupportActionBar().setTitle("আর্থিক অনুদান দিন");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setTitle("আর্থিক অনুদান দিন");
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Helper helper = new Helper(this);
+        helper.backButtonPressed(this);
+
         Button btnSadkaiyeJariya = findViewById(R.id.btn_sadkaiye_jaria);
 
         btnSadkaiyeJariya.setOnClickListener(new View.OnClickListener() {
