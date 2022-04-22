@@ -7,6 +7,7 @@
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/ic_baseline_arrow_downward_24.xml" value="0.275" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/ic_baseline_arrow_forward_24.xml" value="0.2" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/ic_baseline_content_copy_24.xml" value="0.3165" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/ic_baseline_play_arrow_24.xml" value="0.3955" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/ic_baseline_vibration_24.xml" value="0.3155" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/ic_donate.xml" value="0.145" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/ic_email_black_24dp.xml" value="0.202" />
@@ -17,6 +18,7 @@
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/drawable/shape_stat.xml" value="0.145" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout-normal/activity_main.xml" value="0.5536458333333333" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout-small/activity_main.xml" value="0.8214285714285714" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout-small/audio_player.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout-small/ayat_main_sample.xml" value="0.30925925925925923" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout-xlarge/fragment_ayah_word.xml" value="0.23472222222222222" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout-xlarge/fragment_surah.xml" value="0.23472222222222222" />
@@ -57,6 +59,7 @@
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/activity_third_content_reader.xml" value="0.31145833333333334" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/activity_twelve_button.xml" value="0.55" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/activity_twelve_content_reader.xml" value="0.31145833333333334" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/audio_player.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/ayat_main_sample.xml" value="0.30925925925925923" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/collapsing_toolbar.xml" value="0.40636042402826855" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/content_home.xml" value="0.3853564547206166" />

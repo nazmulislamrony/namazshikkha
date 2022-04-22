@@ -33,6 +33,7 @@
             android:text="সূরা তালিকা"
             android:textColor="@color/appbartextColor"
             android:textSize="20sp" />
+
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -40,7 +41,16 @@
         android:id="@+id/recycler_surah_view"
         android:layout_width="match_parent"
         android:layout_below="@+id/toolbar"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/audio_inclue"
         android:scrollbars="vertical" />
+
+
+    <include
+        layout="@layout/audio_player"
+        android:id="@+id/audio_inclue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>
