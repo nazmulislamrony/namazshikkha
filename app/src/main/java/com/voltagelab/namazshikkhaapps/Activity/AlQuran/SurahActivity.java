@@ -57,7 +57,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 public class SurahActivity extends AppCompatActivity {
-    ArrayList<String> list;
+
 
     static String lang;
     private ArrayList<SurahModel> surahModelArrayList;
@@ -66,7 +66,6 @@ public class SurahActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
 
     private ArrayList<ModelSura> suraList;
-    ImageView play_btn, stop_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,15 +76,8 @@ public class SurahActivity extends AppCompatActivity {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         lang = sp.getString(Config.LANG, Config.defaultLang);
         mRecyclerView = findViewById(R.id.recycler_surah_view);
-        play_btn = findViewById(R.id.play_btn);
-        stop_btn = findViewById(R.id.stop_btn);
 
-        if (checkPermission()) {
-            playMediaPlayer();
 
-        } else  {
-            requestPermission();
-        }
 
 
 //        surahModelArrayList = getSurahArrayList();
@@ -146,104 +138,12 @@ public class SurahActivity extends AppCompatActivity {
 
 
 
-        list = new ArrayList<>();
-        list.add("https://www.everyayah.com/data/AbdulSamad_64kbps_QuranExplorer.Com/001005.mp3");
-        list.add("https://www.everyayah.com/data/AbdulSamad_64kbps_QuranExplorer.Com/001006.mp3");
 
 
 
     }
 
 
-    private void playMediaPlayer() {
-        PRDownloader.initialize(getApplicationContext());
-
-        // Enabling database for resume support even after the application is killed:
-        PRDownloaderConfig config1 = PRDownloaderConfig.newBuilder()
-                .setDatabaseEnabled(true)
-                .build();
-        PRDownloader.initialize(getApplicationContext(), config1);
-
-// Setting timeout globally for the download network requests:
-        PRDownloaderConfig config = PRDownloaderConfig.newBuilder()
-                .setReadTimeout(30_000)
-                .setConnectTimeout(30_000)
-                .build();
-        PRDownloader.initialize(getApplicationContext(), config);
-
-        String DEFAULT_URL = "https://www.everyayah.com/data/AbdulSamad_64kbps_QuranExplorer.Com/001005.mp3";
-
-        play_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-
-                String url = "https://www.everyayah.com/data/AbdulSamad_64kbps_QuranExplorer.Com/001005.mp3";
-                String file = "/downloads/001005.mp3";
-
-
-
-
-                Toast.makeText(SurahActivity.this, "ttt", Toast.LENGTH_SHORT).show();
-                File f = new File(getExternalFilesDir(null).getAbsolutePath() + "/Quran memorization Test");
-                if (!f.exists()) {
-                    f.mkdir();
-                }
-
-            downloadMedia(list.get(0),f, file);
-
-            }
-
-        });
-    }
-
-
-    public  void downloadMedia(String url, File f, String fileName) {
-        int downloadId = PRDownloader.download(url, f.getPath(), fileName)
-                .build()
-                .setOnStartOrResumeListener(new OnStartOrResumeListener() {
-                    @Override
-                    public void onStartOrResume() {
-                        Log.d("download_status","startorresume");
-                    }
-                })
-                .setOnPauseListener(new OnPauseListener() {
-                    @Override
-                    public void onPause() {
-
-                    }
-                })
-                .setOnCancelListener(new OnCancelListener() {
-                    @Override
-                    public void onCancel() {
-
-                    }
-                })
-                .setOnProgressListener(new OnProgressListener() {
-                    @Override
-                    public void onProgress(Progress progress) {
-
-                        Log.d("download_status","progress: "+progress);
-                    }
-                })
-                .start(new OnDownloadListener() {
-                    @Override
-                    public void onDownloadComplete() {
-                        Log.d("download_status","completed");
-                        String file = "/downloads/001006.mp3";
-
-                        downloadMedia(list.get(1),f, file);
-                    }
-
-                    @Override
-                    public void onError(Error error) {
-
-                    }
-                });
-
-
-    }
 
 
 
@@ -256,48 +156,38 @@ public class SurahActivity extends AppCompatActivity {
 
 
 
-    public static final int RequestPermissionCode = 1;
 
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case RequestPermissionCode:
-                if (grantResults.length> 0) {
-                    boolean StoragePermission = grantResults[0] ==
-                            PackageManager.PERMISSION_GRANTED;
-                    if (StoragePermission) {
-                        View toastView = getLayoutInflater().inflate(R.layout.toast_sample, null);
-                        Toast toast = new Toast(getApplicationContext());
-                        toast.setView(toastView);
-                        toast.setDuration(Toast.LENGTH_SHORT);
-                        toast.setGravity(Gravity.CENTER, 0,0);
-                        toast.show();
-                    } else {
-                        View toastView = getLayoutInflater().inflate(R.layout.toast_sample_denied, null);
-                        Toast toast = new Toast(getApplicationContext());
-                        toast.setView(toastView);
-                        toast.setDuration(Toast.LENGTH_SHORT);
-                        toast.setGravity(Gravity.CENTER, 0,0);
-                        toast.show();
-                    }
-                }
-                break;
-        }
-    }
 
-    private void requestPermission() {
-        ActivityCompat.requestPermissions(this, new
-                String[]{WRITE_EXTERNAL_STORAGE, RECORD_AUDIO}, RequestPermissionCode);
-    }
 
-    public boolean checkPermission() {
-        int result = ContextCompat.checkSelfPermission(getApplicationContext(),
-                WRITE_EXTERNAL_STORAGE);
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode,
+//                                           String permissions[], int[] grantResults) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//        switch (requestCode) {
+//            case Helper.RequestPermissionCode:
+//                if (grantResults.length> 0) {
+//                    boolean StoragePermission = grantResults[0] ==
+//                            PackageManager.PERMISSION_GRANTED;
+//                    if (StoragePermission) {
+//                        View toastView = getLayoutInflater().inflate(R.layout.toast_sample, null);
+//                        Toast toast = new Toast(getApplicationContext());
+//                        toast.setView(toastView);
+//                        toast.setDuration(Toast.LENGTH_SHORT);
+//                        toast.setGravity(Gravity.CENTER, 0,0);
+//                        toast.show();
+//                    } else {
+//                        View toastView = getLayoutInflater().inflate(R.layout.toast_sample_denied, null);
+//                        Toast toast = new Toast(getApplicationContext());
+//                        toast.setView(toastView);
+//                        toast.setDuration(Toast.LENGTH_SHORT);
+//                        toast.setGravity(Gravity.CENTER, 0,0);
+//                        toast.show();
+//                    }
+//                }
+//                break;
+//        }
+//    }
 
-        return result == PackageManager.PERMISSION_GRANTED ;
-    }
 
 }

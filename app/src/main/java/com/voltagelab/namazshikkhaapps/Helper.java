@@ -1,8 +1,12 @@
 package com.voltagelab.namazshikkhaapps;
 
+import static android.Manifest.permission.RECORD_AUDIO;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,6 +17,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 public class Helper {
     Context context;
@@ -21,7 +27,7 @@ public class Helper {
     SharedPreferences.Editor editor;
     public static final String THEMESETS = "themeset";
     public static final String DEFAULTTHEMESETS = "light";
-
+    public static final int RequestPermissionCode = 1;
     private static final char[] banglaDigits = {'০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'};
     private static final char[] englishDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
@@ -112,6 +118,19 @@ public class Helper {
             }
         });
     }
+
+    public void requestPermission(Activity activity) {
+        ActivityCompat.requestPermissions(activity, new
+                String[]{WRITE_EXTERNAL_STORAGE, RECORD_AUDIO}, RequestPermissionCode);
+    }
+
+    public boolean checkPermission(Context context) {
+        int result = ContextCompat.checkSelfPermission(context,
+                WRITE_EXTERNAL_STORAGE);
+        return result == PackageManager.PERMISSION_GRANTED ;
+    }
+
+
 
 
 
