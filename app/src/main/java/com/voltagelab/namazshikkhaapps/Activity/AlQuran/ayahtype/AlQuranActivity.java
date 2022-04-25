@@ -57,6 +57,7 @@ public class AlQuranActivity extends AppCompatActivity {
         helper.backButtonPressed(this);
         mediaHelper = new MediaHelper(this);
         mediaHelper.audioFolderCreate();
+        mediaHelper.createPlayList(Integer.parseInt(surahid),ayatDetails.size());
 
         tooltext = findViewById(R.id.tooltext2);
         play_btn = findViewById(R.id.play_btn);
@@ -117,7 +118,7 @@ public class AlQuranActivity extends AppCompatActivity {
 
 
                 Log.d("gettotal_ayah_surah","surah: "+ayatDetails.size()+", sid: "+surahid);
-                mediaHelper.createPlayList(Integer.parseInt(surahid),ayatDetails.size());
+
 
 
 //                Toast.makeText(AlQuranActivity.this, "ttt", Toast.LENGTH_SHORT).show();

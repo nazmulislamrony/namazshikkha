@@ -44,26 +44,26 @@ public class MediaHelper {
             bangla.mkdir();
         }
 
-//        String arabiss = arabic +"/001001.mp3";
-//        File folll = new File(arabiss);
-//        if (!folll.exists()) {
-//            folll.mkdir();
-//        }
-
-
-
+        String arabiss = arabic +"/001001.mp3";
+        File folll = new File(arabiss);
+        if (!folll.exists()) {
+            folll.mkdir();
+        }
 
     }
 
     public void createPlayList(int surahId, int totalVerse) {
+        downloadPlaylist = new ArrayList<>();
+        playList = new ArrayList<>();
         for (int i = 0;  i < totalVerse; i++) {
-            String totalverse = convFileName(surahId, i);
-            String arabicfile = arabic +"/"+totalverse+".mp3";
+            String audioitem = convFileName(surahId, i);
+            String arabicfile = arabic +"/"+audioitem+".mp3";
             File filearabic = new File(arabicfile);
             if (!filearabic.exists()) {
-                downloadPlaylist.add(ROOT_URL + )
+                downloadPlaylist.add(ROOT_URL + audioitem);
             }
-            Log.d("get_totalverse","verse: "+totalverse);
+            playList.add(arabicfile);
+            Log.d("get_totalverse","verse: "+arabicfile);
         }
     }
 
