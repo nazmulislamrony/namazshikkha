@@ -57,7 +57,6 @@ public class AlQuranActivity extends AppCompatActivity {
         helper.backButtonPressed(this);
         mediaHelper = new MediaHelper(this);
         mediaHelper.audioFolderCreate();
-        mediaHelper.createPlayList(Integer.parseInt(surahid),ayatDetails.size());
 
         tooltext = findViewById(R.id.tooltext2);
         play_btn = findViewById(R.id.play_btn);
@@ -70,7 +69,6 @@ public class AlQuranActivity extends AppCompatActivity {
             helper.requestPermission(this);
         }
         databaseGetData();
-
     }
 
     private void databaseGetData() {
@@ -78,7 +76,6 @@ public class AlQuranActivity extends AppCompatActivity {
         surahName = bundle.getString(SurahDataSource.SURAH_NAME_TRANSLATE);
         String surahNameArabic = bundle.getString(SurahDataSource.SURAH_NAME_ARABIC);
         surahid = bundle.getString(SurahDataSource.SURAH_ID_TAG);
-
         tooltext.setText(surahName);
         DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
         databaseAccess.open();
@@ -87,6 +84,7 @@ public class AlQuranActivity extends AppCompatActivity {
         VerseAdapter adapter = new VerseAdapter(this, ayatDetails, Integer.parseInt(surahid));
         rvmain.setAdapter(adapter);
         rvmain.setLayoutManager(layoutManager);
+        mediaHelper.createPlayList(Integer.parseInt(surahid),ayatDetails.size());
     }
 
     private void playMediaPlayer() {
@@ -126,6 +124,8 @@ public class AlQuranActivity extends AppCompatActivity {
 //                if (!f.exists()) {
 //                    f.mkdir();
 //                }
+
+                Log.d("get_al_playlist","playlist: "+mediaHelper.getPlayList().size());
 
 
                 list.add("https://www.everyayah.com/data/AbdulSamad_64kbps_QuranExplorer.Com/001005.mp3");

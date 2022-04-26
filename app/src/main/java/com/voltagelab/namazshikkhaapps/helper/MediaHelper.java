@@ -67,6 +67,14 @@ public class MediaHelper {
         }
     }
 
+    public ArrayList<String> getPlayList(){
+        return playList;
+    }
+
+    public ArrayList<String> getDownloadList(){
+        return downloadPlaylist;
+    }
+
     public void fileExistCheck() {
 
 
