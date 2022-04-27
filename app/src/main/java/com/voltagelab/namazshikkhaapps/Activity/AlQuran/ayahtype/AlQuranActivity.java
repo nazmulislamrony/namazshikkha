@@ -2,17 +2,22 @@ package com.voltagelab.namazshikkhaapps.Activity.AlQuran.ayahtype;
 
 
 
+import android.app.Dialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -48,16 +53,13 @@ public class AlQuranActivity extends AppCompatActivity {
    MediaHelper mediaHelper;
     ArrayList<AyatDetails> ayatDetails;
     String surahid;
-
+    ArrayList<String> downloadItemList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_al_quran);
         Helper helper = new Helper(this);
         helper.backButtonPressed(this);
-        mediaHelper = new MediaHelper(this);
-        mediaHelper.audioFolderCreate();
-
         tooltext = findViewById(R.id.tooltext2);
         play_btn = findViewById(R.id.play_btn);
         stop_btn = findViewById(R.id.stop_btn);
@@ -84,6 +86,12 @@ public class AlQuranActivity extends AppCompatActivity {
         VerseAdapter adapter = new VerseAdapter(this, ayatDetails, Integer.parseInt(surahid));
         rvmain.setAdapter(adapter);
         rvmain.setLayoutManager(layoutManager);
+        folderCreate();
+    }
+
+    private void folderCreate() {
+        mediaHelper = new MediaHelper(this);
+        mediaHelper.audioFolderCreate(surahid);
         mediaHelper.createPlayList(Integer.parseInt(surahid),ayatDetails.size());
     }
 
@@ -111,8 +119,7 @@ public class AlQuranActivity extends AppCompatActivity {
 
                 ArrayList<String> list = new ArrayList<>();
 
-                String url = "https://www.everyayah.com/data/AbdulSamad_64kbps_QuranExplorer.Com/001005.mp3";
-                String file = "/downloads/001005.mp3";
+
 
 
                 Log.d("gettotal_ayah_surah","surah: "+ayatDetails.size()+", sid: "+surahid);
@@ -125,21 +132,28 @@ public class AlQuranActivity extends AppCompatActivity {
 //                    f.mkdir();
 //                }
 
-                Log.d("get_al_playlist","playlist: "+mediaHelper.getPlayList().size());
+               downloadItemList = mediaHelper.getDownloadList();
+
+                File downloadLocation = new File(mediaHelper.getPlayList().get(0));
+                Log.d("get_al_playlist","playlist: "+downloadLocation.getName() +", path: "+downloadLocation.getPath()+", \n"+downloadLocation.getParent());
 
 
                 list.add("https://www.everyayah.com/data/AbdulSamad_64kbps_QuranExplorer.Com/001005.mp3");
                 list.add("https://www.everyayah.com/data/AbdulSamad_64kbps_QuranExplorer.Com/001006.mp3");
 
-//                downloadMedia(list.get(0),f, file);
+                dialogShow();
+
+                downloadMedia(downloadItemList.get(0), new File(downloadLocation.getParent()), downloadLocation.getName());
 
             }
 
         });
     }
 
-
+    int counter = 0;
     public  void downloadMedia(String url, File f, String fileName) {
+        int totalfilesize = downloadItemList.size();
+        Log.d("check_item","item: "+url +" , "+f.getPath()+", "+fileName);
         int downloadId = PRDownloader.download(url, f.getPath(), fileName)
                 .build()
                 .setOnStartOrResumeListener(new OnStartOrResumeListener() {
@@ -164,16 +178,25 @@ public class AlQuranActivity extends AppCompatActivity {
                     @Override
                     public void onProgress(Progress progress) {
 
-                        Log.d("download_status","progress: "+progress);
+                        double percentage = ((double) progress.currentBytes / (double) progress.totalBytes)*100;
+
+                        downloadingseekbar.setProgress((int)percentage);
+                        txtdownloadpercent.setText((int)percentage+"");
+                        currentTotalVerse.setText(counter +"/"+totalfilesize);
+
+
+                        Log.d("download_status","progress: "+ progress.totalBytes +", "+progress.currentBytes+", res: "+(int)percentage);
                     }
                 })
                 .start(new OnDownloadListener() {
                     @Override
                     public void onDownloadComplete() {
-                        Log.d("download_status","completed");
-                        String file = "/downloads/001006.mp3";
-
-                        downloadMedia(list.get(1),f, file);
+                        Log.d("totalfilesize","total: "+totalfilesize+", counter: "+counter +", per: ");
+                        if (counter< totalfilesize) {
+                            File downloadLocation = new File(mediaHelper.getPlayList().get(counter));
+                            downloadMedia(downloadItemList.get(counter), new File(downloadLocation.getParent()), downloadLocation.getName());
+                            counter++;
+                        }
                     }
 
                     @Override
@@ -183,5 +206,31 @@ public class AlQuranActivity extends AppCompatActivity {
                 });
 
 
+    }
+
+    SeekBar downloadingseekbar;
+    TextView  currentTotalVerse;
+    TextView txtdownloadpercent;
+    private void dialogShow() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = (LayoutInflater) this
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogView = inflater.inflate(R.layout.download_dialog_info, null);
+        dialogBuilder.setView(dialogView);
+
+//        exit = dialogView.findViewById(R.id.btn_exit);
+//        stop = dialogView.findViewById(R.id.btn_stop);
+//        cancels = dialogView.findViewById(R.id.cancel_download_dialog);
+//        txtNoInternetConnection = dialogView.findViewById(R.id.txt_no_internet_connection);
+        txtdownloadpercent = dialogView.findViewById(R.id.txt_percentage_of_download);
+//        preparingdownloading = dialogView.findViewById(R.id.txt_prepare_download);
+        downloadingseekbar = dialogView.findViewById(R.id.seekbar_downloading);
+        currentTotalVerse = dialogView.findViewById(R.id.txt_current_total_verse);
+      Dialog dialog = dialogBuilder.create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setCancelable(false);
+        downloadingseekbar.setProgress(0);
+        downloadingseekbar.setMax(100);
+        dialog.show();
     }
 }

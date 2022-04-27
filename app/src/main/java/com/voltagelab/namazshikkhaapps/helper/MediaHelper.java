@@ -18,16 +18,15 @@ public class MediaHelper {
     ArrayList<String> downloadPlaylist;
     String ROOT_URL = "http://www.everyayah.com/data/Alafasy_128kbps/";
 
+    File folderSurah;
     Context context;
-    File arabic, bangla;
+//    File arabic, bangla;
 
     public MediaHelper(Context context) {
         this.context = context;
-        arabic = new File(context.getExternalFilesDir(null).getAbsolutePath() + "/"+root_folder+ "/"+ audio_recitation+"/"+audio_recitation_arabic);
-        bangla = new File(context.getExternalFilesDir(null).getAbsolutePath() + "/"+root_folder+ "/"+ audio_recitation+"/"+audio_recitation_bangla);
     }
 
-    public void audioFolderCreate() {
+    public void audioFolderCreate(String surahId) {
         File  rootfolder = new File(context.getExternalFilesDir(null).getAbsolutePath() + "/"+root_folder);
         if (!rootfolder.exists()) {
             rootfolder.mkdir();
@@ -37,9 +36,17 @@ public class MediaHelper {
             audiorecitation.mkdir();
         }
 
+       File arabic = new File(context.getExternalFilesDir(null).getAbsolutePath() + "/"+root_folder+ "/"+ audio_recitation+"/"+audio_recitation_arabic);
         if (!arabic.exists()) {
             arabic.mkdir();
         }
+
+        folderSurah = new File(context.getExternalFilesDir(null).getAbsolutePath() + "/"+root_folder+ "/"+ audio_recitation+"/"+audio_recitation_arabic+"/"+surahId);
+        if (!folderSurah.exists()) {
+            folderSurah.mkdir();
+        }
+
+        File bangla = new File(context.getExternalFilesDir(null).getAbsolutePath() + "/"+root_folder+ "/"+ audio_recitation+"/"+audio_recitation_bangla);
         if (!bangla.exists()) {
             bangla.mkdir();
         }
@@ -51,16 +58,21 @@ public class MediaHelper {
         }
 
     }
-
+    String audioitem;
     public void createPlayList(int surahId, int totalVerse) {
         downloadPlaylist = new ArrayList<>();
         playList = new ArrayList<>();
         for (int i = 0;  i < totalVerse; i++) {
-            String audioitem = convFileName(surahId, i);
-            String arabicfile = arabic +"/"+audioitem+".mp3";
+            if (surahId==1) {
+                audioitem = convFileName(surahId, i+1);
+            } else {
+                audioitem = convFileName(surahId, i);
+            }
+
+            String arabicfile = folderSurah +"/"+audioitem+".mp3";
             File filearabic = new File(arabicfile);
             if (!filearabic.exists()) {
-                downloadPlaylist.add(ROOT_URL + audioitem);
+                downloadPlaylist.add(ROOT_URL + audioitem+".mp3");
             }
             playList.add(arabicfile);
             Log.d("get_totalverse","verse: "+arabicfile);
