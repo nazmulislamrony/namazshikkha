@@ -23,15 +23,15 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.downloader.Error;
-import com.downloader.OnCancelListener;
-import com.downloader.OnDownloadListener;
-import com.downloader.OnPauseListener;
-import com.downloader.OnProgressListener;
-import com.downloader.OnStartOrResumeListener;
-import com.downloader.PRDownloader;
-import com.downloader.PRDownloaderConfig;
-import com.downloader.Progress;
+//import com.downloader.Error;
+//import com.downloader.OnCancelListener;
+//import com.downloader.OnDownloadListener;
+//import com.downloader.OnPauseListener;
+//import com.downloader.OnProgressListener;
+//import com.downloader.OnStartOrResumeListener;
+//import com.downloader.PRDownloader;
+//import com.downloader.PRDownloaderConfig;
+//import com.downloader.Progress;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.SurahDataSource;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.ayahtype.database.DatabaseAccess;
 import com.voltagelab.namazshikkhaapps.Helper;
@@ -66,7 +66,7 @@ public class AlQuranActivity extends AppCompatActivity {
         rvmain =  findViewById(R.id.rvmain);
         layoutManager = new LinearLayoutManager(this);
         if (helper.checkPermission(this)) {
-            playMediaPlayer();
+//            playMediaPlayer();
         } else  {
             helper.requestPermission(this);
         }
@@ -95,118 +95,118 @@ public class AlQuranActivity extends AppCompatActivity {
         mediaHelper.createPlayList(Integer.parseInt(surahid),ayatDetails.size());
     }
 
-    private void playMediaPlayer() {
-        PRDownloader.initialize(getApplicationContext());
-
-        // Enabling database for resume support even after the application is killed:
-        PRDownloaderConfig config1 = PRDownloaderConfig.newBuilder()
-                .setDatabaseEnabled(true)
-                .build();
-        PRDownloader.initialize(getApplicationContext(), config1);
-
-// Setting timeout globally for the download network requests:
-        PRDownloaderConfig config = PRDownloaderConfig.newBuilder()
-                .setReadTimeout(30_000)
-                .setConnectTimeout(30_000)
-                .build();
-        PRDownloader.initialize(getApplicationContext(), config);
-
-        String DEFAULT_URL = "https://www.everyayah.com/data/AbdulSamad_64kbps_QuranExplorer.Com/001005.mp3";
-
-        play_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                ArrayList<String> list = new ArrayList<>();
-
-
-
-
-                Log.d("gettotal_ayah_surah","surah: "+ayatDetails.size()+", sid: "+surahid);
-
-
-
-//                Toast.makeText(AlQuranActivity.this, "ttt", Toast.LENGTH_SHORT).show();
-//                File f = new File(getExternalFilesDir(null).getAbsolutePath() + "/Quran memorization Test");
-//                if (!f.exists()) {
-//                    f.mkdir();
-//                }
-
-               downloadItemList = mediaHelper.getDownloadList();
-
-                File downloadLocation = new File(mediaHelper.getPlayList().get(0));
-                Log.d("get_al_playlist","playlist: "+downloadLocation.getName() +", path: "+downloadLocation.getPath()+", \n"+downloadLocation.getParent());
-
-
-                list.add("https://www.everyayah.com/data/AbdulSamad_64kbps_QuranExplorer.Com/001005.mp3");
-                list.add("https://www.everyayah.com/data/AbdulSamad_64kbps_QuranExplorer.Com/001006.mp3");
-
-                dialogShow();
-
-                downloadMedia(downloadItemList.get(0), new File(downloadLocation.getParent()), downloadLocation.getName());
-
-            }
-
-        });
-    }
-
-    int counter = 0;
-    public  void downloadMedia(String url, File f, String fileName) {
-        int totalfilesize = downloadItemList.size();
-        Log.d("check_item","item: "+url +" , "+f.getPath()+", "+fileName);
-        int downloadId = PRDownloader.download(url, f.getPath(), fileName)
-                .build()
-                .setOnStartOrResumeListener(new OnStartOrResumeListener() {
-                    @Override
-                    public void onStartOrResume() {
-                        Log.d("download_status","startorresume");
-                    }
-                })
-                .setOnPauseListener(new OnPauseListener() {
-                    @Override
-                    public void onPause() {
-
-                    }
-                })
-                .setOnCancelListener(new OnCancelListener() {
-                    @Override
-                    public void onCancel() {
-
-                    }
-                })
-                .setOnProgressListener(new OnProgressListener() {
-                    @Override
-                    public void onProgress(Progress progress) {
-
-                        double percentage = ((double) progress.currentBytes / (double) progress.totalBytes)*100;
-
-                        downloadingseekbar.setProgress((int)percentage);
-                        txtdownloadpercent.setText((int)percentage+"");
-                        currentTotalVerse.setText(counter +"/"+totalfilesize);
-
-
-                        Log.d("download_status","progress: "+ progress.totalBytes +", "+progress.currentBytes+", res: "+(int)percentage);
-                    }
-                })
-                .start(new OnDownloadListener() {
-                    @Override
-                    public void onDownloadComplete() {
-                        Log.d("totalfilesize","total: "+totalfilesize+", counter: "+counter +", per: ");
-                        if (counter< totalfilesize) {
-                            File downloadLocation = new File(mediaHelper.getPlayList().get(counter));
-                            downloadMedia(downloadItemList.get(counter), new File(downloadLocation.getParent()), downloadLocation.getName());
-                            counter++;
-                        }
-                    }
-
-                    @Override
-                    public void onError(Error error) {
-
-                    }
-                });
-
-
-    }
+//    private void playMediaPlayer() {
+//        PRDownloader.initialize(getApplicationContext());
+//
+//        // Enabling database for resume support even after the application is killed:
+//        PRDownloaderConfig config1 = PRDownloaderConfig.newBuilder()
+//                .setDatabaseEnabled(true)
+//                .build();
+//        PRDownloader.initialize(getApplicationContext(), config1);
+//
+//// Setting timeout globally for the download network requests:
+//        PRDownloaderConfig config = PRDownloaderConfig.newBuilder()
+//                .setReadTimeout(30_000)
+//                .setConnectTimeout(30_000)
+//                .build();
+//        PRDownloader.initialize(getApplicationContext(), config);
+//
+//        String DEFAULT_URL = "https://www.everyayah.com/data/AbdulSamad_64kbps_QuranExplorer.Com/001005.mp3";
+//
+//        play_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                ArrayList<String> list = new ArrayList<>();
+//
+//
+//
+//
+//                Log.d("gettotal_ayah_surah","surah: "+ayatDetails.size()+", sid: "+surahid);
+//
+//
+//
+////                Toast.makeText(AlQuranActivity.this, "ttt", Toast.LENGTH_SHORT).show();
+////                File f = new File(getExternalFilesDir(null).getAbsolutePath() + "/Quran memorization Test");
+////                if (!f.exists()) {
+////                    f.mkdir();
+////                }
+//
+//               downloadItemList = mediaHelper.getDownloadList();
+//
+//                File downloadLocation = new File(mediaHelper.getPlayList().get(0));
+//                Log.d("get_al_playlist","playlist: "+downloadLocation.getName() +", path: "+downloadLocation.getPath()+", \n"+downloadLocation.getParent());
+//
+//
+//                list.add("https://www.everyayah.com/data/AbdulSamad_64kbps_QuranExplorer.Com/001005.mp3");
+//                list.add("https://www.everyayah.com/data/AbdulSamad_64kbps_QuranExplorer.Com/001006.mp3");
+//
+//                dialogShow();
+//
+//                downloadMedia(downloadItemList.get(0), new File(downloadLocation.getParent()), downloadLocation.getName());
+//
+//            }
+//
+//        });
+//    }
+//
+//    int counter = 0;
+//    public  void downloadMedia(String url, File f, String fileName) {
+//        int totalfilesize = downloadItemList.size();
+//        Log.d("check_item","item: "+url +" , "+f.getPath()+", "+fileName);
+//        int downloadId = PRDownloader.download(url, f.getPath(), fileName)
+//                .build()
+//                .setOnStartOrResumeListener(new OnStartOrResumeListener() {
+//                    @Override
+//                    public void onStartOrResume() {
+//                        Log.d("download_status","startorresume");
+//                    }
+//                })
+//                .setOnPauseListener(new OnPauseListener() {
+//                    @Override
+//                    public void onPause() {
+//
+//                    }
+//                })
+//                .setOnCancelListener(new OnCancelListener() {
+//                    @Override
+//                    public void onCancel() {
+//
+//                    }
+//                })
+//                .setOnProgressListener(new OnProgressListener() {
+//                    @Override
+//                    public void onProgress(Progress progress) {
+//
+//                        double percentage = ((double) progress.currentBytes / (double) progress.totalBytes)*100;
+//
+//                        downloadingseekbar.setProgress((int)percentage);
+//                        txtdownloadpercent.setText((int)percentage+"");
+//                        currentTotalVerse.setText(counter +"/"+totalfilesize);
+//
+//
+//                        Log.d("download_status","progress: "+ progress.totalBytes +", "+progress.currentBytes+", res: "+(int)percentage);
+//                    }
+//                })
+//                .start(new OnDownloadListener() {
+//                    @Override
+//                    public void onDownloadComplete() {
+//                        Log.d("totalfilesize","total: "+totalfilesize+", counter: "+counter +", per: ");
+//                        if (counter< totalfilesize) {
+//                            File downloadLocation = new File(mediaHelper.getPlayList().get(counter));
+//                            downloadMedia(downloadItemList.get(counter), new File(downloadLocation.getParent()), downloadLocation.getName());
+//                            counter++;
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onError(Error error) {
+//
+//                    }
+//                });
+//
+//
+//    }
 
     SeekBar downloadingseekbar;
     TextView  currentTotalVerse;

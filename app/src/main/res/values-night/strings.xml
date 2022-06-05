@@ -59,4 +59,7 @@
 
         <string name="night_mode_off">NIGHT MODE OFF</string>
         <string name="night_mode_on">NIGHT MODE ON</string>
+
+    <string name="notification_channel_id">default</string>
+
 </resources>

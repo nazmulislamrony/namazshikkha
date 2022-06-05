@@ -30,15 +30,15 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
-import com.downloader.Error;
-import com.downloader.OnCancelListener;
-import com.downloader.OnDownloadListener;
-import com.downloader.OnPauseListener;
-import com.downloader.OnProgressListener;
-import com.downloader.OnStartOrResumeListener;
-import com.downloader.PRDownloader;
-import com.downloader.PRDownloaderConfig;
-import com.downloader.Progress;
+//import com.downloader.Error;
+//import com.downloader.OnCancelListener;
+//import com.downloader.OnDownloadListener;
+//import com.downloader.OnPauseListener;
+//import com.downloader.OnProgressListener;
+//import com.downloader.OnStartOrResumeListener;
+//import com.downloader.PRDownloader;
+//import com.downloader.PRDownloaderConfig;
+//import com.downloader.Progress;
 
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.adapter.SurahAdapter;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.ayahtype.AlQuranActivity;

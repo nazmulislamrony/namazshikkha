@@ -18,6 +18,8 @@ import android.content.pm.ResolveInfo;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.SpannableString;
 import android.text.style.TextAppearanceSpan;
 import android.util.Log;
@@ -35,6 +37,9 @@ import com.batoulapps.adhan.Coordinates;
 import com.batoulapps.adhan.Madhab;
 import com.batoulapps.adhan.PrayerTimes;
 import com.batoulapps.adhan.data.DateComponents;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.DoaActivity;
 
 import com.voltagelab.namazshikkhaapps.Activity.NintyNineNames.NintyNineNames;
@@ -55,9 +60,19 @@ import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.SurahActivityNamazS
 import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.TahajjodTaraviActivity;
 import com.voltagelab.namazshikkhaapps.Activity.namazshikkha.TayamommumActivity;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 import java.util.TimeZone;
 
 public class MainActivity extends AppCompatActivity {
@@ -77,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        firebaseInitializeMessaging();
 
 //        Helper helper = new Helper(this);
 //        helper.themeChange();
@@ -172,6 +189,41 @@ public class MainActivity extends AppCompatActivity {
         Log.d("restult", "imsaak --isha --->" + prayerTimes.isha);
         Log.d("restult", "imsaak -- --->" + prayerTimes.nextPrayer());
     }
+    private String token;
+
+    private void firebaseInitializeMessaging() {
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w("GetInforhere", "Fetching FCM registration token failed", task.getException());
+                            return;
+                        }
+
+                        // Get new FCM registration token
+
+                        // Log and toast
+                        if (!task.isSuccessful()) {
+                            token = task.getException().getMessage();
+                            Log.w("FCM TOKEN Failed", task.getException());
+                        } else {
+                            token = task.getResult();
+                            Log.i("FCM TOKEN", token);
+                        }
+
+                        Log.d("get_tokennnn","token: "+token.toString());
+//                        pushNotification("token");
+                    }
+                });
+    }
+
+
+    private String convertStreamToString(InputStream is) {
+        Scanner s = new Scanner(is).useDelimiter("\\A");
+        return s.hasNext() ? s.next().replace(",", ",\n") : "";
+    }
+
 
     private void namesOfCreator() {
         all_names_of_creator.setOnClickListener(new View.OnClickListener() {
