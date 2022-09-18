@@ -1,11 +1,23 @@
 package com.voltagelab.namazshikkhaapps.helper;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.SeekBar;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.work.WorkManager;
 
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.Config;
+import com.voltagelab.namazshikkhaapps.R;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class MediaHelper {
@@ -130,6 +142,72 @@ public class MediaHelper {
         stringBuilder3.append(Integer.toString(i2));
         return stringBuilder3.toString();
     }
+
+    public boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager
+                .getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    public boolean isConnected() throws InterruptedException, IOException {
+        String command = "ping -c 1 google.com";
+        return Runtime.getRuntime().exec(command).waitFor() == 0;
+    }
+
+
+    Button exit, stop, cancels;
+    TextView txtdownloadpercent, preparingdownloading, currentTotalVerse;
+    SeekBar downloadingseekbar;
+    AlertDialog dialog;
+    TextView txtNoInternetConnection;
+    private void dialogShow() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
+        LayoutInflater inflater = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogView = inflater.inflate(R.layout.download_dialog_info, null);
+        dialogBuilder.setView(dialogView);
+
+        exit = dialogView.findViewById(R.id.btn_exit);
+        stop = dialogView.findViewById(R.id.btn_stop);
+        cancels = dialogView.findViewById(R.id.cancel_download_dialog);
+        txtNoInternetConnection = dialogView.findViewById(R.id.txt_no_internet_connection);
+
+        txtdownloadpercent = dialogView.findViewById(R.id.txt_percentage_of_download);
+        preparingdownloading = dialogView.findViewById(R.id.txt_prepare_download);
+        downloadingseekbar = dialogView.findViewById(R.id.seekbar_downloading);
+        currentTotalVerse = dialogView.findViewById(R.id.txt_current_total_verse);
+        dialog = dialogBuilder.create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setCancelable(false);
+        downloadingseekbar.setProgress(0);
+        downloadingseekbar.setMax(100);
+        dialogButtonActive();
+        dialog.show();
+    }
+
+    private void dialogButtonActive() {
+        exit.setOnClickListener((View v) -> {
+            stopWorkManager();
+            dialog.dismiss();
+        });
+        cancels.setOnClickListener((View v) -> {
+            stopWorkManager();
+            dialog.dismiss();
+        });
+        stop.setOnClickListener((View v) -> {
+            stopWorkManager();
+            exit.setVisibility(View.VISIBLE);
+            stop.setVisibility(View.GONE);
+        });
+    }
+
+    private void stopWorkManager() {
+        WorkManager.getInstance(context).cancelAllWork();
+    }
+
+
 
 
 }

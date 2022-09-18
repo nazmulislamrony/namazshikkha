@@ -126,7 +126,6 @@ public class AlQuranActivity extends AppCompatActivity {
     }
 
     private BroadcastReceiver receiver = new BroadcastReceiver() {
-
         @Override
         public void onReceive(Context context, Intent intent) {
             Bundle bundle = intent.getExtras();

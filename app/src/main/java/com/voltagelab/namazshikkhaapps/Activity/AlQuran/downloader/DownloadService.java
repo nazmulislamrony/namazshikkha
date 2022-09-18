@@ -36,27 +36,25 @@ public class DownloadService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         ArrayList<String> urlPath = intent.getStringArrayListExtra(DownloadHelper.URL);
-
-
-
-        downloadFile(urlPath, "ss");
+        downloadFile(urlPath);
     }
 
     public String firstTwo(String str) {
         return str.length() < 3 ? str : str.substring(0, 3);
     }
 
-    private void downloadFile(ArrayList<String> path, String reciterFolder) {
+    private void downloadFile(ArrayList<String> path) {
         int fileLength = 0;
         try {
             Log.d("stoppint_time_er", "0");
             for (int i = 0; i <= path.size(); i++) {
-                String [] splirtArr = path.get(0).split("/",9);
+                String [] splirtArr = path.get(i).split("/",9);
                 String replace = splirtArr[splirtArr.length-1].replace(".mp3","");
                 String surahFolder = firstTwo(replace);
-                String mp3 = path.get(i).toString();
+                String reciterFolder = splirtArr[splirtArr.length-2];
+                String mp3 = path.get(i);
                 String lastWord = mp3.substring(mp3.lastIndexOf("/") + 1);
-                URL url = new URL(path.get(i).toString());
+                URL url = new URL(path.get(i));
                 Log.d(TAG, "url: " + url);
                 URLConnection urlConnection = url.openConnection();
                 Log.d(TAG, "urlconnection: " + urlConnection);
@@ -107,7 +105,7 @@ public class DownloadService extends IntentService {
                         int progress = total * 100 / fileLength;
 //                        setProgressAsync(new Data.Builder().putInt("progress", progress).build());
 //                        sessionManager.setCurrentDownloading(SessionManager.WORKER_DOWNLOADING_ITEM, i);
-                        functionCalledByYourAsyncWithUpdates(progress + "");
+//                        functionCalledByYourAsyncWithUpdates(progress + "");
                     }
                 } catch (FileNotFoundException ex) {
                     // complain to user
@@ -141,4 +139,5 @@ public class DownloadService extends IntentService {
         intent.putExtra(DownloadHelper.CURRENTDOWNLOAD, currentDownload);
         sendBroadcast(intent);
     }
+
 }
