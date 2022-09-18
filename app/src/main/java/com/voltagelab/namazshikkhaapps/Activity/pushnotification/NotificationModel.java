@@ -20,6 +20,9 @@ public class NotificationModel implements Parcelable {
         this.icon = icon;
     }
 
+    public NotificationModel() {
+    }
+
     protected NotificationModel(Parcel in) {
         title = in.readString();
         message = in.readString();

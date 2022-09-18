@@ -24,14 +24,11 @@ import com.voltagelab.namazshikkhaapps.R;
 
 import java.util.ArrayList;
 
-/** Created by Sadmansamee on 7/19/15. */
 public class SurahAdapter extends RecyclerView.Adapter<SurahAdapter.SurahViewHolder> {
-
   OnItemClickListener mItemClickListener;
   private ArrayList<ModelSura> surahModelArrayList;
   private Context context;
   private Typeface faceName;
-
 
   public SurahAdapter(ArrayList<ModelSura> surahModelArrayList, Context context) {
     this.surahModelArrayList = surahModelArrayList;
@@ -44,7 +41,6 @@ public class SurahAdapter extends RecyclerView.Adapter<SurahAdapter.SurahViewHol
 
     View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_surah_ui, parent, false);
     SurahViewHolder viewHolder = new SurahViewHolder(view);
-
     return viewHolder;
   }
 

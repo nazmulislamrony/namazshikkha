@@ -1,22 +1,32 @@
 package com.voltagelab.namazshikkhaapps.Activity.pushnotification;
 
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.media.RingtoneManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.RemoteViews;
 
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.voltagelab.namazshikkhaapps.Activity.SadkaiyeJariya;
 import com.voltagelab.namazshikkhaapps.Activity.notificationactivity.NotificationActivity;
 import com.voltagelab.namazshikkhaapps.R;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.Map;
 
 public class FirebaseMessageReceiver
@@ -30,6 +40,9 @@ public class FirebaseMessageReceiver
 	@Override
 	public void
 	onMessageReceived(RemoteMessage remoteMessage) {
+
+
+
 		// First case when notifications are received via
 		// data event
 		// Here, 'title' and 'message' are the assumed names
@@ -50,8 +63,17 @@ public class FirebaseMessageReceiver
 			// directly as below.
 			RemoteMessage.Notification notification = remoteMessage.getNotification();
 			Map<String, String> data = remoteMessage.getData();
-			showNotification(notification, data);
+//			showNotification(notification, data);
+
+
+
+
+
+
+			sendsNotification(notification,data);
 		}
+
+
 	}
 
 	// Method to get the custom Design for the display of
@@ -71,24 +93,35 @@ public class FirebaseMessageReceiver
 	// Method to display the notifications
 	public void showNotification(RemoteMessage.Notification notification, Map<String, String> data) {
 		// Pass the intent to switch to the MainActivity
-		Log.d("gggggg","tt0 "+notification.getTitle());
-		Log.d("gggggg","tt111 "+data.get(notification));
+
 
 		Intent intent
 				= new Intent(this, NotificationActivity.class);
 
 		intent.putExtra(FCM_PARAM, new NotificationModel(notification.getTitle(),notification.getBody(),notification.getImageUrl(), notification.getIcon()));
 
+		TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+		stackBuilder.addNextIntentWithParentStack(intent);
 		// Assign channel ID
 		// Here FLAG_ACTIVITY_CLEAR_TOP flag is set to clear
 		// the activities present in the activity stack,
 		// on the top of the Activity that is to be launched
 		// Pass the intent to PendingIntent to start the
 		// next Activity
-		PendingIntent pendingIntent
-				= PendingIntent.getActivity(
-				this, 0, intent,
-				PendingIntent.FLAG_UPDATE_CURRENT);
+		PendingIntent pendingIntent =
+				stackBuilder.getPendingIntent(0,
+						PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+
+//		PendingIntent pendingIntent = null;
+//		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+//			pendingIntent = PendingIntent.getActivity
+//					(this, 0, intent, PendingIntent.FLAG_MUTABLE);
+//		}
+//		else
+//		{
+//			pendingIntent = PendingIntent.getActivity
+//					(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+//		}
 
 		// Create a Builder object using NotificationCompat
 		// class. This will allow control over all the flags
@@ -136,4 +169,63 @@ public class FirebaseMessageReceiver
 		}
 		notificationManager.notify(0, builder.build());
 	}
+
+
+	private void sendsNotification(RemoteMessage.Notification notification, Map<String, String> data) {
+		Bundle bundle = new Bundle();
+		bundle.putString(FCM_PARAM, data.get(FCM_PARAM));
+
+		Intent intent = new Intent(this, SadkaiyeJariya.class);
+		intent.putExtras(bundle);
+
+		PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+		NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, getString(R.string.notification_channel_id))
+				.setContentTitle(notification.getTitle())
+				.setContentText(notification.getBody())
+				.setAutoCancel(true)
+				.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+				//.setSound(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.win))
+				.setContentIntent(pendingIntent)
+				.setContentInfo("Hello")
+				.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
+//				.setColor(getColor(R.color.colorAccent))
+				.setLights(Color.RED, 1000, 300)
+				.setDefaults(Notification.DEFAULT_VIBRATE)
+				.setSmallIcon(R.drawable.ic_reading_quran);
+
+		try {
+			String picture = data.get(FCM_PARAM);
+			if (picture != null && !"".equals(picture)) {
+				URL url = new URL(picture);
+				Bitmap bigPicture = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+				notificationBuilder.setStyle(
+						new NotificationCompat.BigPictureStyle().bigPicture(bigPicture).setSummaryText(notification.getBody())
+				);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+			NotificationChannel channel = new NotificationChannel(
+					getString(R.string.notification_channel_id), getString(R.string.notification_channel_id), NotificationManager.IMPORTANCE_DEFAULT
+			);
+			channel.setShowBadge(true);
+			channel.canShowBadge();
+			channel.enableLights(true);
+			channel.setLightColor(Color.RED);
+			channel.enableVibration(true);
+			channel.setVibrationPattern(new long[]{100, 200, 300, 400, 500});
+
+			assert notificationManager != null;
+			notificationManager.createNotificationChannel(channel);
+		}
+
+		assert notificationManager != null;
+		notificationManager.notify(0, notificationBuilder.build());
+	}
+
 }

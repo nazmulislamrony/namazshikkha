@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class MediaHelper {
 
     String root_folder = "namaz shikkha";
-    String audio_recitation = "audio recitation";
+    String audio_recitation = "recitation";
     String audio_recitation_arabic = "arabic";
     String audio_recitation_bangla = "bangla";
     ArrayList<String> playList;
@@ -26,38 +26,38 @@ public class MediaHelper {
         this.context = context;
     }
 
-    public void audioFolderCreate(String surahId) {
-        File  rootfolder = new File(context.getExternalFilesDir(null).getAbsolutePath() + "/"+root_folder);
-        if (!rootfolder.exists()) {
-            rootfolder.mkdir();
-        }
-        File audiorecitation = new File(context.getExternalFilesDir(null).getAbsolutePath() + "/"+root_folder+ "/"+ audio_recitation);
-        if (!audiorecitation.exists()) {
-            audiorecitation.mkdir();
-        }
-
-       File arabic = new File(context.getExternalFilesDir(null).getAbsolutePath() + "/"+root_folder+ "/"+ audio_recitation+"/"+audio_recitation_arabic);
-        if (!arabic.exists()) {
-            arabic.mkdir();
-        }
-
-        folderSurah = new File(context.getExternalFilesDir(null).getAbsolutePath() + "/"+root_folder+ "/"+ audio_recitation+"/"+audio_recitation_arabic+"/"+surahId);
-        if (!folderSurah.exists()) {
-            folderSurah.mkdir();
-        }
-
-        File bangla = new File(context.getExternalFilesDir(null).getAbsolutePath() + "/"+root_folder+ "/"+ audio_recitation+"/"+audio_recitation_bangla);
-        if (!bangla.exists()) {
-            bangla.mkdir();
-        }
-
-        String arabiss = arabic +"/001001.mp3";
-        File folll = new File(arabiss);
-        if (!folll.exists()) {
-            folll.mkdir();
-        }
-
-    }
+//    public void audioFolderCreate(String surahId) {
+//        File  rootfolder = new File(context.getExternalFilesDir(null).getAbsolutePath() + "/"+root_folder);
+//        if (!rootfolder.exists()) {
+//            rootfolder.mkdir();
+//        }
+//        File audiorecitation = new File(context.getExternalFilesDir(null).getAbsolutePath() + "/"+root_folder+ "/"+ audio_recitation);
+//        if (!audiorecitation.exists()) {
+//            audiorecitation.mkdir();
+//        }
+//
+//       File arabic = new File(context.getExternalFilesDir(null).getAbsolutePath() + "/"+root_folder+ "/"+ audio_recitation+"/"+audio_recitation_arabic);
+//        if (!arabic.exists()) {
+//            arabic.mkdir();
+//        }
+//
+//        folderSurah = new File(context.getExternalFilesDir(null).getAbsolutePath() + "/"+root_folder+ "/"+ audio_recitation+"/"+audio_recitation_arabic+"/"+surahId);
+//        if (!folderSurah.exists()) {
+//            folderSurah.mkdir();
+//        }
+//
+//        File bangla = new File(context.getExternalFilesDir(null).getAbsolutePath() + "/"+root_folder+ "/"+ audio_recitation+"/"+audio_recitation_bangla);
+//        if (!bangla.exists()) {
+//            bangla.mkdir();
+//        }
+//
+//        String arabiss = arabic +"/001001.mp3";
+//        File folll = new File(arabiss);
+//        if (!folll.exists()) {
+//            folll.mkdir();
+//        }
+//
+//    }
     String audioitem;
     public void createPlayList(int surahId, int totalVerse) {
         downloadPlaylist = new ArrayList<>();
@@ -79,55 +79,11 @@ public class MediaHelper {
         }
     }
 
-    public ArrayList<String> getPlayList(){
-        return playList;
-    }
-
     public ArrayList<String> getDownloadList(){
         return downloadPlaylist;
     }
 
-    public void fileExistCheck() {
 
-
-    }
-
-//    public void playListCreate(int surahId, int verseId) {
-//        String fileName = "/" + convFileName(surahId, verseId) + ".mp3";
-//        playList.add(directory + surahId + fileName);
-//        File path = new File(directory + surahId + fileName);
-//        String URL = Global.MAIN_URL + reciter + path.getName();
-//        if (path.exists()) {
-//            Log.d(TAG, "pathexist: " + path);
-//        } else {
-//            downloadPlaylist.add(URL);
-//            surahFolder.add(String.valueOf(surahId));
-//            Log.d("check_play_list", "notexist: " + URL);
-//        }
-//    }
-//
-//    public void fileExistsCheck(String playList, int surahId) {
-//        path = new File(playList);
-//        mp3 = "/" + path.getName();
-//        String finalurl = mainurl + reciter + mp3;
-//        if (path.exists()) {
-//            isExists = true;
-//        } else {
-//            downloadPlaylist.add(finalurl);
-//            surahFolder.add(String.valueOf(surahId));
-//        }
-//    }
-//
-//
-//
-//    public boolean getReciter(String reciterName) {
-//        File path = new File(context.getExternalFilesDir(null).getParent() + MAIN_FOLDER + reciterName);
-//        if (path.exists()) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
 
     public static String convFileName(int i, int i2) {
         StringBuilder stringBuilder;

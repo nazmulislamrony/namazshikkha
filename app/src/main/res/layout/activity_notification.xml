@@ -1,20 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-	android:id="@+id/activity_second"
+<RelativeLayout android:id="@+id/activity_second"
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:paddingBottom="@dimen/activity_vertical_margin"
-	android:paddingTop="@dimen/activity_vertical_margin"
-	android:paddingLeft="@dimen/activity_horizontal_margin"
-	android:paddingRight="@dimen/activity_horizontal_margin"
-	tools:context=".Activity.notificationactivity.NotificationActivity">
+	tools:context=".Activity.notificationactivity.NotificationActivity"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<androidx.appcompat.widget.Toolbar
+		android:id="@+id/toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/appbarcolor"
+		android:theme="@style/Theme.DarkMode"
+		app:popupTheme="@style/AppTheme.PopupOverlay">
+
+		<ImageView
+			android:id="@+id/back_arrow"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@drawable/ic_baseline_arrow_back_24"
+			app:tint="@color/appbartextColor" />
+
+
+		<TextView
+			android:id="@+id/tooltext2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerInParent="true"
+			android:layout_gravity="center"
+			android:fontFamily="@font/solaiman_lipi"
+			android:gravity="center"
+			android:paddingTop="1dp"
+			android:paddingBottom="5dp"
+			android:text="আর্থিক অনুদান দিন"
+			android:textColor="@color/appbartextColor"
+			android:textSize="20sp" />
+	</androidx.appcompat.widget.Toolbar>
+
 
 	<TextView
-		android:id="@+id/textView"
-		android:layout_width="wrap_content"
+		android:id="@+id/txt_title_from_firebase"
+		style="@style/TextAppearance.AppCompat.Title"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_centerInParent="true"/>
+		android:layout_below="@+id/toolbar"
+		android:layout_marginTop="10dp"
+		android:fontFamily="@font/solaiman_lipi"
+		android:gravity="center_horizontal"
+		android:text="title from firebase"
+		android:textAlignment="center"
+		android:textColor="#000"
+		android:textSize="18sp" />
+
+	<TextView
+		android:id="@+id/txt_body_from_firebase"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/txt_title_from_firebase"
+		android:fontFamily="@font/solaiman_lipi"
+		android:padding="5dp"
+		android:text="title from firebase title from firebase title from firebase title from firebase"
+		android:textColor="#000"
+		android:textSize="16sp" />
+
+
+
+	<include
+		android:id="@+id/donation"
+		android:visibility="gone"
+		layout="@layout/sadkaiye_jariya_dialog"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/txt_from_firebase" />
 
 </RelativeLayout>

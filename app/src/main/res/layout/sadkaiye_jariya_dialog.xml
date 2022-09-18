@@ -4,22 +4,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txt_dia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:fontFamily="@font/solaiman_lipi"
-        android:text="@string/payment_top"
-        android:textSize="15dp"
-        android:textStyle="bold" />
+
 
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:background="@drawable/shape_stat"
         android:padding="10dp">
 
@@ -181,6 +171,15 @@
 
         </LinearLayout>
     </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:fontFamily="@font/solaiman_lipi"
+        android:padding="5dp"
+        android:textColor="@color/textColor"
+        android:gravity="center"
+        android:text="সেন্ড মানি করার ক্ষেত্রে নম্বর কপি করে উক্ত যেকোন (বিকাশ/রকেট/নগদ) থেকে সেন্ড মানি করুন। "
+        android:layout_height="wrap_content"/>
 
 
 </LinearLayout>
