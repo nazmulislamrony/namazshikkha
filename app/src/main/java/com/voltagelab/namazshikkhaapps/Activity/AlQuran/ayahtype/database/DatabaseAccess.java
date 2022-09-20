@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.DatabaseHelper;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.ayahtype.AyatDetails;
@@ -78,7 +79,6 @@ public class DatabaseAccess {
             String verseid = cursor.getString(1);
             String bn_muhi = cursor.getString(2);
             AyatDetails ayatDetails = new AyatDetails(verseid,arabic,bn_muhi);
-
             if (surahId!=9 && verseid.equals("1")) {
                 list.add(0,new AyatDetails("","بِسۡمِ اللّٰهِ الرَّحۡمٰنِ الرَّحِیۡمِ", "শুরু করছি আল্লাহর নামে যিনি পরম করুণাময়, অতি দয়ালু।"));
             }

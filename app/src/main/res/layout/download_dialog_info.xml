@@ -63,9 +63,7 @@
         android:gravity="center"
         android:visibility="gone"
         android:id="@+id/txt_no_internet_connection"
-        android:textColor="@color/colormediaplayer"
         android:layout_height="wrap_content"
-        style="@style/TextAppearance.AppCompat.Title"
         android:text="No internet connection available!!!"/>
 
     <LinearLayout
@@ -81,12 +79,9 @@
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:text="@string/stop"
+            android:text="STOP"
             android:textSize="15sp"
             android:visibility="gone"
-            style="@style/TextAppearance.AppCompat.Title"
-            android:backgroundTint="@color/colormediaplayer"
-            android:background="@drawable/shape"
             android:textStyle="bold"
             android:textColor="#fff"
             />
@@ -100,7 +95,6 @@
             android:clickable="true"
             android:text="EXIT"
             android:textSize="15sp"
-            android:background="@drawable/shape"
             android:textStyle="bold"
             />
 

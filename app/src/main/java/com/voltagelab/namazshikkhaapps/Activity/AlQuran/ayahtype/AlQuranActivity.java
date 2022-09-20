@@ -89,21 +89,27 @@ public class AlQuranActivity extends AppCompatActivity {
 
     private void folderCreate() {
         mediaHelper = new MediaHelper(this);
-        mediaHelper.createPlayList(Integer.parseInt(surahid), ayatDetails.size());
+        int verseFrom = 0;
+        if (surahid.equals("9")){
+            verseFrom = 1;
+        } else {
+            verseFrom = 0;
+        }
+        mediaHelper.createPlayList(Integer.parseInt(surahid),verseFrom, ayatDetails.size());
     }
 
     private void initDownload() {
         play_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createDownloadList();
-                startDownloadService();
+//                createDownloadList();
+//                startDownloadService();
             }
         });
     }
 
     private void createDownloadList(){
-        downloadItemList = mediaHelper.getDownloadList();
+//        downloadItemList = mediaHelper.getDownloadList();
     }
 
     private void startDownloadService(){
@@ -115,36 +121,16 @@ public class AlQuranActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        registerReceiver(receiver, new IntentFilter(
-                DownloadService.NOTIFICATION));
+        mediaHelper.onResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        unregisterReceiver(receiver);
+        mediaHelper.onPause();
     }
 
-    private BroadcastReceiver receiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Bundle bundle = intent.getExtras();
-            if (bundle != null) {
-                int currentDownload = bundle.getInt(DownloadHelper.CURRENTDOWNLOAD);
-                Toast.makeText(context, currentDownload+"", Toast.LENGTH_SHORT).show();
-                if (currentDownload==downloadItemList.size()) {
-//                    Toast.makeText(MainActivity.this,
-//                            "Download complete. Download URI: " + string,
-//                            Toast.LENGTH_LONG).show();
-//                    textView.setText("Download done");
-                } else {
-//                    Toast.makeText(MainActivity.this, "Download failed",
-//                            Toast.LENGTH_LONG).show();
-//                    textView.setText("Download failed");
-                }
-            }
-        }
-    };
+
 
 
 }

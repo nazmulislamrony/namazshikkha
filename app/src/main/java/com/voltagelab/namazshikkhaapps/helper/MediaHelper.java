@@ -1,101 +1,73 @@
 package com.voltagelab.namazshikkhaapps.helper;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.work.WorkManager;
 
-import com.voltagelab.namazshikkhaapps.Activity.AlQuran.Config;
+import com.voltagelab.namazshikkhaapps.Activity.AlQuran.downloader.DownloadHelper;
+import com.voltagelab.namazshikkhaapps.Activity.AlQuran.downloader.DownloadService;
 import com.voltagelab.namazshikkhaapps.R;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MediaHelper {
 
-    String root_folder = "namaz shikkha";
-    String audio_recitation = "recitation";
-    String audio_recitation_arabic = "arabic";
-    String audio_recitation_bangla = "bangla";
-    ArrayList<String> playList;
-    ArrayList<String> downloadPlaylist;
-    String ROOT_URL = "http://www.everyayah.com/data/Alafasy_128kbps/";
-
-    File folderSurah;
+    ArrayList<String> downloadList;
+    ArrayList<String> createPlayList;
+    String reciter = "Alafasy_128kbps";
+    String ROOT_URL = "http://www.everyayah.com/data/";
+    List<String> playListStrings;
     Context context;
-//    File arabic, bangla;
 
     public MediaHelper(Context context) {
         this.context = context;
     }
 
-//    public void audioFolderCreate(String surahId) {
-//        File  rootfolder = new File(context.getExternalFilesDir(null).getAbsolutePath() + "/"+root_folder);
-//        if (!rootfolder.exists()) {
-//            rootfolder.mkdir();
-//        }
-//        File audiorecitation = new File(context.getExternalFilesDir(null).getAbsolutePath() + "/"+root_folder+ "/"+ audio_recitation);
-//        if (!audiorecitation.exists()) {
-//            audiorecitation.mkdir();
-//        }
-//
-//       File arabic = new File(context.getExternalFilesDir(null).getAbsolutePath() + "/"+root_folder+ "/"+ audio_recitation+"/"+audio_recitation_arabic);
-//        if (!arabic.exists()) {
-//            arabic.mkdir();
-//        }
-//
-//        folderSurah = new File(context.getExternalFilesDir(null).getAbsolutePath() + "/"+root_folder+ "/"+ audio_recitation+"/"+audio_recitation_arabic+"/"+surahId);
-//        if (!folderSurah.exists()) {
-//            folderSurah.mkdir();
-//        }
-//
-//        File bangla = new File(context.getExternalFilesDir(null).getAbsolutePath() + "/"+root_folder+ "/"+ audio_recitation+"/"+audio_recitation_bangla);
-//        if (!bangla.exists()) {
-//            bangla.mkdir();
-//        }
-//
-//        String arabiss = arabic +"/001001.mp3";
-//        File folll = new File(arabiss);
-//        if (!folll.exists()) {
-//            folll.mkdir();
-//        }
-//
-//    }
-    String audioitem;
-    public void createPlayList(int surahId, int totalVerse) {
-        downloadPlaylist = new ArrayList<>();
-        playList = new ArrayList<>();
-        for (int i = 0;  i < totalVerse; i++) {
-            if (surahId==1) {
-                audioitem = convFileName(surahId, i+1);
-            } else {
-                audioitem = convFileName(surahId, i);
-            }
-
-            String arabicfile = folderSurah +"/"+audioitem+".mp3";
-            File filearabic = new File(arabicfile);
-            if (!filearabic.exists()) {
-                downloadPlaylist.add(ROOT_URL + audioitem+".mp3");
-            }
-            playList.add(arabicfile);
-            Log.d("get_totalverse","verse: "+arabicfile);
+    public void createPlayList(int surahId, int verseFrom, int totalVerse) {
+        createPlayList = new ArrayList<>();
+        playListStrings = new ArrayList<>();
+        downloadList = new ArrayList<>();
+        playListStrings = getFileString(surahId, verseFrom, totalVerse);
+        for (int i = 0; i < playListStrings.size(); i++) {
+            fileExistsCheck(playListStrings.get(i));
         }
     }
 
-    public ArrayList<String> getDownloadList(){
-        return downloadPlaylist;
+    public ArrayList<String> fileExistsCheck(String playList) {
+        File path = new File(playList);
+        String mp3 = "/" + path.getName();
+        String finalurl = ROOT_URL + reciter + mp3;
+        Log.d("get_path", "path" + finalurl);
+        if (!path.exists()) {
+            downloadList.add(finalurl);
+        }
+        return downloadList;
     }
 
-
+    private List<String> getFileString(int suraid, int startvalue, int stopvalue) {
+        String location = "/audio_recitation/" + reciter + "/" + suraid;
+        for (int i = startvalue; i <= stopvalue; i++) {
+            playListStrings.add(context.getExternalFilesDir(null).getParent() + location + "/" + convFileName(suraid, i) + ".mp3");
+        }
+        return playListStrings;
+    }
 
     public static String convFileName(int i, int i2) {
         StringBuilder stringBuilder;
@@ -162,6 +134,7 @@ public class MediaHelper {
     SeekBar downloadingseekbar;
     AlertDialog dialog;
     TextView txtNoInternetConnection;
+
     private void dialogShow() {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
         LayoutInflater inflater = (LayoutInflater) context
@@ -207,7 +180,44 @@ public class MediaHelper {
         WorkManager.getInstance(context).cancelAllWork();
     }
 
+    private BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            dialogShow();
+            Bundle bundle = intent.getExtras();
+            if (bundle != null) {
+                int currentDownload = bundle.getInt(DownloadHelper.CURRENTDOWNLOAD);
+                Toast.makeText(context, currentDownload + "", Toast.LENGTH_SHORT).show();
+                if (currentDownload == createPlayList.size()) {
+
+                } else {
+
+                }
+            }
+        }
+    };
+
+    public void onResume() {
+        context.registerReceiver(receiver, new IntentFilter(
+                DownloadService.NOTIFICATION));
+    }
+
+    public void onPause() {
+        context.unregisterReceiver(receiver);
+    }
 
 
+    private void onFinishWork() throws IOException, InterruptedException {
+
+        Log.d("check_condition", ":" + isNetworkAvailable() + ", " + isConnected());
+
+        if (isNetworkAvailable() && isConnected()) {
+            dialog.dismiss();
+        } else {
+            txtNoInternetConnection.setVisibility(View.VISIBLE);
+            currentTotalVerse.setVisibility(View.GONE);
+            Toast.makeText(context, "Check your internet connection ", Toast.LENGTH_SHORT).show();
+        }
+    }
 
 }
