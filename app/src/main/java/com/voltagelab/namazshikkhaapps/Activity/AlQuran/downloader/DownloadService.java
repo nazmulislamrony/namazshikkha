@@ -35,7 +35,7 @@ public class DownloadService extends IntentService {
     // Will be called asynchronously by OS.
     @Override
     protected void onHandleIntent(Intent intent) {
-        ArrayList<String> urlPath = intent.getStringArrayListExtra(DownloadHelper.URL);
+        List<String> urlPath = intent.getStringArrayListExtra(DownloadHelper.URL);
         downloadFile(urlPath);
     }
 
@@ -43,26 +43,26 @@ public class DownloadService extends IntentService {
         return str.length() < 3 ? str : str.substring(0, 3);
     }
 
-    private void downloadFile(ArrayList<String> path) {
+    private void downloadFile(List<String> path) {
         int fileLength = 0;
         try {
-            Log.d("stoppint_time_er", "0");
             for (int i = 0; i <= path.size(); i++) {
                 String [] splirtArr = path.get(i).split("/",9);
                 String replace = splirtArr[splirtArr.length-1].replace(".mp3","");
-                String surahFolder = firstTwo(replace);
+                int surahFolder = Integer.parseInt(firstTwo(replace));
                 String reciterFolder = splirtArr[splirtArr.length-2];
                 String mp3 = path.get(i);
                 String lastWord = mp3.substring(mp3.lastIndexOf("/") + 1);
-                URL url = new URL(path.get(i));
-                Log.d(TAG, "url: " + url);
+                String urlpath = path.get(i);
+                URL url = new URL(urlpath);
+                Log.d(TAG, "url: " + urlpath);
                 URLConnection urlConnection = url.openConnection();
                 Log.d(TAG, "urlconnection: " + urlConnection);
                 urlConnection.connect();
                 fileLength = urlConnection.getContentLength();
 //                Log.d("checknetwrok","network: "+isNetworkOnline3()+", ");
                 Log.d(TAG, "filelength: " + fileLength);
-                File newFolder = new File(getApplicationContext().getExternalFilesDir(null).getParent() + "/"+DownloadHelper.DOWNLOADROOTFOLDER);
+                File newFolder = new File(getApplicationContext().getExternalFilesDir(null).getParent() + "/" +DownloadHelper.DOWNLOADROOTFOLDER);
                 if (!newFolder.exists()) {
                     newFolder.mkdir();
                 }
@@ -119,12 +119,14 @@ public class DownloadService extends IntentService {
                     }
                     break;
                 }
-                publishResults(i);
                 inputStream.close();
                 outputStream.close();
+                publishResults(i);
             }
         } catch (Exception e) {
             e.printStackTrace();
+            publishResults(-1);
+            Log.d("check_exception", "c: " + e.getMessage());
         }
 
     }
@@ -140,4 +142,10 @@ public class DownloadService extends IntentService {
         sendBroadcast(intent);
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        stopForeground(true);
+        Log.d("check_on_destroy","desstroy");
+    }
 }

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_prepare_download"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:text="সূরা ফাতিহা শুধুমাত্র প্রথমবারের জন্য ডাউনলোড হবে"
+        android:padding="5dp"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_remaining_download"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:text="৫ টি আয়াত ডাউনলোড হবে"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:id="@+id/txt_current_total_verse"
+        android:layout_gravity="center"
+        android:text="ডাউনলোড"
+        />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:gravity="right"
+        android:layout_margin="20dp"
+        android:orientation="horizontal" >
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_cancel_download"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="বন্ধ"
+            android:layout_marginRight="10dp"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_ok_download"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="ডাউনলোড"
+            android:textSize="12sp"
+            />
+
+    </LinearLayout>
+</LinearLayout>

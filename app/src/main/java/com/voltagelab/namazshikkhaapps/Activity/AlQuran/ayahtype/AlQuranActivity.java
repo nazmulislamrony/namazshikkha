@@ -33,6 +33,7 @@ import com.voltagelab.namazshikkhaapps.Activity.AlQuran.downloader.DownloadServi
 import com.voltagelab.namazshikkhaapps.Helper;
 import com.voltagelab.namazshikkhaapps.R;
 import com.voltagelab.namazshikkhaapps.helper.MediaHelper;
+import com.voltagelab.namazshikkhaapps.helper.OnPlayList;
 
 
 import java.util.ArrayList;
@@ -90,33 +91,41 @@ public class AlQuranActivity extends AppCompatActivity {
     private void folderCreate() {
         mediaHelper = new MediaHelper(this);
         int verseFrom = 0;
-        if (surahid.equals("9")){
+        int totalAyat = 0;
+        if (surahid.equals("9") || surahid.equals("1")){
             verseFrom = 1;
+            totalAyat = 1 + ayatDetails.size();
         } else {
             verseFrom = 0;
+            totalAyat = ayatDetails.size();
         }
-        mediaHelper.createPlayList(Integer.parseInt(surahid),verseFrom, ayatDetails.size());
+        mediaHelper.createPlayList(Integer.parseInt(surahid),verseFrom, totalAyat);
     }
 
     private void initDownload() {
+
+    OnPlayList onPlayList = new OnPlayList() {
+            @Override
+            public void onPlayList(ArrayList<String> playList) {
+                Log.d("onfinishdownload","playcall");
+
+            }
+        };
         play_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                createDownloadList();
-//                startDownloadService();
+                mediaHelper.downloadOrPlay(onPlayList);
             }
         });
+
+
     }
 
     private void createDownloadList(){
 //        downloadItemList = mediaHelper.getDownloadList();
     }
 
-    private void startDownloadService(){
-        Intent intent = new Intent(this, DownloadService.class);
-        intent.putStringArrayListExtra(DownloadHelper.URL, downloadItemList);
-        startService(intent);
-    }
+
 
     @Override
     protected void onResume() {
