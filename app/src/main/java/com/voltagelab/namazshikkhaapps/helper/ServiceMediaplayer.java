@@ -1,5 +1,4 @@
 package com.voltagelab.namazshikkhaapps.helper;
-
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -266,13 +265,6 @@ public class ServiceMediaplayer extends Service {
     public IBinder onBind(Intent intent) {
         return binder;
     }
-
-    /**
-     * method for clients
-     */
-//    public int getRandomNumber() {
-//        return mGenerator.nextInt(100);
-//    }
 
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

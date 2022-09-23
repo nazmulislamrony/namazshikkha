@@ -114,11 +114,7 @@ public class AlQuranActivity extends AppCompatActivity {
                 Intent serviceIntent = new Intent(AlQuranActivity.this, ServiceMediaplayer.class);
                 serviceIntent.setAction(Helper.MUSIC_SERVICE_ACTION_START);
                 serviceIntent.putStringArrayListExtra("playlist", playList);
-                Log.d("onfinishdownload","playcall"+playList.size()+", "+playList.get(0));
                 ContextCompat.startForegroundService(AlQuranActivity.this, serviceIntent);
-//                bindService(new Intent(AlQuranActivity.this,
-//                        ServiceMediaplayer.class), connection, BIND_AUTO_CREATE);
-
             }
         };
         play_btn.setOnClickListener(new View.OnClickListener() {
@@ -127,12 +123,6 @@ public class AlQuranActivity extends AppCompatActivity {
                 mediaHelper.downloadOrPlay(onPlayList);
             }
         });
-
-
-    }
-
-    private void createDownloadList(){
-//        downloadItemList = mediaHelper.getDownloadList();
     }
 
 
