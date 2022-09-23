@@ -18,6 +18,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.work.WorkManager;
 
+import com.google.android.material.progressindicator.CircularProgressIndicator;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.downloader.DownloadHelper;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.downloader.DownloadService;
 import com.voltagelab.namazshikkhaapps.R;
@@ -47,9 +48,7 @@ public class MediaHelper {
         playListStrings = new ArrayList<>();
         downloadList = new ArrayList<>();
         playListStrings = getFileString(surahId, verseFrom, totalVerse);
-        for (int i = 0; i < playListStrings.size(); i++) {
-            fileExistsCheck(playListStrings.get(i));
-        }
+
     }
 
     public void startDownloadService() {
@@ -94,7 +93,7 @@ public class MediaHelper {
 
     Button exit, stop, cancels;
     TextView txtdownloadpercent, preparingdownloading, currentTotalVerse;
-    SeekBar downloadingseekbar;
+    CircularProgressIndicator downloadingseekbar;
     AlertDialog dialog;
     TextView txtNoInternetConnection;
 
@@ -102,6 +101,9 @@ public class MediaHelper {
     OnPlayList onPlayList;
 
     public void downloadOrPlay(OnPlayList onPlayList) {
+        for (int i = 0; i < playListStrings.size(); i++) {
+            fileExistsCheck(playListStrings.get(i));
+        }
         this.onPlayList = onPlayList;
         Log.d("check_downloadlist", "list: " + downloadList.size());
         if (downloadList.size() > 0) {
@@ -142,6 +144,7 @@ public class MediaHelper {
             @Override
             public void onClick(View view) {
                 startDownloadService();
+                registerReceiver();
                 alertDialog.dismiss();
                 downloadingDialogShow();
             }
@@ -182,7 +185,7 @@ public class MediaHelper {
 
     private void onProgressUpdate(int count, int totalDownload) {
         String txt = (count > 0) ? "Download Progress" : "Preparing";
-        preparingdownloading.setText(txt);
+//        preparingdownloading.setText(txt);
         int percentageOfDownload = (count / totalDownload) * 100;
         downloadingseekbar.setProgress(count);
         txtdownloadpercent.setText(percentageOfDownload + "%");
@@ -206,7 +209,10 @@ public class MediaHelper {
     }
 
     private void stopWorkManager() {
+        dialog.dismiss();
         stopService();
+        downloadList.clear();
+
     }
 
     private BroadcastReceiver receiver = new BroadcastReceiver() {
@@ -234,7 +240,8 @@ public class MediaHelper {
         }
     };
 
-    public void onResume() {
+    private void registerReceiver
+            () {
         context.registerReceiver(receiver, new IntentFilter(
                 DownloadService.NOTIFICATION));
     }
@@ -245,6 +252,7 @@ public class MediaHelper {
     }
 
     public void stopService() {
+        context.unregisterReceiver(receiver);
         context.stopService(new Intent(context, DownloadService.class));
 
     }

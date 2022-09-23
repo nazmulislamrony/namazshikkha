@@ -43,6 +43,9 @@ public class DownloadService extends IntentService {
         return str.length() < 3 ? str : str.substring(0, 3);
     }
 
+
+    boolean isWorkFinish = false;
+
     private void downloadFile(List<String> path) {
         int fileLength = 0;
         try {
@@ -122,6 +125,9 @@ public class DownloadService extends IntentService {
                 inputStream.close();
                 outputStream.close();
                 publishResults(i);
+                if (isWorkFinish){
+                    break;
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -145,7 +151,9 @@ public class DownloadService extends IntentService {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        stopSelf();
         stopForeground(true);
+        isWorkFinish = true;
         Log.d("check_on_destroy","desstroy");
     }
 }

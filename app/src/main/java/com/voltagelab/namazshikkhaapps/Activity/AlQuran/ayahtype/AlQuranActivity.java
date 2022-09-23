@@ -130,7 +130,6 @@ public class AlQuranActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        mediaHelper.onResume();
     }
 
     @Override
