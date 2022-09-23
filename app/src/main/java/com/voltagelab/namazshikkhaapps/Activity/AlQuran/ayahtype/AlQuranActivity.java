@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,6 +35,7 @@ import com.voltagelab.namazshikkhaapps.Helper;
 import com.voltagelab.namazshikkhaapps.R;
 import com.voltagelab.namazshikkhaapps.helper.MediaHelper;
 import com.voltagelab.namazshikkhaapps.helper.OnPlayList;
+import com.voltagelab.namazshikkhaapps.helper.ServiceMediaplayer;
 
 
 import java.util.ArrayList;
@@ -102,12 +104,20 @@ public class AlQuranActivity extends AppCompatActivity {
         mediaHelper.createPlayList(Integer.parseInt(surahid),verseFrom, totalAyat);
     }
 
+
+
     private void initDownload() {
 
     OnPlayList onPlayList = new OnPlayList() {
             @Override
             public void onPlayList(ArrayList<String> playList) {
-                Log.d("onfinishdownload","playcall");
+                Intent serviceIntent = new Intent(AlQuranActivity.this, ServiceMediaplayer.class);
+                serviceIntent.setAction(Helper.MUSIC_SERVICE_ACTION_START);
+                serviceIntent.putStringArrayListExtra("playlist", playList);
+                Log.d("onfinishdownload","playcall"+playList.size()+", "+playList.get(0));
+                ContextCompat.startForegroundService(AlQuranActivity.this, serviceIntent);
+//                bindService(new Intent(AlQuranActivity.this,
+//                        ServiceMediaplayer.class), connection, BIND_AUTO_CREATE);
 
             }
         };

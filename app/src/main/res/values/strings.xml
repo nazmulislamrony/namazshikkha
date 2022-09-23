@@ -61,4 +61,9 @@
     <string name="night_mode_on">NIGHT MODE ON</string>
     <string name="notification_channel_id">default</string>
 
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="play">Play</string>
+    <string name="loading">Loading…</string>
+
 </resources>

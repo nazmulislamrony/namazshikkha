@@ -70,6 +70,7 @@
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/collapsing_toolbar.xml" value="0.40636042402826855" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/content_home.xml" value="0.3853564547206166" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/corpus_layout.xml" value="0.1" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/custom_notification_small.xml" value="0.5583333333333333" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/download_dialog_info.xml" value="0.33" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/download_yes_no_dialog.xml" value="0.259375" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/expandable_row.xml" value="0.4283154121863799" />
@@ -82,6 +83,8 @@
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/myrow.xml" value="0.55" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/nav_header.xml" value="0.55" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/notification.xml" value="0.55" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/notification_collapsed.xml" value="0.3" />
+        <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/notification_expanded.xml" value="0.29583333333333334" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/purosh_namaz.xml" value="0.55" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/row_ayah_word.xml" value="0.31296296296296294" />
         <entry key="..\:/Users/rony/AndroidStudioProjects/namazshikkha/app/src/main/res/layout/row_surah.xml" value="0.31296296296296294" />

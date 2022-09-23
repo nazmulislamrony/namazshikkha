@@ -240,8 +240,7 @@ public class MediaHelper {
         }
     };
 
-    private void registerReceiver
-            () {
+    private void registerReceiver () {
         context.registerReceiver(receiver, new IntentFilter(
                 DownloadService.NOTIFICATION));
     }

@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -30,7 +31,10 @@ public class Helper {
     public static final int RequestPermissionCode = 1;
     private static final char[] banglaDigits = {'০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'};
     private static final char[] englishDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-
+    public static final String MUSIC_SERVICE_ACTION_START = "com.voltagelab.namazshikkhaapps.start";
+    public static final String MUSIC_SERVICE_ACTION_PLAY = "com.voltagelab.namazshikkhaapps.play";
+    public static final String MUSIC_SERVICE_ACTION_PAUSE = "com.voltagelab.namazshikkhaapps.pause";
+    public static final String MUSIC_SERVICE_ACTION_STOP = "com.voltagelab.namazshikkhaapps.stop";
 
     public Helper(Context context) {
         this.context = context;
@@ -130,7 +134,19 @@ public class Helper {
         return result == PackageManager.PERMISSION_GRANTED ;
     }
 
+    private boolean isTempCheck = false;
+    public void checkAPILevel() {
+        Log.d("check_buildversion","v: "+ Build.VERSION.SDK_INT);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            isTempCheck = true;
+        } else {
+            isTempCheck = false;
+        }
+    }
 
+    public boolean isAPIGreaterThan23 () {
+        return isTempCheck;
+    }
 
 
 
