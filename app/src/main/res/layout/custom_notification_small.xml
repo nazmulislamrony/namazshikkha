@@ -4,7 +4,7 @@
     android:layout_height="60dp"
     android:orientation="horizontal"
     android:id="@+id/notif_small"
-    android:background="#098C80"
+    android:background="@color/colorPrimary"
     >
 
     <ImageView
@@ -14,18 +14,20 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:src="@drawable/ic_launcher"
+        android:src="@drawable/biglogo"
         android:layout_marginLeft="7dp"
         android:layout_marginRight="9dp"/>
 
     <TextView
         android:id="@+id/notif_title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/notif_icon"
         android:singleLine="true"
         android:paddingTop="8dp"
         android:textSize="14sp"
+        android:fontFamily="@font/solaiman_lipi"
         android:textStyle="bold"
         android:textColor="#fff"
         android:text="@string/app_name"/>
@@ -40,7 +42,8 @@
         android:singleLine="true"
         android:textColor="#fff"
         android:textSize="11sp"
-        android:text="Playing" />
+        android:fontFamily="@font/solaiman_lipi"
+        android:text="চলছে" />
 
 
 <!--    <ImageView-->
@@ -68,14 +71,16 @@
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:layout_marginRight="70dp"
+        android:tint="@color/white"
         android:id="@+id/notif_play"
-        android:src="@drawable/ic_action_playback_play"/>
+        android:src="@drawable/ic_baseline_pause_circle_filled_24"/>
 
     <ImageView
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
+        android:tint="@color/white"
         android:layout_marginRight="20dp"
         android:id="@+id/notify_stop"
         android:src="@drawable/ic_baseline_stop_circle_24"

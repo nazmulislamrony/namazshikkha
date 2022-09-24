@@ -1,4 +1,5 @@
 package com.voltagelab.namazshikkhaapps.helper;
+
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -21,7 +22,6 @@ import com.voltagelab.namazshikkhaapps.R;
 
 import java.util.ArrayList;
 import java.util.Random;
-
 
 
 public class ServiceMediaplayer extends Service {
@@ -85,7 +85,7 @@ public class ServiceMediaplayer extends Service {
                 delays = delay;
 
                 time += totalDuration;
-                Log.d("progress_update","progress: "+progress);
+                Log.d("progress_update", "progress: " + progress);
 
 //                broadcastmsgInt.putExtra("progresstime",progress);
                 broadcastmsgInt.putExtra("mediarepeat", mediarepeat);
@@ -126,7 +126,6 @@ public class ServiceMediaplayer extends Service {
         }, this);
 
 
-
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -148,24 +147,24 @@ public class ServiceMediaplayer extends Service {
                 if (!checkstate) {
                     player.play();
 
-                    contentView.setImageViewResource(R.id.notif_play, R.drawable.ic_baseline_play_circle_filled_24);
+                    contentView.setImageViewResource(R.id.play_btn, R.drawable.ic_baseline_play_circle_filled_24);
                     notificationManager.notify(NotificationID, notification);
 
                     broadcastmsgInt.putExtra("playstate", false);
                     LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcastSync(broadcastmsgInt);
 
-                    Log.d("getplafjsldjf","1");
+                    Log.d("getplafjsldjf", "1");
 
                 } else {
                     player.pause();
-                    contentView.setImageViewResource(R.id.notif_play, R.drawable.ic_baseline_play_circle_filled_24);
+                    contentView.setImageViewResource(R.id.play_btn, R.drawable.ic_baseline_play_circle_filled_24);
 //                    notification.contentView = notificationView;
                     notificationManager.notify(NotificationID, notification);
 
                     broadcastmsgInt.putExtra("playstate", false);
                     LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcastSync(broadcastmsgInt);
 
-                    Log.d("getplafjsldjf","2");
+                    Log.d("getplafjsldjf", "2");
 
                 }
                 break;
@@ -219,7 +218,7 @@ public class ServiceMediaplayer extends Service {
                 broadcastmsgInt.putExtra("isloop", isLooping);
                 broadcastmsgInt.putExtra("isverseclick", isVerseclick);
 
-                Log.d("check_is_looping","loop: "+isVerseclick);
+                Log.d("check_is_looping", "loop: " + isVerseclick);
 
                 if (isLooping && !isPlaying) {
                     player.play();
@@ -298,13 +297,38 @@ public class ServiceMediaplayer extends Service {
         //Intent for play button
         Intent pIntent = new Intent(this, ServiceMediaplayer.class);
         pIntent.setAction(Helper.MUSIC_SERVICE_ACTION_PLAY);
-        PendingIntent playIntent = PendingIntent.getService(this, 1, pIntent, 0);
-        contentView.setOnClickPendingIntent(R.id.notif_play, playIntent);
+//        PendingIntent playIntent = PendingIntent.getService(this, 1, pIntent, 0);
+        PendingIntent playIntent;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+            playIntent = PendingIntent.getActivity(
+                    this,
+                    1, pIntent,
+                    PendingIntent.FLAG_IMMUTABLE);
+        } else {
+            playIntent = PendingIntent.getActivity(
+                    this,
+                    1, pIntent,
+                    PendingIntent.FLAG_UPDATE_CURRENT);
+        }
 
+
+        contentView.setOnClickPendingIntent(R.id.notif_play, playIntent);
         //Intent for stop button
         Intent sIntent = new Intent(this, ServiceMediaplayer.class);
         sIntent.setAction(Helper.MUSIC_SERVICE_ACTION_STOP);
-        PendingIntent stopIntent = PendingIntent.getService(this, 1, sIntent, 0);
+//        = PendingIntent.getService(this, 1, sIntent, 0);
+        PendingIntent stopIntent ;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+            stopIntent = PendingIntent.getActivity(
+                    this,
+                    1, pIntent,
+                    PendingIntent.FLAG_IMMUTABLE);
+        } else {
+            stopIntent = PendingIntent.getActivity(
+                    this,
+                    1, pIntent,
+                    PendingIntent.FLAG_UPDATE_CURRENT);
+        }
         contentView.setOnClickPendingIntent(R.id.notify_stop, stopIntent);
 
 

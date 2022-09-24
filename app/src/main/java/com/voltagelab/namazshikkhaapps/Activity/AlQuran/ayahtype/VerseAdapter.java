@@ -17,10 +17,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.voltagelab.namazshikkhaapps.Helper;
 import com.voltagelab.namazshikkhaapps.R;
+import com.voltagelab.namazshikkhaapps.helper.OnVersePlayUpdateListener;
 
 import java.util.ArrayList;
 
@@ -39,9 +41,11 @@ public class VerseAdapter extends RecyclerView.Adapter<VerseAdapter.ViewHolder> 
     SharedPreferences pre;
     int surahId;
 
+    OnVersePlayUpdateListener onVersePlayUpdateListener;
 
 
-    public VerseAdapter(Context context, ArrayList<AyatDetails> aylist, int surahId) {
+    public VerseAdapter(Context context, ArrayList<AyatDetails> aylist, int surahId, OnVersePlayUpdateListener onVersePlayUpdateListener) {
+        this.onVersePlayUpdateListener = onVersePlayUpdateListener;
         this.mcontext = context;
         this.ayatlist = aylist;
         this.surahId = surahId;
@@ -56,6 +60,38 @@ public class VerseAdapter extends RecyclerView.Adapter<VerseAdapter.ViewHolder> 
         view = inflater.inflate(R.layout.ayat_main_sample, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
+    }
+    int verseClick = -1000;
+    int previousSelected = -1000;
+    boolean isPlayListAndVerse = false, isLoopPlaying = false;
+    public void isPlayingMedia(boolean isPlaying, boolean isLoopingPlaying) {
+        this.isPlayListAndVerse = isPlaying;
+        this.isLoopPlaying = isLoopingPlaying;
+        if (isPlaying) {
+        } else if (isLoopingPlaying) {
+            isPlayListAndVerse = false;
+        } else {
+            verseClick = -1000;
+        }
+        notifyDataSetChanged();
+    }
+    public void currentPlayingIndex(int position) {
+        verseClick = position;
+        if (position != 0) {
+            previousSelected = position;
+        }
+        if (previousSelected > 0) {
+            notifyItemChanged(previousSelected - 1);
+        }
+        RecyclerView.SmoothScroller smoothScroller = new LinearSmoothScroller(mcontext) {
+            @Override
+            protected int getVerticalSnapPreference() {
+                return LinearSmoothScroller.SNAP_TO_START;
+            }
+        };
+        smoothScroller.setTargetPosition(position);
+        AlQuranActivity.layoutManager.startSmoothScroll(smoothScroller);
+        notifyItemChanged(position);
     }
 
     @Override
@@ -85,6 +121,22 @@ public class VerseAdapter extends RecyclerView.Adapter<VerseAdapter.ViewHolder> 
         Spannable spannable = new SpannableString(numbering);
         spannable.setSpan(new ForegroundColorSpan(Color.RED), 0, 2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
+
+        holder.mview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (surahId != 9 && position == 0) {
+                    surahId = 1;
+                    onVersePlayUpdateListener.onUpdateVersePlay(surahId, position);
+                } else if (surahId == 9) {
+                    onVersePlayUpdateListener.onUpdateVersePlay(surahId, (position + 1));
+                } else {
+                    onVersePlayUpdateListener.onUpdateVersePlay(surahId, position);
+                }
+                verseClick = position;
+                notifyDataSetChanged();
+            }
+        });
     }
 
     @Override

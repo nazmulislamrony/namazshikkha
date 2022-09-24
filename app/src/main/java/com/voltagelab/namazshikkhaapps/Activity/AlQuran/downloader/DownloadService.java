@@ -1,14 +1,7 @@
 package com.voltagelab.namazshikkhaapps.Activity.AlQuran.downloader;
-
-import android.app.Activity;
 import android.app.IntentService;
 import android.content.Intent;
-import android.os.Build;
 import android.util.Log;
-import android.widget.Toast;
-
-import androidx.work.Data;
-
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -26,7 +19,6 @@ public class DownloadService extends IntentService {
 
     public static final String NOTIFICATION = "service receiver";
     String TAG = "download_service";
-    private Toast toast;
 
     public DownloadService() {
         super("DownloadService");
@@ -137,10 +129,6 @@ public class DownloadService extends IntentService {
 
     }
 
-    public void functionCalledByYourAsyncWithUpdates(String progress) {
-        toast.setText(progress);
-        toast.show();
-    }
 
     private void publishResults(int currentDownload) {
         Intent intent = new Intent(NOTIFICATION);

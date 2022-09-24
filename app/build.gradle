@@ -8,8 +8,8 @@ android {
         applicationId "com.voltagelab.namazshikkhaapps"
         minSdkVersion 19
         targetSdkVersion 33
-        versionCode 10
-        versionName "1.7"
+        versionCode 11
+        versionName "1.8"
         multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -57,8 +57,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging-directboot:23.0.8'
     implementation 'com.squareup.picasso:picasso:2.8'
     implementation 'androidx.work:work-runtime:2.7.1'
-    implementation 'androidx.work:work-runtime-ktx:2.7.0'
-
+    implementation 'androidx.work:work-runtime-ktx:2.7.1'
 }
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
