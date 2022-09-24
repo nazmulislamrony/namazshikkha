@@ -5,68 +5,65 @@
     android:layout_height="match_parent">
 
 
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/txt_prepare_download"
+    <TextView
+        android:id="@+id/initialize_txt"
         android:layout_width="match_parent"
-        android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:text="সূরা ফাতিহা শুধুমাত্র প্রথমবারের জন্য ডাউনলোড হবে"
+        android:fontFamily="@font/solaiman_lipi"
+        android:gravity="center"
         android:padding="5dp"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        />
+        android:text="আল ফাতিহা সূরার তেলাওয়াত শুনার জন্য শুধুমাত্র প্রথমবারের জন্য অডিও ফাইল ডাউনলোড হবে।"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
-
-    <com.google.android.material.textview.MaterialTextView
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txt_remaining_download"
         android:layout_gravity="center"
         android:gravity="center"
-        android:textSize="18sp"
+        android:fontFamily="@font/solaiman_lipi"
+        android:textSize="16sp"
         android:text="৫ টি আয়াত ডাউনলোড হবে"/>
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:id="@+id/txt_current_total_verse"
-        android:layout_gravity="center"
-        android:text="ডাউনলোড"
-        />
 
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:gravity="right"
         android:layout_margin="20dp"
         android:orientation="horizontal" >
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/btn_cancel_download"
             android:layout_width="70dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:clickable="true"
             android:text="বন্ধ"
-            android:layout_marginRight="10dp"
-            android:textSize="12sp"
+            android:fontFamily="@font/solaiman_lipi"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimary"
+            android:layout_marginRight="20dp"
+            android:textSize="16sp"
             android:textStyle="bold"
             />
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/btn_ok_download"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:fontFamily="@font/solaiman_lipi"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:background="@color/colorPrimary"
             android:clickable="true"
             android:text="ডাউনলোড"
-            android:textSize="12sp"
+            android:textSize="16sp"
             />
 
     </LinearLayout>

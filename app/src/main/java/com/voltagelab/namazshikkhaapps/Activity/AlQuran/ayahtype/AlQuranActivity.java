@@ -107,7 +107,6 @@ public class AlQuranActivity extends AppCompatActivity {
 
 
     private void initDownload() {
-
     OnPlayList onPlayList = new OnPlayList() {
             @Override
             public void onPlayList(ArrayList<String> playList) {
@@ -120,7 +119,7 @@ public class AlQuranActivity extends AppCompatActivity {
         play_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mediaHelper.downloadOrPlay(onPlayList);
+                mediaHelper.downloadOrPlay(onPlayList, surahName);
             }
         });
     }

@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:keepScreenOn="true"
-    android:layout_height="match_parent">
+    android:layout_height="350dp">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
     <Button
         android:layout_width="30dp"
@@ -18,21 +23,25 @@
     <TextView
         android:id="@+id/txt_prepare_download"
         android:layout_width="match_parent"
-        android:gravity="center"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/cancel_download_dialog"
         android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:text="Preparaing..."
-        android:padding="5dp"
-        />
+        android:textStyle="bold"
+        android:fontFamily="@font/solaiman_lipi"
+        android:gravity="center"
+        android:text="প্রস্তুত হচ্ছে..."
+        android:textColor="@color/textColor"
+        android:textSize="18sp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
-
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_centerInParent="true"
+        android:textColor="@color/textColor"
         android:id="@+id/txt_percentage_of_download"
-        android:layout_gravity="center"
         android:gravity="center"
         android:text="0%"/>
 
@@ -48,21 +57,21 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        >
+        android:gravity="center">
 
-    <com.google.android.material.progressindicator.CircularProgressIndicator
-        app:indicatorColor="@color/colorPrimaryDark"
-        app:trackColor="@color/colorPrimaryLight"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:id="@+id/seekbar_downloading"
-        app:trackThickness="10dp"
-        app:indicatorSize="150dp"
 
-        />
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/seekbar_downloading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:indicatorColor="@color/colorPrimaryDark"
+            app:indicatorSize="150dp"
+            app:trackColor="@color/colorPrimaryLight"
+            app:trackThickness="10dp"
+            />
     </LinearLayout>
 
 
@@ -73,7 +82,11 @@
         android:gravity="center"
         android:layout_height="wrap_content"
         android:padding="5dp"
+        android:textSize="18sp"
+        android:layout_above="@+id/btn_exit"
+        android:textStyle="bold"
         android:id="@+id/txt_current_total_verse"
+        android:textColor="@color/textColor"
         android:layout_gravity="center"
         android:text=""/>
 
@@ -86,14 +99,6 @@
         android:layout_height="wrap_content"
         android:text="No internet connection available!!!"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="10dp"
-        android:orientation="horizontal" >
 
         <Button
             android:id="@+id/btn_stop"
@@ -111,14 +116,18 @@
 
         <Button
             android:id="@+id/btn_exit"
-            android:layout_width="60dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="EXIT"
+            android:textColor="@color/white"
+            android:text="বাদ দিন"
+            android:background="@color/colorPrimary"
+            android:fontFamily="@font/solaiman_lipi"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
             android:textSize="15sp"
             android:textStyle="bold"
             />
 
-    </LinearLayout>
+    </RelativeLayout>
 
-
-</RelativeLayout>
+</LinearLayout>

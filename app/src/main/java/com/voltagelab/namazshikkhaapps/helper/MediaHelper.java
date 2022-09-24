@@ -100,8 +100,9 @@ public class MediaHelper {
 
 
     OnPlayList onPlayList;
-
-    public void downloadOrPlay(OnPlayList onPlayList) {
+    String name;
+    public void downloadOrPlay(OnPlayList onPlayList, String name) {
+        this.name = name;
         for (int i = 0; i < playListStrings.size(); i++) {
             fileExistsCheck(playListStrings.get(i));
         }
@@ -115,7 +116,7 @@ public class MediaHelper {
     }
 
     Button ok, cancel;
-    TextView remainingdownload;
+    TextView remainingdownload, initialie_download_txt;
     AlertDialog alertDialog;
 
     public void playListForDownload() {
@@ -126,12 +127,15 @@ public class MediaHelper {
         dialogBuilder.setView(dialogView);
 
         ok = dialogView.findViewById(R.id.btn_ok_download);
+        initialie_download_txt = dialogView.findViewById(R.id.initialize_txt);
+
         cancel = dialogView.findViewById(R.id.btn_cancel_download);
         remainingdownload = dialogView.findViewById(R.id.txt_remaining_download);
         alertDialog = dialogBuilder.create();
         alertDialog.setCanceledOnTouchOutside(false);
 
 
+        initialie_download_txt.setText( name+" সূরার তেলাওয়াত শুনার জন্য প্রথমবার অডিও ফাইল ডাউনলোড হবে।");
         // String ayat_download_str =  Resources.getSystem().getString(R.string.ayat_download_string);// " Ayah will be download";
         //remainingdownload.setText(downloadPlaylist.size() + ayat_download_string );
 
@@ -153,8 +157,8 @@ public class MediaHelper {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "cancel", Toast.LENGTH_SHORT).show();
                 alertDialog.dismiss();
+                downloadList.clear();
             }
         });
     }
@@ -210,15 +214,14 @@ public class MediaHelper {
         });
         stop.setOnClickListener((View v) -> {
             stopWorkManager();
-            exit.setVisibility(View.VISIBLE);
-            stop.setVisibility(View.GONE);
         });
     }
 
     private void stopWorkManager() {
+        downloadList.clear();
         dialog.dismiss();
         stopService();
-        downloadList.clear();
+
 
     }
 

@@ -6,24 +6,27 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:id="@+id/media_player"
+    android:background="@color/colorPrimary"
     tools:context=".Activity.AlQuran.ayahtype.AlQuranActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:gravity="center"
-        android:layout_height="30dp">
+        android:layout_height="50dp">
 
     <ImageView
-        android:layout_width="30dp"
+        android:layout_width="45dp"
         android:id="@+id/play_btn"
         android:src="@drawable/ic_baseline_play_circle_filled_24"
-        android:layout_height="30dp"/>
+        android:layout_height="45dp"
+        app:tint="@color/white" />
 
     <ImageView
-        android:layout_width="30dp"
+        android:layout_width="45dp"
         android:id="@+id/stop_btn"
+        android:tint="@color/white"
         android:src="@drawable/ic_baseline_stop_circle_24"
-        android:layout_height="30dp"/>
+        android:layout_height="45dp"/>
 
 </LinearLayout>
 
