@@ -3,6 +3,7 @@
     <color name="colorPrimary">#16931B</color>
     <color name="colorPrimaryDark">#147518</color>
     <color name="colorAccent">#16931B</color>
+    <color name="colorPrimaryLight">#90EE90</color>
     <color name="bodyTextColor">#3A3838</color>
 
     <color name="whiteColor">#fff</color>

@@ -21,6 +21,7 @@ import androidx.work.WorkManager;
 import com.google.android.material.progressindicator.CircularProgressIndicator;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.downloader.DownloadHelper;
 import com.voltagelab.namazshikkhaapps.Activity.AlQuran.downloader.DownloadService;
+import com.voltagelab.namazshikkhaapps.Helper;
 import com.voltagelab.namazshikkhaapps.R;
 
 import java.io.File;
@@ -72,7 +73,7 @@ public class MediaHelper {
     private ArrayList<String> getFileString(int suraid, int startvalue, int stopvalue) {
         String location = "/" + DownloadHelper.DOWNLOADROOTFOLDER + "/" + reciter + "/" + suraid;
         for (int i = startvalue; i < stopvalue; i++) {
-            playListStrings.add(context.getExternalFilesDir(null).getParent() + location + "/" + convFileName(suraid, i) + ".mp3");
+            playListStrings.add(context.getExternalFilesDir(null).getParent() + location + "/" + Helper.convFileName(suraid, i) + ".mp3");
         }
         return playListStrings;
     }
@@ -183,13 +184,19 @@ public class MediaHelper {
         dialog.show();
     }
 
+    double percentageOfDownload;
     private void onProgressUpdate(int count, int totalDownload) {
-        String txt = (count > 0) ? "Download Progress" : "Preparing";
-//        preparingdownloading.setText(txt);
-        int percentageOfDownload = (count / totalDownload) * 100;
-        downloadingseekbar.setProgress(count);
-        txtdownloadpercent.setText(percentageOfDownload + "%");
-        currentTotalVerse.setText(count + " Out of " + totalDownload);
+        String txt = (count > 0) ? "ডাউনলোড হচ্ছে" : "প্রস্তুত হচ্ছে";
+        preparingdownloading.setText(txt);
+//        Log.d("check_calc","cal: "+count+", "+totalDownload);
+        if (count!=1 && count!=0 && totalDownload!=0) {
+             percentageOfDownload = ((double) count / (double) totalDownload) * 100;
+            Log.d("check_calc","result: "+percentageOfDownload+" c: " +count+",td "+totalDownload);
+        }
+        int result = (int) percentageOfDownload;
+        downloadingseekbar.setProgress((int)result);
+        txtdownloadpercent.setText(result + "%");
+        currentTotalVerse.setText(count + " এর মধ্যে " + totalDownload);
     }
 
     private void dialogButtonActive() {
@@ -251,7 +258,7 @@ public class MediaHelper {
     }
 
     public void stopService() {
-        context.unregisterReceiver(receiver);
+//        context.unregisterReceiver(receiver);
         context.stopService(new Intent(context, DownloadService.class));
 
     }
@@ -270,51 +277,6 @@ public class MediaHelper {
 //        }
     }
 
-    public static String convFileName(int i, int i2) {
-        StringBuilder stringBuilder;
-        String stringBuilder2;
-        StringBuilder stringBuilder3;
-        String str = "00";
-        if (i < 10) {
-            stringBuilder = new StringBuilder();
-            stringBuilder.append(str);
-            stringBuilder.append(i);
-            stringBuilder2 = stringBuilder.toString();
-        } else {
-            stringBuilder2 = "";
-        }
-        String str2 = "0";
-        if (i >= 10 && i < 100) {
-            stringBuilder = new StringBuilder();
-            stringBuilder.append(str2);
-            stringBuilder.append(i);
-            stringBuilder2 = stringBuilder.toString();
-        }
-        if (i >= 100) {
-            stringBuilder2 = Integer.toString(i);
-        }
-        if (i2 < 10) {
-            stringBuilder3 = new StringBuilder();
-            stringBuilder3.append(stringBuilder2);
-            stringBuilder3.append(str);
-            stringBuilder3.append(i2);
-            stringBuilder2 = stringBuilder3.toString();
-        }
-        if (i2 >= 10 && i2 < 100) {
-            stringBuilder3 = new StringBuilder();
-            stringBuilder3.append(stringBuilder2);
-            stringBuilder3.append(str2);
-            stringBuilder3.append(i2);
-            stringBuilder2 = stringBuilder3.toString();
-        }
-        if (i2 < 100) {
-            return stringBuilder2;
-        }
-        stringBuilder3 = new StringBuilder();
-        stringBuilder3.append(stringBuilder2);
-        stringBuilder3.append(Integer.toString(i2));
-        return stringBuilder3.toString();
-    }
 
 
 }

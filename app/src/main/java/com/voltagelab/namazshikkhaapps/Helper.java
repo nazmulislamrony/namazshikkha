@@ -149,5 +149,50 @@ public class Helper {
     }
 
 
+    public static String convFileName(int i, int i2) {
+        StringBuilder stringBuilder;
+        String stringBuilder2;
+        StringBuilder stringBuilder3;
+        String str = "00";
+        if (i < 10) {
+            stringBuilder = new StringBuilder();
+            stringBuilder.append(str);
+            stringBuilder.append(i);
+            stringBuilder2 = stringBuilder.toString();
+        } else {
+            stringBuilder2 = "";
+        }
+        String str2 = "0";
+        if (i >= 10 && i < 100) {
+            stringBuilder = new StringBuilder();
+            stringBuilder.append(str2);
+            stringBuilder.append(i);
+            stringBuilder2 = stringBuilder.toString();
+        }
+        if (i >= 100) {
+            stringBuilder2 = Integer.toString(i);
+        }
+        if (i2 < 10) {
+            stringBuilder3 = new StringBuilder();
+            stringBuilder3.append(stringBuilder2);
+            stringBuilder3.append(str);
+            stringBuilder3.append(i2);
+            stringBuilder2 = stringBuilder3.toString();
+        }
+        if (i2 >= 10 && i2 < 100) {
+            stringBuilder3 = new StringBuilder();
+            stringBuilder3.append(stringBuilder2);
+            stringBuilder3.append(str2);
+            stringBuilder3.append(i2);
+            stringBuilder2 = stringBuilder3.toString();
+        }
+        if (i2 < 100) {
+            return stringBuilder2;
+        }
+        stringBuilder3 = new StringBuilder();
+        stringBuilder3.append(stringBuilder2);
+        stringBuilder3.append(Integer.toString(i2));
+        return stringBuilder3.toString();
+    }
 
 }
