@@ -55,24 +55,25 @@
 <!--        android:maxHeight="50dp"-->
 <!--        android:splitTrack="false" />-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="30dp"
-        android:gravity="center">
-
-
-        <com.google.android.material.progressindicator.CircularProgressIndicator
-            android:id="@+id/seekbar_downloading"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:indicatorColor="@color/colorPrimaryDark"
-            app:indicatorSize="150dp"
-            app:trackColor="@color/colorPrimaryLight"
-            app:trackThickness="10dp"
-            />
-    </LinearLayout>
+            android:id="@+id/seekbar"
+            android:layout_below="@+id/txt_prepare_download"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="30dp"
+            android:gravity="center">
+
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/seekbar_downloading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:indicatorColor="@color/colorPrimaryDark"
+                app:indicatorSize="150dp"
+                app:trackColor="@color/colorPrimaryLight"
+                app:trackThickness="10dp" />
+        </LinearLayout>
 
 
 
@@ -83,7 +84,7 @@
         android:layout_height="wrap_content"
         android:padding="5dp"
         android:textSize="18sp"
-        android:layout_above="@+id/btn_exit"
+        android:layout_below="@+id/txt_prepare_download"
         android:textStyle="bold"
         android:id="@+id/txt_current_total_verse"
         android:textColor="@color/textColor"
@@ -94,10 +95,13 @@
     <TextView
         android:layout_width="match_parent"
         android:gravity="center"
-        android:visibility="gone"
         android:id="@+id/txt_no_internet_connection"
         android:layout_height="wrap_content"
-        android:text="No internet connection available!!!"/>
+        android:layout_below="@+id/seekbar"
+        android:textColor="@color/dark_red"
+        android:textStyle="bold"
+        android:fontFamily="@font/solaiman_lipi"
+        android:text="দুর্বল ইন্টারনেট কানেকশন!!!\n কানেকশন ঠিক রেখে আবার ডাউনলোড করুন"/>
 
 
         <Button

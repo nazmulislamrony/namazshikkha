@@ -6,6 +6,8 @@
     <color name="colorPrimaryLight">#90EE90</color>
     <color name="bodyTextColor">#3A3838</color>
 
+    <color name="dark_red">#B50742</color>
+
     <color name="whiteColor">#fff</color>
 
     <color name="purple_200">#FFBB86FC</color>
