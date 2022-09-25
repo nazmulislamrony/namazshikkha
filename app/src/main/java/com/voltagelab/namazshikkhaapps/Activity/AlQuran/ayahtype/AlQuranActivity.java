@@ -40,6 +40,7 @@ import com.voltagelab.namazshikkhaapps.Activity.AlQuran.downloader.DownloadServi
 import com.voltagelab.namazshikkhaapps.Helper;
 import com.voltagelab.namazshikkhaapps.R;
 import com.voltagelab.namazshikkhaapps.helper.MediaHelper;
+import com.voltagelab.namazshikkhaapps.helper.NewMediaHelper;
 import com.voltagelab.namazshikkhaapps.helper.OnPlayList;
 import com.voltagelab.namazshikkhaapps.helper.OnVersePlayUpdateListener;
 import com.voltagelab.namazshikkhaapps.helper.ServiceMediaplayer;
@@ -54,12 +55,17 @@ public class AlQuranActivity extends AppCompatActivity {
     public static String surahName;
     public static LinearLayoutManager layoutManager;
     TextView tooltext;
-    ImageView play_btn, stop_btn;
+    ImageView btn_play_player, btn_stop_player;
     ArrayList<String> list;
-    MediaHelper mediaHelper;
+    NewMediaHelper mediaHelper;
     ArrayList<AyatDetails> ayatDetails;
     String surahid;
     boolean isVerseClick = false;
+    OnPlayList onPlayListListener;
+    List<String> playListStrings;
+    public static int plyclck = 0;
+    boolean tempVerseClick;
+    public static boolean isbuttonState = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,40 +74,157 @@ public class AlQuranActivity extends AppCompatActivity {
         Helper helper = new Helper(this);
         helper.backButtonPressed(this);
         tooltext = findViewById(R.id.tooltext2);
-        play_btn = findViewById(R.id.play_btn);
-        stop_btn = findViewById(R.id.stop_btn);
+        btn_play_player = findViewById(R.id.play_btn);
+        btn_stop_player = findViewById(R.id.stop_btn);
         rvmain = findViewById(R.id.rvmain);
         layoutManager = new LinearLayoutManager(this);
+        playListStrings = new ArrayList<>();
+
+        if (helper.checkPermission(this)) {
+            permissionForPlay();
+        } else {
+            helper.requestPermission(this);
+        }
+        mediaHelper = new NewMediaHelper(this, onPlayListListener);
+        databaseGetData();
+    }
+
+    private void permissionForPlay () {
         onVersePlayUpdateListener = new OnVersePlayUpdateListener() {
             @Override
             public void onUpdateVersePlay(int surahId, int position) {
                 isVerseClick = true;
-                if (surahId==1){
-                    position = position+1;
-                }
                 playerRun(surahId, position);
             }
         };
-        databaseGetData();
-        if (helper.checkPermission(this)) {
-            initDownload();
-        } else {
-            helper.requestPermission(this);
-        }
-        stopButton();
-    }
+//        onVerseLoopListener = new OnVerseLoopListener() {
+//            @Override
+//            public void onVerseLoop(int surahId, int position) {
+//                adapter_position = position;
+//                surah_number = surahId;
+//                isLooping = true;
+//                playerRun(surahId, position);
+//            }
+//        };
 
-    private void stopButton(){
-        stop_btn.setOnClickListener(new View.OnClickListener() {
+        btn_play_player.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                isLooping = false;
+                isVerseClick = false;
+                Log.d("get_su","tt: "+surahid);
+                playerRun(Integer.parseInt(surahid), 1);
+            }
+        });
+
+        btn_stop_player.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                isplaying = true;
+                isButtonStop();
                 serviceStop();
             }
         });
     }
 
-    private void serviceStop() {
+    private void isButtonStop() {
+        Toast.makeText(this, "stop", Toast.LENGTH_SHORT).show();
+        isLooping = false;
+        isbuttonState = false;
+//        layout_advance_player.setVisibility(View.VISIBLE);
+        enableButtonState();
+        playListStrings.clear();
+        adapter.isPlayingMedia(false, false);
+    }
+
+
+    public static boolean isLooping = false;
+    private void playerRun(int surahIds, int verseFrom) {
+        if (isVerseClick) {
+            isLooping = false;
+            onPlayListListener = new OnPlayList() {
+                @Override
+                public void onPlayList(ArrayList<String> playList) {
+                    tempVerseClick = true;
+                    adapter.isPlayingMedia(true, false);
+                    playListStrings = playList;
+                    servicePlayActive();
+                }
+            };
+            mediaHelper = new NewMediaHelper(this, onPlayListListener);
+            mediaHelper.createVersePlayList(surahIds, verseFrom, surahName);
+            isVerseClick = false;
+        } else if (isLooping) {
+//            onPlayListListener = new OnPlayListListener() {
+//                @Override
+//                public void playList(List<String> playList) {
+//                    tempVerseClick = true;
+//                    adapter.isPlayingMedia(false, true);
+//                    playListStrings = playList;
+//                    servicePlayActive();
+//                }
+//            };
+//            mediaHelper = new NewMediaHelper(this, onPlayListListener);
+//            mediaHelper.createVersePlayList(surahIds, verseFrom);
+        } else {
+            onPlayListListener = new OnPlayList() {
+                @Override
+                public void onPlayList(ArrayList<String> playList) {
+                    if (playListStrings.isEmpty()) {
+                        playListStrings = playList;
+                        servicePlayActive();
+                        plyclck = 1;
+                        adapter.isPlayingMedia(true, false);
+                    }
+                }
+            };
+
+            if (playListStrings.isEmpty()) {
+                mediaHelper = new NewMediaHelper(this, onPlayListListener);
+                mediaHelper.createPlayList(surahIds, surahName);
+            } else {
+                servicePlayActive();
+                plyclck = 1;
+                adapter.isPlayingMedia(true, false);
+            }
+        }
+    }
+
+    private void enableButtonState() {
+//        img_range_repeat.setClickable(true);
+//        btn_verse_repeat.setClickable(true);
+//        img_delay.setClickable(true);
+//        btn_quiz_mode.setClickable(true);
+        btn_play_player.setClickable(true);
+        adapter.isPlayingMedia(true, false);
         tempVerseClick = false;
+    }
+
+    private void disableButtonState() {
+//        img_range_repeat.setClickable(false);
+//        btn_verse_repeat.setClickable(false);
+//        img_delay.setClickable(false);
+    }
+
+
+
+    private void serviceStart() {
+        ArrayList<String> playlist = new ArrayList<>(playListStrings);
+        Intent serviceIntent = new Intent(this, ServiceMediaplayer.class);
+        serviceIntent.putExtra("inputExtra", "Play From Surah");
+        serviceIntent.putStringArrayListExtra("playlist", playlist);
+//        serviceIntent.putExtra("verse_repeat", verse_repeat_count);
+//        serviceIntent.putExtra("range_repeat", range_repeat_count);
+//        serviceIntent.putExtra("playback_speed", speed);
+        serviceIntent.putExtra("islooping", isLooping);
+//        serviceIntent.putExtra("delay", delay_count);
+        serviceIntent.setAction(Helper.MUSIC_SERVICE_ACTION_START);
+        ContextCompat.startForegroundService(this, serviceIntent);
+        bindService(new Intent(this,
+                ServiceMediaplayer.class), connection, this.BIND_AUTO_CREATE);
+    }
+
+    private void serviceStop() {
         Intent serviceIntent = new Intent(this, ServiceMediaplayer.class);
         stopService(serviceIntent);
         boolean isService = isMyServiceRunning(ServiceMediaplayer.class);
@@ -110,25 +233,8 @@ public class AlQuranActivity extends AppCompatActivity {
             unbindService(connection);
             LocalBroadcastManager.getInstance(this).unregisterReceiver(broadcastReceiver);
         }
-        play_btn.setBackgroundResource(R.drawable.ic_baseline_play_circle_filled_24);
+        btn_play_player.setBackgroundResource(R.drawable.ic_baseline_play_circle_filled_24);
     }
-
-    ServiceMediaplayer mService;
-    boolean mBound = false;
-    private ServiceConnection connection = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName className,
-                                       IBinder service) {
-            ServiceMediaplayer.LocalBinder binder = (ServiceMediaplayer.LocalBinder) service;
-            mService = binder.getService();
-            mBound = true;
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName arg0) {
-            mBound = false;
-        }
-    };
 
     private boolean isMyServiceRunning(Class<?> serviceClass) {
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
@@ -140,6 +246,23 @@ public class AlQuranActivity extends AppCompatActivity {
         return false;
     }
 
+    ServiceMediaplayer mService;
+    boolean mBound = false;
+    private ServiceConnection connection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName className,
+                                       IBinder service) {
+            // We've bound to LocalService, cast the IBinder and get LocalService instance
+            ServiceMediaplayer.LocalBinder binder = (ServiceMediaplayer.LocalBinder) service;
+            mService = binder.getService();
+            mBound = true;
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName arg0) {
+            mBound = false;
+        }
+    };
 
     boolean isplaying;
     boolean isBroadcastRunning;
@@ -147,30 +270,41 @@ public class AlQuranActivity extends AppCompatActivity {
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            int totalduration = intent.getIntExtra("totalduration", -1);
-            int onStop = intent.getIntExtra("onstop", -1); // oncompletion
-            isplaying = intent.getBooleanExtra("playstate", false);
+            int onStartMediaDuration = intent.getIntExtra("mediaduration", -1);
             int currentplayingindex = intent.getIntExtra("currentplayingindex", -1);
+            int mediarepeatcount = intent.getIntExtra("mediarepeat", -1);
+            int playlistrepeatcount = intent.getIntExtra("playlistrepeatcount", -1);
+            int totalduration = intent.getIntExtra("totalduration", -1);
+            int delays = intent.getIntExtra("delay", -1);
+            int onStop = intent.getIntExtra("onstop", -1); // oncompletion
+            int progress = intent.getIntExtra("progresstime", -1);
+            int totaltime = intent.getIntExtra("time", -1);
+            isplaying = intent.getBooleanExtra("playstate", false);
+            boolean isloopfromservice = intent.getBooleanExtra("isloop", false);
             isBroadcastRunning = intent.getBooleanExtra("broadcastrunning", false);
             boolean isPerIndexCompletion = intent.getBooleanExtra("perindexcompletion", false);
             if (isPerIndexCompletion) {
-                play_btn.setClickable(false);
+                btn_play_player.setClickable(false);
             } else {
-                play_btn.setClickable(true);
+                btn_play_player.setClickable(true);
             }
             alldur += totalduration;
+//            String alltime = mediaHelper.getTime(totaltime);
+//            playingstate.setText("CP: " + currentplayingindex + "\nVR: " + mediarepeatcount + "\nRR: " + playlistrepeatcount + "\nTime: " + alltime);
+//            String timedur = mediaHelper.getTime(totalduration);
+//            txt_end_time.setText(timedur);
             if (isplaying) {
-                play_btn.setBackgroundResource(R.drawable.ic_baseline_play_circle_filled_24);
+                enableButtonState();
+                btn_play_player.setBackgroundResource(R.drawable.ic_baseline_play_circle_filled_24);
                 LocalBroadcastManager.getInstance(AlQuranActivity.this).unregisterReceiver(broadcastReceiver);
             } else {
-                play_btn.setBackgroundResource(R.drawable.ic_baseline_pause_circle_filled_24);
+                disableButtonState();
+                isbuttonState = true;
+                btn_play_player.setBackgroundResource(R.drawable.ic_baseline_pause_circle_filled_24);
             }
-            if (surahid.equals("9") && tempVerseClick) {
-                currentplayingindex =  currentplayingindex - 1;
-            } else if (surahid.equals("1") && tempVerseClick){
-                currentplayingindex = currentplayingindex - 1;
+            if (surahid.equals("1") && tempVerseClick || surahid.equals("9") && tempVerseClick) {
+                currentplayingindex = (surahid.equals("1") || surahid.equals("9")) ? currentplayingindex - 1 : currentplayingindex;
             }
-            Log.d("currrrrrrr","ind: "+currentplayingindex);
             adapter.currentPlayingIndex(currentplayingindex);
             if (onStop == 1) onCompletionFinish();
         }
@@ -183,13 +317,21 @@ public class AlQuranActivity extends AppCompatActivity {
         serviceStart();
     }
 
+
     private void onCompletionFinish() {
-        play_btn.setBackgroundResource(R.drawable.ic_baseline_play_circle_filled_24);
+        enableButtonState();
+        isbuttonState = false;
+        btn_play_player.setBackgroundResource(R.drawable.ic_baseline_play_circle_filled_24);
         adapter.isPlayingMedia(false, false);
+        playListStrings.clear();
         serviceStop();
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        serviceStop();
+    }
 
 
     VerseAdapter adapter;
@@ -207,77 +349,7 @@ public class AlQuranActivity extends AppCompatActivity {
         adapter = new VerseAdapter(this, ayatDetails, Integer.parseInt(surahid), onVersePlayUpdateListener);
         rvmain.setAdapter(adapter);
         rvmain.setLayoutManager(layoutManager);
-        folderCreate();
-    }
-
-    private void folderCreate() {
-        mediaHelper = new MediaHelper(this);
-        mediaHelper.createPlayList();
-    }
-
-    boolean tempVerseClick;
-    private void playerRun(int surahIds, int verseFrom) {
-
-        OnPlayList onPlayList = new OnPlayList() {
-            @Override
-            public void onPlayList(ArrayList<String> playList) {
-                tempVerseClick = true;
-                playLists = playList;
-                adapter.isPlayingMedia(true, false);
-                servicePlayActive();
-            }
-        };
-        mediaHelper = new MediaHelper(this);
-        mediaHelper.onVerseClick(surahName, surahIds,verseFrom, onPlayList);
     }
 
 
-
-
-    ArrayList<String> playLists;
-    private void initDownload() {
-    OnPlayList onPlayList = new OnPlayList() {
-            @Override
-            public void onPlayList(ArrayList<String> playList) {
-                playLists = playList;
-                servicePlayActive();
-            }
-        };
-        play_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int verseFrom = 0;
-                int totalAyat = 0;
-                if (surahid.equals("9") || surahid.equals("1")){
-                    verseFrom = 1;
-                    totalAyat = 1 + ayatDetails.size();
-                } else {
-                    verseFrom = 0;
-                    totalAyat = ayatDetails.size();
-                }
-                mediaHelper.downloadOrPlay(Integer.parseInt(surahid), onPlayList, surahName, verseFrom, totalAyat);
-            }
-        });
-    }
-
-    private void serviceStart() {
-        Intent serviceIntent = new Intent(AlQuranActivity.this, ServiceMediaplayer.class);
-        serviceIntent.setAction(Helper.MUSIC_SERVICE_ACTION_START);
-        Log.d("playlist_check","list: "+playLists.get(0));
-        serviceIntent.putStringArrayListExtra("playlist", playLists);
-        ContextCompat.startForegroundService(AlQuranActivity.this, serviceIntent);
-        bindService(new Intent(this,
-                ServiceMediaplayer.class), connection, this.BIND_AUTO_CREATE);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mediaHelper.onPause();
-    }
 }

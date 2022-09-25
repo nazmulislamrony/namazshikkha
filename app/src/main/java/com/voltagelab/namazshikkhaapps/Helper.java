@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.util.Log;
 import android.view.View;
@@ -193,6 +194,11 @@ public class Helper {
         stringBuilder3.append(stringBuilder2);
         stringBuilder3.append(Integer.toString(i2));
         return stringBuilder3.toString();
+    }
+
+    public boolean isNightMode() {
+        int nightModeFlags = context.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        return nightModeFlags == Configuration.UI_MODE_NIGHT_YES;
     }
 
 }

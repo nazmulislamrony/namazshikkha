@@ -109,6 +109,19 @@ public class DatabaseAccess {
         return surahlist;
     }
 
+    public String getVersesnumn(int surahId) {
+
+        String versenum = null;
+        Cursor cursor = database.rawQuery("select ayat_en from sura where id = '" + surahId + "'", null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            versenum = cursor.getString(cursor.getColumnIndexOrThrow("ayat_en"));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return versenum;
+    }
+
 
 
 

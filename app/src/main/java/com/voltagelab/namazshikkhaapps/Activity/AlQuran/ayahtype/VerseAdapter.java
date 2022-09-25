@@ -42,6 +42,7 @@ public class VerseAdapter extends RecyclerView.Adapter<VerseAdapter.ViewHolder> 
     int surahId;
 
     OnVersePlayUpdateListener onVersePlayUpdateListener;
+    Helper helper;
 
 
     public VerseAdapter(Context context, ArrayList<AyatDetails> aylist, int surahId, OnVersePlayUpdateListener onVersePlayUpdateListener) {
@@ -51,6 +52,7 @@ public class VerseAdapter extends RecyclerView.Adapter<VerseAdapter.ViewHolder> 
         this.surahId = surahId;
         faceArabic = Typeface.createFromAsset(context.getAssets(), "fonts/noorehuda.ttf");
         pre = context.getSharedPreferences("fontsize",MODE_PRIVATE);
+        helper = new Helper(context);
 
     }
 
@@ -137,6 +139,21 @@ public class VerseAdapter extends RecyclerView.Adapter<VerseAdapter.ViewHolder> 
                 notifyDataSetChanged();
             }
         });
+
+
+        if (helper.isNightMode()){
+            if (verseClick == position) {
+                holder.mview.setBackgroundColor(Color.parseColor("#4e4e4c"));
+            } else {
+                holder.mview.setBackgroundColor(Color.parseColor("#121212"));
+            }
+        } else {
+            if (verseClick == position) {
+                holder.mview.setBackgroundResource(R.color.mushaf4);
+            } else {
+                holder.mview.setBackgroundResource(R.color.white);
+            }
+        }
     }
 
     @Override

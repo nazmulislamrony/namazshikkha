@@ -225,8 +225,6 @@ public class MediaHelper {
         downloadList.clear();
         dialog.dismiss();
         stopService();
-
-
     }
 
     private BroadcastReceiver receiver = new BroadcastReceiver() {
@@ -236,6 +234,9 @@ public class MediaHelper {
             if (bundle != null) {
                 int currentDownload = bundle.getInt(DownloadHelper.CURRENTDOWNLOAD) + 1;
                 if (currentDownload == downloadList.size()) {
+                    for (int i = 0; i< playListStrings.size(); i++){
+                        Log.d("check_playlist_siii","size: "+playListStrings.get(i));
+                    }
                     onPlayList.onPlayList(playListStrings);
                     downloadList.clear();
                     dialog.dismiss();
